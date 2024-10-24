@@ -5,6 +5,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   font-optical-sizing: auto;
+  background-color: var(--cw1);
 }
 
 .overhide {
@@ -20,18 +21,18 @@ body {
 
 .main {
   flex: 1 1 auto;
-  padding-bottom: 4rem;
+  padding-bottom: 10rem;
 }
 
 [class*="__container"] {
-  max-width: 90em;
+  max-width: 84rem;
   padding: 0 2.5em;
   margin: 0 auto;
 }
 
-/* --------- Adaptive tablet (1440px) --------- */
+/* --------- Adaptive tablet (1344px) --------- */
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1344px) {
   html,
   body {
     font-size: 1.16vw;
@@ -47,33 +48,11 @@ body {
   }
 
   [class*="__container"] {
-    padding: 0 1.25em;
+    padding: 0 1em;
   }
 
   .main {
-    padding-bottom: 3.5rem;
-  }
-}
-
-/* --------- Adaptive desktop (772px) --------- */
-
-// @media screen and (max-width: 772px) {
-//   html,
-//   body {
-//     font-size: 2.07vw;
-//   }
-// }
-
-/* --------- Adaptive desktop (500px) --------- */
-
-@media screen and (max-width: 500px) {
-  html,
-  body {
-    font-size: 16px;
-  }
-
-  .main {
-    padding-bottom: 3rem;
+    padding-bottom: 6.5rem;
   }
 }
 

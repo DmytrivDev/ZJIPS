@@ -1,10 +1,44 @@
-// @font-face {
-//   font-family: "family";
-//   src:
-//     url("../../fonts/family/family.eot") format("eot"),
-//     url("../../fonts/family/family.woff2") format("woff2"),
-//     url("../../fonts/family/family.ttf") format("truetype");
-//   font-display: swap;
-//   font-style: normal;
-//   font-weight: 400;
-// }
+@font-face {
+  font-family: "Fixel Display";
+  src: url("../../fonts/FixelDisplay-Regular/FixelDisplay-Regular.eot");
+  src:
+    url("../../fonts/FixelDisplay-Regular/FixelDisplay-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../fonts/FixelDisplay-Regular/FixelDisplay-Regular.woff2")
+      format("woff2"),
+    url("../../fonts/FixelDisplay-Regular/FixelDisplay-Regular.ttf")
+      format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Fixel Display";
+  src: url("../../fonts/FixelDisplay-Medium/FixelDisplay-Medium.eot");
+  src:
+    url("../../fonts/FixelDisplay-Medium/FixelDisplay-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../fonts/FixelDisplay-Medium/FixelDisplay-Medium.woff2")
+      format("woff2"),
+    url("../../fonts/FixelDisplay-Medium/FixelDisplay-Medium.ttf")
+      format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Fixel Display";
+  src: url("../../fonts/FixelDisplay-SemiBold/FixelDisplay-SemiBold.eot");
+  src:
+    url("../../fonts/FixelDisplay-SemiBold/FixelDisplay-SemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../fonts/FixelDisplay-SemiBold/FixelDisplay-SemiBold.woff2")
+      format("woff2"),
+    url("../../fonts/FixelDisplay-SemiBold/FixelDisplay-SemiBold.ttf")
+      format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}

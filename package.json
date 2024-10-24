@@ -1,5 +1,5 @@
 {
-  "name": "start-vite-js",
+  "name": "ZJIPS",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -16,7 +16,11 @@
   "author": "Vladyslav Halchenko",
   "license": "ISC",
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "accordion-js": "^3.3.4",
+    "axios": "^1.7.7",
     "imask": "^7.6.1",
+    "nice-select2": "^2.2.0",
     "scroll-lock": "^2.1.5",
     "vite-plugin-full-reload": "^1.1.0",
     "vite-plugin-html-inject": "^1.1.2"

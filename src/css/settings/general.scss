@@ -1,0 +1,87 @@
+html,
+body {
+  font-family: var(--ff);
+  color: var(--cm);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+}
+
+.overhide {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+
+.main {
+  flex: 1 1 auto;
+  padding-bottom: 4rem;
+}
+
+[class*="__container"] {
+  max-width: 90em;
+  padding: 0 2.5em;
+  margin: 0 auto;
+}
+
+/* --------- Adaptive tablet (1440px) --------- */
+
+@media screen and (max-width: 1440px) {
+  html,
+  body {
+    font-size: 1.16vw;
+  }
+}
+
+/* --------- Adaptive desktop (960px) --------- */
+
+@media screen and (max-width: 960px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+
+  [class*="__container"] {
+    padding: 0 1.25em;
+  }
+
+  .main {
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* --------- Adaptive desktop (772px) --------- */
+
+// @media screen and (max-width: 772px) {
+//   html,
+//   body {
+//     font-size: 2.07vw;
+//   }
+// }
+
+/* --------- Adaptive desktop (500px) --------- */
+
+@media screen and (max-width: 500px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+
+  .main {
+    padding-bottom: 3rem;
+  }
+}
+
+/* --------- Adaptive desktop (375px) --------- */
+
+@media screen and (max-width: 375px) {
+  html,
+  body {
+    font-size: 4.27vw;
+  }
+}

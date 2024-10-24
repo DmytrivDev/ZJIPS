@@ -1,11 +1,12 @@
 html,
 body {
   font-family: var(--ff);
+  font-feature-settings: "salt" on;
   color: var(--cm);
+  background-color: var(--cw1);
   font-size: 1rem;
   line-height: 1.5;
   font-optical-sizing: auto;
-  background-color: var(--cw1);
 }
 
 .overhide {

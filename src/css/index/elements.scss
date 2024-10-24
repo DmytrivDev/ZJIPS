@@ -1,5 +1,87 @@
+.el-mob {
+  display: none;
+}
+
+.title1 {
+  font-size: 5.5rem;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.title2 {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.title3 {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.title4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.tl-img {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  img {
+    transform: translateY(-0.15rem);
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.text-page {
+  color: var(--cf);
+  font-size: 1.125rem;
+  line-height: 1.33;
+}
+
 @media screen and (max-width: 960px) {
-  .class {
+  .el-desc {
+    display: none;
+  }
+  .el-mob {
+    display: block;
+  }
+
+  .title1 {
+    font-size: 2.75rem;
+    line-height: 1.09;
+    margin-bottom: 1.5rem;
+  }
+  .title2 {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+  .title3 {
+    font-size: 1.5rem;
+    line-height: 1.33;
+  }
+  .title4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .tl-img {
+    gap: 0.5rem 0.75rem;
+    img {
+      transform: translateY(-0.5rem);
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+  }
+
+  .text-page {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 }
 

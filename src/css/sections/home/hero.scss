@@ -1,5 +1,33 @@
+.hero {
+  &__container {
+  }
+
+  .title1 {
+    justify-content: start;
+    .tl-part1 {
+      padding-left: 6.6875rem;
+    }
+    .tl-part2 {
+      width: 100%;
+      text-align: right;
+      padding-right: 3.75rem;
+    }
+  }
+}
+
 @media screen and (max-width: 960px) {
   .hero {
+    .title1 {
+      justify-content: start;
+      .tl-part1 {
+        padding-left: 0;
+      }
+      .tl-part2 {
+        width: auto;
+        text-align: start;
+        padding-right: 0;
+      }
+    }
   }
 }
 

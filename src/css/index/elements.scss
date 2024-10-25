@@ -2,6 +2,39 @@
   display: none;
 }
 
+.redPage {
+  .bg-page {
+    background: linear-gradient(180deg, #fecdd7 -11.13%, #fff 30.93%);
+  }
+}
+.bluePage {
+  .bg-page {
+    background: linear-gradient(180deg, #d2edff -11.13%, #fff 30.93%);
+  }
+}
+.yellowPage {
+  .bg-page {
+    background: linear-gradient(180deg, #ecead8 -11.13%, #fff 30.93%);
+  }
+}
+
+.bg-page {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 46.875rem;
+  height: 46.875rem;
+  width: 100%;
+  background: linear-gradient(180deg, #d2edff -11.13%, #fff 30.93%);
+}
+
+.first-sec {
+  padding-top: 9rem;
+}
+
 .title1 {
   font-size: 5.5rem;
   font-weight: 500;
@@ -29,10 +62,10 @@
 
 .tl-img {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
   img {
-    transform: translateY(-0.15rem);
     width: 3.5rem;
     height: 3.5rem;
   }
@@ -42,6 +75,7 @@
   color: var(--cf);
   font-size: 1.125rem;
   line-height: 1.33;
+  text-align: center;
 }
 
 @media screen and (max-width: 960px) {
@@ -50,6 +84,16 @@
   }
   .el-mob {
     display: block;
+  }
+
+  .bg-page {
+    min-height: 50.75rem;
+    height: 50.75rem;
+    background: linear-gradient(180deg, #d2edff 0%, #fff 32%);
+  }
+
+  .first-sec {
+    padding-top: 8rem;
   }
 
   .title1 {
@@ -72,6 +116,7 @@
 
   .tl-img {
     gap: 0.5rem 0.75rem;
+    justify-content: start;
     img {
       transform: translateY(-0.5rem);
       width: 2.75rem;
@@ -82,6 +127,7 @@
   .text-page {
     font-size: 1rem;
     line-height: 1.5;
+    text-align: start;
   }
 }
 

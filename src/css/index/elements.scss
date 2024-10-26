@@ -2,19 +2,31 @@
   display: none;
 }
 
+.bluePage {
+  .bg-page {
+    background: linear-gradient(180deg, #d2edff -11.13%, #fff 30.93%);
+  }
+  .stl-img {
+    filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(6843%)
+      hue-rotate(185deg) brightness(119%) contrast(101%);
+  }
+}
 .redPage {
   .bg-page {
     background: linear-gradient(180deg, #fecdd7 -11.13%, #fff 30.93%);
   }
-}
-.bluePage {
-  .bg-page {
-    background: linear-gradient(180deg, #d2edff -11.13%, #fff 30.93%);
+  .stl-img {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(39%) saturate(368%)
+      hue-rotate(298deg) brightness(108%) contrast(99%);
   }
 }
 .yellowPage {
   .bg-page {
     background: linear-gradient(180deg, #ecead8 -11.13%, #fff 30.93%);
+  }
+  .stl-img {
+    filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(569%)
+      hue-rotate(10deg) brightness(94%) contrast(90%);
   }
 }
 
@@ -25,14 +37,23 @@
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 46.875rem;
-  height: 46.875rem;
+  height: 100vw;
   width: 100%;
   background: linear-gradient(180deg, #d2edff -11.13%, #fff 30.93%);
+}
+.stl-img {
+  filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(569%)
+    hue-rotate(10deg) brightness(94%) contrast(90%);
 }
 
 .first-sec {
   padding-top: 9rem;
+}
+
+[class*="__container-hero_sec"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title1 {
@@ -76,6 +97,7 @@
   font-size: 1.125rem;
   line-height: 1.33;
   text-align: center;
+  max-width: 49.375rem;
 }
 
 @media screen and (max-width: 960px) {
@@ -86,14 +108,32 @@
     display: block;
   }
 
+  .bluePage {
+    .bg-page {
+      background: linear-gradient(180deg, #d2edff 0%, #fff 32%);
+    }
+  }
+  .redPage {
+    .bg-page {
+      background: linear-gradient(180deg, #fecdd7 -8.81%, #fff 26.01%);
+    }
+  }
+  .yellowPage {
+    .bg-page {
+      background: linear-gradient(180deg, #f5f3e9 0%, #fff 32%);
+    }
+  }
+
   .bg-page {
-    min-height: 50.75rem;
-    height: 50.75rem;
     background: linear-gradient(180deg, #d2edff 0%, #fff 32%);
   }
 
   .first-sec {
     padding-top: 8rem;
+  }
+
+  [class*="__container-hero_sec"] {
+    align-items: start;
   }
 
   .title1 {
@@ -128,6 +168,7 @@
     font-size: 1rem;
     line-height: 1.5;
     text-align: start;
+    max-width: 100%;
   }
 }
 

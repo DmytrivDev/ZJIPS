@@ -21,8 +21,18 @@
     -o-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
 
+    .bg-page {
+      height: 100vh;
+      -webkit-transition: all 0.3s ease-in;
+      -o-transition: all 0.3s ease-in;
+      transition: all 0.3s ease-in;
+    }
+
     &.isOpened {
       transform: translateY(0);
+      .bg-page {
+        height: 100vw;
+      }
     }
 
     &__body {

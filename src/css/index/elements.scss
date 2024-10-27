@@ -100,6 +100,23 @@
   max-width: 49.375rem;
 }
 
+.btn-def {
+  display: block;
+  width: fit-content;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  background-color: var(--cw);
+  border: 0.0625rem solid var(--cm);
+  transition: all 0.15s ease-in;
+  &:hover {
+    background-color: var(--cr);
+    border-color: transparent;
+    color: var(--cw);
+  }
+}
+
 @media screen and (max-width: 960px) {
   .el-desc {
     display: none;
@@ -169,6 +186,10 @@
     line-height: 1.5;
     text-align: start;
     max-width: 100%;
+  }
+
+  .btn-def {
+    padding: 0.75rem 1.5rem;
   }
 }
 

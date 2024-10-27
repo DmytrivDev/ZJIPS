@@ -1,10 +1,14 @@
 .header__main {
   .navmenu {
+    display: flex;
+    align-items: center;
+    gap: 5.875rem;
+
     &__list {
       display: flex;
       align-items: center;
-      gap: 0 0.75rem;
-      padding: 0.5rem 0.375rem;
+      gap: 0.75rem;
+      padding: 0.375rem 0.5rem;
       border-radius: 2rem;
       border: 0.0625rem solid var(--cl);
       background-color: var(--cw);
@@ -29,6 +33,19 @@
         }
       }
     }
+
+    &__box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .btn-def {
+        padding: 0.75rem 1.5rem;
+        background-color: var(--cr);
+        border: none;
+        color: var(--cw);
+      }
+    }
   }
 }
 
@@ -36,6 +53,55 @@
   .header__main {
     .navmenu {
       display: none;
+    }
+  }
+  .mobmenu {
+    .navmenu {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 8.5rem 0 2.125rem 0;
+
+      &__list {
+        border-radius: 1rem;
+        border: 0.0625rem solid var(--cl);
+        background-color: var(--cw);
+        a {
+          display: block;
+          padding: 1rem;
+          border-bottom: 0.0625rem solid var(--cl);
+          font-size: 1.125rem;
+          font-weight: 600;
+          line-height: 1.33;
+        }
+        .current-menu-item {
+          a {
+            background-color: var(--cw2);
+            color: var(--cf2);
+          }
+        }
+        li {
+          &:last-child {
+            a {
+              border: none;
+            }
+          }
+        }
+      }
+      &__box {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .btn-def {
+          width: 100%;
+          background-color: var(--cr);
+          border: none;
+          color: var(--cw);
+        }
+      }
     }
   }
 }

@@ -46,6 +46,61 @@
         color: var(--cw);
       }
     }
+    &__lang {
+      position: relative;
+      li:not(:first-child) {
+        display: none;
+      }
+      a {
+        padding: 0.75rem 1.25rem;
+        border-radius: 2rem;
+        border: 0.0625rem solid var(--cl);
+        background-color: var(--cw);
+        display: block;
+        font-weight: 600;
+        transition: all 0.15s ease-in;
+      }
+      &:hover {
+        .sub-menu {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+      .sub-menu {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        transform: translateY(0.25rem);
+        border-radius: 0 0 2rem 2rem;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.25rem;
+        transition: all 0.15s ease-in;
+        &::before {
+          content: "";
+          position: absolute;
+          top: -0.25rem;
+          left: 0;
+          width: 100%;
+          height: 0.25rem;
+        }
+        li {
+          border-radius: 0 0 2rem 2rem;
+        }
+        a {
+          &:hover {
+            background-color: var(--cr);
+            border-color: var(--cr);
+            color: var(--cw);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -92,7 +147,7 @@
       }
       &__box {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 1rem;
 
         .btn-def {
@@ -100,6 +155,35 @@
           background-color: var(--cr);
           border: none;
           color: var(--cw);
+        }
+      }
+      &__lang {
+        display: flex;
+        gap: 0.25rem;
+        border-radius: 2rem;
+        background-color: var(--cw2);
+        padding: 0.25rem;
+        li {
+          width: 100%;
+          &.current-lang {
+            a {
+              color: var(--cm);
+              background-color: var(--cw);
+            }
+          }
+        }
+        a {
+          text-align: center;
+          display: block;
+          padding: 0.5rem 1.25rem;
+          border-radius: 2rem;
+          background-color: transparent;
+          font-weight: 600;
+          color: var(--cf);
+          transition: all 0.15s ease-in;
+        }
+        .sub-menu {
+          display: none;
         }
       }
     }

@@ -1,0 +1,32 @@
+.mailing {
+  padding-top: 10rem;
+
+  &__container {
+  }
+
+  &__img {
+  }
+
+  &__content {
+    padding: 4rem 4rem 1rem 4rem;
+    border-radius: 2rem;
+    background: linear-gradient(180deg, #eaf8ff 0%, #f9f9f9 61.03%);
+  }
+
+  &__text {
+  }
+
+  &__form {
+  }
+
+  &__label {
+  }
+
+  &__checkbox {
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .mailing {
+  }
+}

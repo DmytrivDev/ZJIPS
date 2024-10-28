@@ -4,7 +4,7 @@
 
 .bluePage {
   .bg-page {
-    background: linear-gradient(180deg, #d2edff -11.13%, #fff 30.93%);
+    background: linear-gradient(180deg, #d2edff -11.13%, #f9f9f9 30.93%);
   }
   .stl-img {
     filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(6843%)
@@ -13,7 +13,7 @@
 }
 .redPage {
   .bg-page {
-    background: linear-gradient(180deg, #fecdd7 -11.13%, #fff 30.93%);
+    background: linear-gradient(180deg, #fecdd7 -11.13%, #f9f9f9 30.93%);
   }
   .stl-img {
     filter: brightness(0) saturate(100%) invert(62%) sepia(39%) saturate(368%)
@@ -22,7 +22,7 @@
 }
 .yellowPage {
   .bg-page {
-    background: linear-gradient(180deg, #ecead8 -11.13%, #fff 30.93%);
+    background: linear-gradient(180deg, #ecead8 -11.13%, #f9f9f9 30.93%);
   }
   .stl-img {
     filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(569%)
@@ -37,9 +37,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100vw;
+  height: 46.875rem;
   width: 100%;
-  background: linear-gradient(180deg, #d2edff -11.13%, #fff 30.93%);
+  background: linear-gradient(180deg, #d2edff -11.13%, #f9f9f9 30.93%);
 }
 .stl-img {
   filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(569%)
@@ -127,22 +127,23 @@
 
   .bluePage {
     .bg-page {
-      background: linear-gradient(180deg, #d2edff 0%, #fff 32%);
+      background: linear-gradient(180deg, #d2edff 0%, #f9f9f9 32%);
     }
   }
   .redPage {
     .bg-page {
-      background: linear-gradient(180deg, #fecdd7 -8.81%, #fff 26.01%);
+      background: linear-gradient(180deg, #fecdd7 -8.81%, #f9f9f9 26.01%);
     }
   }
   .yellowPage {
     .bg-page {
-      background: linear-gradient(180deg, #f5f3e9 0%, #fff 32%);
+      background: linear-gradient(180deg, #f5f3e9 0%, #f9f9f9 32%);
     }
   }
 
   .bg-page {
-    background: linear-gradient(180deg, #d2edff 0%, #fff 32%);
+    background: linear-gradient(180deg, #d2edff 0%, #f9f9f9 32%);
+    height: 50.75rem;
   }
 
   .first-sec {

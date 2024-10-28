@@ -13,6 +13,7 @@
   &__container {
     display: flex;
     align-items: center;
+    gap: 5.875rem;
   }
 
   .custom-logo-link {
@@ -30,6 +31,9 @@
   .header {
     &__main {
       padding: 1.5rem 0;
+    }
+    &__container {
+      gap: 0;
     }
   }
 
@@ -54,7 +58,7 @@
       height: 0.125rem;
       background-color: var(--cm);
       border-radius: 2.5rem;
-      transform: translateX(-50%) translateY(-25%) rotate(0);
+      transform: translateX(-50%) translateY(-40%) rotate(0);
 
       -webkit-transition: all 0.2s ease-in;
       -o-transition: all 0.2s ease-in;
@@ -73,6 +77,7 @@
       span {
         top: 50%;
         transform: translateX(-70%);
+        background-color: var(--cf);
         opacity: 0;
         &:first-child {
           transform: translateX(-50%) translateY(-50%) rotate(45deg);

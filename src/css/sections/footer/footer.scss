@@ -1,3 +1,152 @@
+.footer {
+  margin-bottom: 2rem;
+
+  &__container {
+  }
+  &__wrapp {
+    border-radius: 1.5rem;
+    border: 0.0625rem solid var(--cl);
+    background: linear-gradient(180deg, #f6f6f6 29.98%, #e7e7e7 228.67%);
+  }
+
+  &__main {
+    position: relative;
+    padding: 3rem 3rem 1.5rem 3rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__content {
+  }
+
+  &__nav {
+    padding: 0.5rem 0 4rem 0;
+  }
+  &__list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    a {
+      width: fit-content;
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.33;
+    }
+    li {
+      &:nth-child(1) {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+      &:nth-child(2) {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+      &:nth-child(3) {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+      &:nth-child(4) {
+        grid-area: 1 / 2 / 2 / 3;
+      }
+      &:nth-child(5) {
+        grid-area: 2 / 2 / 3 / 3;
+      }
+      &:nth-child(6) {
+        grid-area: 1 / 3 / 2 / 4;
+      }
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  &__box {
+    & > p {
+      color: var(--cf2);
+      font-size: 0.75rem;
+      line-height: 1.33;
+      margin-bottom: 0.5rem;
+    }
+  }
+  &__copy {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    &.isCopy {
+      a {
+        color: green;
+      }
+    }
+    a {
+      transition: all 0.15s ease-in;
+      font-weight: 600;
+    }
+    button {
+      flex-shrink: 0;
+      width: 1.5rem;
+    }
+  }
+
+  &__soc {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    a {
+      display: block;
+      width: 2rem;
+    }
+  }
+
+  &__bottom {
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-top: 0.0625rem solid var(--cl);
+
+    & > p {
+      flex-shrink: 0;
+    }
+    p,
+    a {
+      color: var(--cf2);
+      font-size: 0.75rem;
+      line-height: 1.33;
+    }
+  }
+  &__reverse {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+    width: 100%;
+    & > p {
+      display: flex;
+      align-items: start;
+      gap: 0.25rem;
+      text-wrap: nowrap;
+      a {
+        width: 3.25rem;
+      }
+    }
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .custom-logo-link {
+    width: 11.875rem;
+    display: block;
+    margin-bottom: 3rem;
+  }
+}
+
 @media screen and (max-width: 960px) {
   .footer {
   }

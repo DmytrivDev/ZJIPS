@@ -6,36 +6,48 @@
   .bg-page {
     background: linear-gradient(180deg, #d2edff -11.13%, #f9f9f9 30.93%);
   }
-  .mailing__content {
+  .mailing__wrapp {
     background: linear-gradient(180deg, #eaf8ff 0%, #f9f9f9 74.14%);
   }
   .stl-img {
     filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(6843%)
       hue-rotate(185deg) brightness(119%) contrast(101%);
   }
+  .mailing__img {
+    filter: brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(1432%)
+      hue-rotate(175deg) brightness(99%) contrast(104%);
+  }
 }
 .redPage {
   .bg-page {
     background: linear-gradient(180deg, #fecdd7 -11.13%, #f9f9f9 30.93%);
   }
-  .mailing__content {
+  .mailing__wrapp {
     background: linear-gradient(180deg, #fff0f3 0%, #f9f9f9 60.43%);
   }
   .stl-img {
     filter: brightness(0) saturate(100%) invert(62%) sepia(39%) saturate(368%)
       hue-rotate(298deg) brightness(108%) contrast(99%);
   }
+  .mailing__img {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(8%) saturate(801%)
+      hue-rotate(300deg) brightness(101%) contrast(99%);
+  }
 }
 .yellowPage {
   .bg-page {
     background: linear-gradient(180deg, #ecead8 -11.13%, #f9f9f9 30.93%);
   }
-  .mailing__content {
+  .mailing__wrapp {
     background: linear-gradient(180deg, #f5f3e9 0%, #f9f9f9 75.51%);
   }
   .stl-img {
     filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(569%)
       hue-rotate(10deg) brightness(94%) contrast(90%);
+  }
+  .mailing__img {
+    filter: brightness(0) saturate(100%) invert(96%) sepia(17%) saturate(211%)
+      hue-rotate(342deg) brightness(93%) contrast(99%);
   }
 }
 

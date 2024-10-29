@@ -5,12 +5,12 @@
   .title1 {
     justify-content: start;
     .tl-part1 {
-      padding-left: 6.6875rem;
+      padding-left: 5rem;
     }
     .tl-part2 {
       width: 100%;
       text-align: right;
-      padding-right: 3.75rem;
+      padding-right: 5rem;
     }
   }
 }
@@ -18,7 +18,7 @@
 @media screen and (max-width: 960px) {
   .hero {
     .title1 {
-      justify-content: start;
+      display: block;
       .tl-part1 {
         padding-left: 0;
       }
@@ -26,6 +26,9 @@
         width: auto;
         text-align: start;
         padding-right: 0;
+      }
+      img {
+        display: inline-block;
       }
     }
   }

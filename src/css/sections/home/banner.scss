@@ -1,0 +1,192 @@
+.banner {
+  padding: 4rem 0;
+
+  &__carousell {
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &:hover {
+      .banner__list {
+        animation-play-state: paused !important;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    width: 100%;
+    will-change: transform;
+
+    &.carousell-part1 {
+      animation: animateF 30s -30s linear infinite;
+    }
+    &.carousell-part2 {
+      animation: animateS 30s -15s linear infinite;
+    }
+  }
+  &__item {
+    &:nth-child(3n + 1) {
+      .banner__box {
+        &::before {
+          background-color: var(--cp);
+        }
+        background: linear-gradient(180deg, #fff -9.82%, #fff0f3 151.79%);
+        span {
+          filter: brightness(0) saturate(100%) invert(28%) sepia(67%)
+            saturate(6433%) hue-rotate(330deg) brightness(93%) contrast(93%);
+        }
+      }
+    }
+    &:nth-child(3n + 2) {
+      .banner__box {
+        &::before {
+          background-color: var(--co);
+        }
+        background: linear-gradient(180deg, #fff 0%, #eaf8ff 100%);
+        span {
+          filter: brightness(0) saturate(100%) invert(8%) sepia(32%)
+            saturate(7376%) hue-rotate(220deg) brightness(103%) contrast(99%);
+        }
+      }
+    }
+    &:nth-child(3n + 3) {
+      .banner__box {
+        &::before {
+          background-color: var(--ci);
+        }
+        background: linear-gradient(180deg, #fff -9.82%, #ecead8 151.79%);
+        span {
+          filter: brightness(0) saturate(100%) invert(57%) sepia(60%)
+            saturate(341%) hue-rotate(359deg) brightness(90%) contrast(81%);
+        }
+      }
+    }
+  }
+  &__box {
+    position: relative;
+    overflow: hidden;
+    padding: 0.75rem 1rem;
+    border-radius: 2rem;
+    border: 0.0625rem solid var(--cw3);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    span {
+      width: 2rem;
+      height: 2rem;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.42;
+      text-wrap: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      &::before {
+        content: "";
+        flex-shrink: 0;
+        width: 0.0625rem;
+        height: 2rem;
+        border-radius: 2rem;
+        background-color: var(--cl);
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -3.5rem;
+      width: 6.9375rem;
+      height: 6.9375rem;
+      opacity: 0.32;
+      filter: blur(2.5rem);
+    }
+  }
+}
+
+@keyframes animateF {
+  0% {
+    transform: translateX(calc(100% + var(--move1-p)));
+  }
+  100% {
+    transform: translateX(calc(-100% + var(--move1-m) - 4rem));
+  }
+}
+
+@keyframes animateS {
+  0% {
+    transform: translateX(var(--move2-p));
+  }
+  100% {
+    transform: translateX(calc(-200% + var(--move2-m) - 4rem));
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .banner {
+    padding: 3rem 0 1.5rem 0;
+
+    &__carousell {
+      &:hover {
+        .banner__list {
+          animation-play-state: running !important;
+        }
+      }
+    }
+    &__list {
+      gap: 1rem;
+
+      &.carousell-part1 {
+        animation: animateF 20s -20s linear infinite;
+        padding-right: 0.25rem;
+      }
+      &.carousell-part2 {
+        animation: animateS 20s -10s linear infinite;
+        padding-left: 0.25rem;
+      }
+    }
+    &__box {
+      gap: 0.5rem;
+
+      span {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      p {
+        font-size: 0.75rem;
+        line-height: 1.33;
+        gap: 0.5rem;
+      }
+    }
+  }
+
+  @keyframes animateF {
+    0% {
+      transform: translateX(calc(100% + var(--move1-p)));
+    }
+    100% {
+      transform: translateX(calc(-100% + var(--move1-m) - 2rem));
+    }
+  }
+
+  @keyframes animateS {
+    0% {
+      transform: translateX(var(--move2-p));
+    }
+    100% {
+      transform: translateX(calc(-200% + var(--move2-m) - 2rem));
+    }
+  }
+}

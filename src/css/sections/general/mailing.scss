@@ -60,9 +60,13 @@
       border-radius: 0.75rem;
       border: 0.0625rem solid var(--cl);
       background-color: var(--cw);
+      transition: all 0.15s ease-in;
 
       &::placeholder {
         color: var(--cf2);
+      }
+      &:focus {
+        border-color: var(--cm);
       }
     }
     p {
@@ -103,10 +107,10 @@
       background-color: var(--cw);
       border: 0.0625rem solid var(--cb);
       border-radius: 0.25rem;
-      transition: all 0.15s ease-in;
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: all 0.15s ease-in;
       &::before {
         content: "";
         transition: all 0.15s ease-in;
@@ -124,8 +128,10 @@
       color: var(--cf2);
       font-size: 0.75rem;
       line-height: 1.33;
+      transition: all 0.15s ease-in;
       a {
         color: var(--cn);
+        transition: all 0.15s ease-in;
         &:hover {
           text-decoration: underline;
         }

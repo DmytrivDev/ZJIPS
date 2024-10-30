@@ -72,6 +72,9 @@
 .first-sec {
   padding-top: 9rem;
 }
+.sec-pd {
+  padding-top: 10rem;
+}
 
 [class*="__container-hero_sec"] {
   display: flex;
@@ -112,10 +115,10 @@
   gap: 0.5rem 1rem;
   img {
     transform: translateY(0.1rem);
-    width: 2.9375rem;
-    height: 2.9375rem;
-    filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(569%)
-      hue-rotate(10deg) brightness(94%) contrast(90%);
+    width: 3.5rem;
+    height: 3.5rem;
+    filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(6843%)
+      hue-rotate(185deg) brightness(119%) contrast(101%);
   }
 }
 
@@ -137,10 +140,44 @@
   background-color: var(--cw);
   border: 0.0625rem solid var(--cm);
   transition: all 0.15s ease-in;
-  &:hover {
-    background-color: var(--cr);
-    border-color: var(--cr);
-    color: var(--cw);
+
+  &.btn-hv1 {
+    &:hover {
+      background-color: var(--cr);
+      border-color: var(--cr);
+      color: var(--cw);
+    }
+  }
+  &.btn-hv2 {
+    &:hover {
+      border-color: var(--cr);
+      color: var(--cr);
+      background-color: var(--cw);
+    }
+  }
+}
+
+.heading-block {
+  position: relative;
+  & > .btn-def {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+.heading-block__inf {
+  width: 100%;
+  margin-bottom: 2.5rem;
+  padding-right: 13rem;
+}
+
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 1rem;
+
+  & > li {
+    flex-basis: calc((100% - 2 * 1rem) / 3);
   }
 }
 
@@ -176,6 +213,9 @@
   .first-sec {
     padding-top: 8rem;
   }
+  .sec-pd {
+    padding-top: 6.5rem;
+  }
 
   [class*="__container-hero_sec"] {
     align-items: start;
@@ -200,12 +240,12 @@
   }
 
   .tl-img {
-    gap: 0.5rem 0.8rem;
+    gap: 0.5rem 0.75rem;
     justify-content: start;
     img {
       transform: translateY(0);
-      width: 2.30806rem;
-      height: 2.30806rem;
+      width: 2.75rem;
+      height: 2.75rem;
     }
   }
 
@@ -219,9 +259,37 @@
   .btn-def {
     padding: 0.75rem 1.5rem;
   }
+
+  .heading-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > .btn-def {
+      position: static;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 21.5rem;
+    }
+  }
+  .heading-block__inf {
+    margin-bottom: 1.5rem;
+    padding-right: 0;
+  }
 }
 
-@media screen and (max-width: 500px) {
-  .class {
+@media screen and (max-width: 875px) {
+  .cards-list {
+    & > li {
+      flex-basis: calc((100% - 1 * 1rem) / 2);
+    }
+  }
+}
+@media screen and (max-width: 675px) {
+  .cards-list {
+    gap: 1rem;
+    & > li {
+      flex-basis: 100%;
+    }
   }
 }

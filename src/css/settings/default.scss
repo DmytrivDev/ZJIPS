@@ -136,8 +136,7 @@ img {
 }
 
 .no-select {
-  img,
-  svg {
+  & > img {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

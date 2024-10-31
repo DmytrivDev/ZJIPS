@@ -69,6 +69,80 @@
   }
 }
 
+.pagination__cont {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+
+  .facetwp-pager {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .facetwp-page {
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.15s ease-in;
+
+    &.active {
+      color: var(--cg);
+    }
+    &:hover {
+      color: var(--cg);
+    }
+  }
+  .prev,
+  .next {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--cw);
+    border: 0.0625rem solid var(--cl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2.25rem;
+    span {
+      width: 1rem;
+      height: 1rem;
+      &::before {
+        content: "";
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        background-size: 1rem 1rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: var(--arrow);
+        transition: all 0.15s ease-in;
+      }
+    }
+    &:hover {
+      background-color: var(--cw3);
+      span {
+        &::before {
+          background-image: var(--arrowHv);
+        }
+      }
+    }
+  }
+  .prev {
+    margin-left: 0;
+    margin-right: 2.25rem;
+    span {
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 960px) {
   .rep-card__def {
     img {
@@ -80,6 +154,24 @@
     .btn-def {
       width: 100%;
       padding: 0.63rem 1.5rem;
+    }
+  }
+
+  .pagination__cont {
+    margin-top: 2rem;
+
+    .facetwp-facet {
+      width: 100%;
+      max-width: 25rem;
+    }
+
+    .prev,
+    .next {
+      margin-left: auto;
+    }
+    .prev {
+      margin-left: 0;
+      margin-right: auto;
     }
   }
 }

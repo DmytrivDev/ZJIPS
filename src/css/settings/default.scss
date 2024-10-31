@@ -118,7 +118,7 @@ img {
   height: auto;
 }
 
-[class*="-ibg"] {
+[class*="ibg"] {
   position: relative;
   img {
     position: absolute;
@@ -129,19 +129,22 @@ img {
     object-fit: cover;
   }
 }
-[class*="-ibg_contain"] {
+[class*="ibg_contain"] {
   img {
     object-fit: contain;
   }
 }
 
 .no-select {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: default;
-  pointer-events: none;
+  img,
+  svg {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    pointer-events: none;
+  }
 }
 
 .flex {

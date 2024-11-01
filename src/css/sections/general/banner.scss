@@ -20,6 +20,13 @@
     gap: 2rem;
     width: 100%;
     will-change: transform;
+
+    &.carsePartF {
+      animation: animateF 30s -30s linear infinite;
+    }
+    &.carsePartS {
+      animation: animateS 30s -15s linear infinite;
+    }
   }
   &__item {
     &:nth-child(3n + 1) {

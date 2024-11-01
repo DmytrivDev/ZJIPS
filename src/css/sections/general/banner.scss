@@ -121,7 +121,7 @@
     transform: translateX(calc(100% + var(--moveP)));
   }
   100% {
-    // -4rem це gap: 2rem .banner__list
+    // -4rem це gap: 2rem * 2 .banner__list
     transform: translateX(calc(-100% + var(--moveM) - 4rem));
   }
 }
@@ -131,7 +131,7 @@
     transform: translateX(var(--moveP));
   }
   100% {
-    // -4rem це gap: 2rem .banner__list
+    // -4rem це gap: 2rem * 2 .banner__list
     transform: translateX(calc(-200% + var(--moveM) - 4rem));
   }
 }
@@ -170,7 +170,7 @@
       transform: translateX(calc(100% + var(--moveP)));
     }
     100% {
-      // -4rem це gap: 2rem .banner__list
+      // -4rem це gap: 2rem * 2 .banner__list
       transform: translateX(calc(-100% + var(--moveM) - 2rem));
     }
   }
@@ -180,7 +180,7 @@
       transform: translateX(var(--moveP));
     }
     100% {
-      // -4rem це gap: 2rem .banner__list
+      // -4rem це gap: 2rem * 2 .banner__list
       transform: translateX(calc(-200% + var(--moveM) - 2rem));
     }
   }

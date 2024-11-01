@@ -24,6 +24,7 @@
 
 /* Projects */
 @import url('./sections/projects/projects.scss');
+@import url('./sections/projects/projlist.scss');
 
 /* Project */
 @import url('./sections/project/project.scss');
@@ -44,14 +45,12 @@
 @import url('./sections/tender/tender.scss');
 
 /* Partners */
-@import url('./sections/partners/partners.scss');
 @import url('./sections/partners/ukrpartn.scss');
 
 /* Materials */
 @import url('./sections/materials/materials.scss');
 
 /* Reports */
-@import url('./sections/reports/reports.scss');
 @import url('./sections/reports/replist.scss');
 
 /* Error */

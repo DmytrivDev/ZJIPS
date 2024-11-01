@@ -45,6 +45,7 @@
 
 /* Partners */
 @import url('./sections/partners/partners.scss');
+@import url('./sections/partners/ukrpartn.scss');
 
 /* Materials */
 @import url('./sections/materials/materials.scss');

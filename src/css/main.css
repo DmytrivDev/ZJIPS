@@ -12,6 +12,7 @@
 /* General */
 @import url('./sections/general/modal.scss');
 @import url('./sections/general/mailing.scss');
+@import url('./sections/general/banner.scss');
 
 /* Header */
 @import url('./sections/header/header.scss');
@@ -20,7 +21,6 @@
 
 /* Home */
 @import url('./sections/home/hero.scss');
-@import url('./sections/home/banner.scss');
 
 /* Projects */
 @import url('./sections/projects/projects.scss');

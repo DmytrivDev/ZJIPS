@@ -1,39 +1,30 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const bannerCarousell = document.querySelector('.banner__carousell');
+const bannerCarousell = document.querySelector('.banner__carousell');
 
-  const carousellPartF = document.querySelector('.carousell-part1');
-  const carousellPartS = document.querySelector('.carousell-part2');
-
-  function updateMarqueeAnimation() {
-    if (bannerCarousell) {
-      const listWidthPartF = carousellPartF.scrollWidth; // Полная ширина списка
-      const listWidthPartS = carousellPartS.scrollWidth; // Полная ширина списка
-
-      const carousellWidth = bannerCarousell.clientWidth; // Ширина видимой области
-
-      const moveValueF = listWidthPartF - carousellWidth;
-      carousellPartF.style.setProperty(
-        '--move1-p',
-        `${Math.abs(moveValueF)}px`
-      );
-      carousellPartF.style.setProperty(
-        '--move1-m',
-        `-${Math.abs(moveValueF)}px`
-      );
-
-      const moveValueS = listWidthPartS - carousellWidth;
-      carousellPartS.style.setProperty(
-        '--move2-p',
-        `${Math.abs(moveValueS)}px`
-      );
-      carousellPartS.style.setProperty(
-        '--move2-m',
-        `-${Math.abs(moveValueS)}px`
-      );
-    }
+function initCalcSpeedCarse() {
+  if (!bannerCarousell) {
+    return;
   }
 
-  updateMarqueeAnimation();
+  const carousellPartF = bannerCarousell.querySelector('.carsePartF');
+  const carousellPartS = bannerCarousell.querySelector('.carsePartS');
 
-  window.addEventListener('resize', updateMarqueeAnimation);
-});
+  const listWidthPartF = carousellPartF.scrollWidth; // Повна ширина списку F
+  const carousellWidth = bannerCarousell.clientWidth; // Ширина видимої області
+
+  const moveValue = listWidthPartF - carousellWidth;
+  bannerCarousell.style.setProperty('--moveP', `${Math.abs(moveValue)}px`);
+  bannerCarousell.style.setProperty('--moveM', `-${Math.abs(moveValue)}px`);
+
+  const childrenCountF = carousellPartF.children.length;
+
+  const calcSpeed = 3 * childrenCountF; // Розрахунок швидкості в залежності від кількості елементів списку F
+
+  carousellPartF.style.animationDelay = `-${calcSpeed}s`;
+  carousellPartS.style.animationDelay = `-${calcSpeed / 2}s`;
+
+  carousellPartF.style.animationDuration = `${calcSpeed}s`;
+  carousellPartS.style.animationDuration = `${calcSpeed}s`;
+}
+
+window.addEventListener('resize', initCalcSpeedCarse);
+document.addEventListener('DOMContentLoaded', initCalcSpeedCarse);

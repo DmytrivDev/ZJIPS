@@ -20,13 +20,6 @@
     gap: 2rem;
     width: 100%;
     will-change: transform;
-
-    &.carousell-part1 {
-      animation: animateF 30s -30s linear infinite;
-    }
-    &.carousell-part2 {
-      animation: animateS 30s -15s linear infinite;
-    }
   }
   &__item {
     &:nth-child(3n + 1) {
@@ -118,19 +111,21 @@
 
 @keyframes animateF {
   0% {
-    transform: translateX(calc(100% + var(--move1-p)));
+    transform: translateX(calc(100% + var(--moveP)));
   }
   100% {
-    transform: translateX(calc(-100% + var(--move1-m) - 4rem));
+    // -4rem це gap: 2rem .banner__list
+    transform: translateX(calc(-100% + var(--moveM) - 4rem));
   }
 }
 
 @keyframes animateS {
   0% {
-    transform: translateX(var(--move2-p));
+    transform: translateX(var(--moveP));
   }
   100% {
-    transform: translateX(calc(-200% + var(--move2-m) - 4rem));
+    // -4rem це gap: 2rem .banner__list
+    transform: translateX(calc(-200% + var(--moveM) - 4rem));
   }
 }
 
@@ -147,15 +142,6 @@
     }
     &__list {
       gap: 1rem;
-
-      &.carousell-part1 {
-        animation: animateF 20s -20s linear infinite;
-        padding-right: 0.25rem;
-      }
-      &.carousell-part2 {
-        animation: animateS 20s -10s linear infinite;
-        padding-left: 0.25rem;
-      }
     }
     &__box {
       gap: 0.5rem;
@@ -174,19 +160,21 @@
 
   @keyframes animateF {
     0% {
-      transform: translateX(calc(100% + var(--move1-p)));
+      transform: translateX(calc(100% + var(--moveP)));
     }
     100% {
-      transform: translateX(calc(-100% + var(--move1-m) - 2rem));
+      // -4rem це gap: 2rem .banner__list
+      transform: translateX(calc(-100% + var(--moveM) - 2rem));
     }
   }
 
   @keyframes animateS {
     0% {
-      transform: translateX(var(--move2-p));
+      transform: translateX(var(--moveP));
     }
     100% {
-      transform: translateX(calc(-200% + var(--move2-m) - 2rem));
+      // -4rem це gap: 2rem .banner__list
+      transform: translateX(calc(-200% + var(--moveM) - 2rem));
     }
   }
 }

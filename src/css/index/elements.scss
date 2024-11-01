@@ -196,7 +196,7 @@
     position: relative;
     flex-basis: calc((100% - 3 * 0rem) / 4);
     width: 21rem;
-    height: 14.5rem;
+    min-height: 14.5rem;
     padding: 1rem;
     border-bottom: 0.0625rem solid var(--cf3);
     display: flex;
@@ -354,7 +354,7 @@
     &__item {
       flex-basis: calc((100% - 2 * 0rem) / 3);
       width: 11.125rem;
-      height: 9.125rem;
+      min-height: 9.125rem;
       padding: 0.5625rem;
 
       &:nth-child(n + 2):nth-child(-n + 4) {

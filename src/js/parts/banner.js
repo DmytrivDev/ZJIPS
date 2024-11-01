@@ -17,7 +17,10 @@ function initCalcSpeedCarse() {
 
   const childrenCountF = carousellPartF.children.length;
 
-  const calcSpeed = 3 * childrenCountF; // Розрахунок швидкості в залежності від кількості елементів списку F
+  const speedFactor =
+    parseFloat(bannerCarousell.getAttribute('data-speed')) || 1;
+
+  const calcSpeed = speedFactor * childrenCountF; // Розрахунок швидкості в залежності від кількості елементів списку F
 
   carousellPartF.style.animationDelay = `-${calcSpeed}s`;
   carousellPartS.style.animationDelay = `-${calcSpeed / 2}s`;

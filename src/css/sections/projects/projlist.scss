@@ -1,7 +1,21 @@
 .projlist {
+  padding-top: 5rem;
+
+  &__container {
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 960px) {
   .projlist {
+    padding-top: 2rem;
+
+    &__list {
+      gap: 1rem;
+    }
   }
 }

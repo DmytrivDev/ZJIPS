@@ -23,7 +23,6 @@
 @import url('./sections/home/hero.scss');
 
 /* Projects */
-@import url('./sections/projects/projects.scss');
 @import url('./sections/projects/projlist.scss');
 
 /* Project */
@@ -42,7 +41,7 @@
 @import url('./sections/tenders/tenders.scss');
 
 /* Tender */
-@import url('./sections/tender/tender.scss');
+@import url('./sections/tender/tenders.scss');
 
 /* Partners */
 @import url('./sections/partners/ukrpartn.scss');

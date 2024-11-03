@@ -1,0 +1,65 @@
+.currtender {
+  padding-top: 8rem;
+}
+
+.tenders {
+  &__heading {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .currtender {
+    padding-top: 3rem;
+  }
+  .currtender,
+  .archivtender {
+    .title4 {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .tenders {
+    &__heading {
+      flex-direction: column;
+      justify-content: start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      .filtercont {
+        width: 100%;
+        .filter__sort {
+          width: 100%;
+        }
+        .filter__sort-btn {
+          padding: 0.75rem 1.5rem;
+          width: 100%;
+          justify-content: space-between;
+          span {
+            display: block;
+          }
+          .filter-old {
+            display: none;
+          }
+          &.choice {
+            .filter-new {
+              display: none;
+            }
+            .filter-old {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

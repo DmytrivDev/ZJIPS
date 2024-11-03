@@ -33,7 +33,6 @@ function partNiceSelect(part, txt) {
     function updateSelectText() {
       const selectedOption = part.options[part.selectedIndex].text;
 
-      // Создаем кастомный текст с вложенными элементами span
       const customText = `${txt}: <span>${selectedOption}</span>`;
 
       const filtercont = part.closest('.filtercont');

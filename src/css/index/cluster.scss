@@ -100,6 +100,7 @@
   }
 
   .title4 {
+    width: fit-content;
     margin-bottom: 1rem;
   }
   .btn-def {
@@ -116,29 +117,34 @@
   flex-wrap: wrap;
   margin-bottom: 1rem;
   p {
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 0.75rem 0.34rem 0.75rem;
     white-space: nowrap;
     text-wrap: nowrap;
     border-radius: 4rem;
     border: 0.0625rem solid var(--cl);
+    color: var(--cf2);
     background-color: var(--cw);
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.33;
-    span {
-      position: relative;
-      top: 0.08rem;
-    }
 
+    &.itm-black {
+      span {
+        color: var(--cm);
+      }
+    }
     &.itm-navy {
-      color: var(--cn);
+      span {
+        color: var(--cn);
+      }
     }
     &.itm-red {
-      color: var(--cr);
+      span {
+        color: var(--cr);
+      }
     }
     &.itm-done {
       background-color: var(--cw3);
-      color: var(--cf2);
     }
   }
 }
@@ -234,6 +240,7 @@
 
 .searchform {
   width: 100%;
+
   .facetwp-facet {
     position: relative;
     overflow: hidden;
@@ -486,7 +493,13 @@
       min-width: auto;
       padding: 0.75rem;
       span {
-        display: none !important;
+        display: none;
+      }
+
+      &.choice {
+        .filter-old {
+          display: none;
+        }
       }
     }
 

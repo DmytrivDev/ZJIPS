@@ -1,7 +1,7 @@
 <div class="projlist">
   <div class="projlist__container">
-    <div class="search">
-      <div class="search__form">
+    <div class="projlist__search">
+      <div class="searchform">
         <div
           class="facetwp-facet facetwp-facet-search facetwp-type-search"
           data-name="search"
@@ -18,29 +18,31 @@
           </span>
         </div>
       </div>
-    </div>
 
-    <div class="filtercont">
-      <div class="filter__item filter__sort">
-        <!-- <button type="button" class="filter__sort-btn choice"> -->
-        <button type="button" class="filter__sort-btn">
-          <span class="filter-new">Спочатку нові</span>
-          <span class="filter-old">Спочатку старі</span>
-        </button>
-        <div class="facetwp-facet facetwp-type-sort" data-type="sort">
-          <select>
-            <option value="">Спочатку нові</option>
-            <option value="_">Спочатку старі</option>
-          </select>
+      <div class="filtercont">
+        <div class="filter__item filter__type projlist__select" data-txt="Тип">
+          <div class="facetwp-facet facetwp-type-dropdown">
+            <select class="facetwp-dropdown">
+              <option value="Lecture" selected>Всі типи</option>
+              <option value="Seminars">Семінари</option>
+              <option value="Activities">
+                Заходи Заходи Заходи Заходи Заходи Заходи Заходи Заходи Заходи
+              </option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="filter__item filter__type archive__select">
-        <div class="facetwp-facet facetwp-type-dropdown">
-          <select class="facetwp-dropdown">
-            <option value="Lecture" selected>Лекція</option>
-            <option value="Seminars">Семінари</option>
-            <option value="Activities">Заходи</option>
-          </select>
+        <div class="filter__item filter__sort">
+          <!-- <button type="button" class="filter__sort-btn choice"> -->
+          <button type="button" class="filter__sort-btn">
+            <span class="filter-new">Спочатку нові</span>
+            <span class="filter-old">Спочатку старі</span>
+          </button>
+          <div class="facetwp-facet facetwp-type-sort" data-type="sort">
+            <select>
+              <option value="">Спочатку нові</option>
+              <option value="_">Спочатку старі</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -48,9 +50,9 @@
     <ul class="projlist__list">
       <li class="proj-card">
         <div class="proj-card__headline">
-          <p>24.04.24</p>
-          <p>Подія</p>
-          <p>Активний</p>
+          <p><span>24.04.24</span></p>
+          <p class="itm-navy"><span>Подія</span></p>
+          <p class="itm-red"><span>Активний</span></p>
         </div>
 
         <a href="./project.html" class="proj-card__img ibg">
@@ -77,9 +79,9 @@
 
       <li class="proj-card">
         <div class="proj-card__headline">
-          <p>24.04.24</p>
-          <p>Подія</p>
-          <p>Активний</p>
+          <p><span>24.04.24</span></p>
+          <p class="itm-navy"><span>Подія</span></p>
+          <p class="itm-done"><span>Завершений</span></p>
         </div>
 
         <a href="./project.html" class="proj-card__img ibg">
@@ -107,9 +109,9 @@
 
       <li class="proj-card">
         <div class="proj-card__headline">
-          <p>24.04.24</p>
-          <p>Подія</p>
-          <p>Активний</p>
+          <p><span>24.04.24</span></p>
+          <p class="itm-navy"><span>Подія</span></p>
+          <p class="itm-red"><span>Активний</span></p>
         </div>
 
         <a href="./project.html" class="proj-card__img ibg">

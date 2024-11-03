@@ -1,16 +1,17 @@
 import NiceSelect from 'nice-select2';
 
-const archiveSelect = document.querySelector('.archive__select');
+const projlistSelect = document.querySelector('.projlist__select');
 const nearSelect = document.querySelector('.near__select select');
 const futureSelect = document.querySelector('.future__select');
 let selector;
 
-if (archiveSelect) {
+if (projlistSelect) {
   partNiceSelect(
-    archiveSelect.querySelector('select'),
-    archiveSelect.dataset.txt
+    projlistSelect.querySelector('select'),
+    projlistSelect.dataset.txt
   );
 }
+
 if (nearSelect) {
   partNiceSelect(nearSelect);
 }
@@ -32,14 +33,15 @@ function partNiceSelect(part, txt) {
     function updateSelectText() {
       const selectedOption = part.options[part.selectedIndex].text;
 
-      const customText = `${txt}: ${selectedOption}`;
+      // Создаем кастомный текст с вложенными элементами span
+      const customText = `${txt}: <span>${selectedOption}</span>`;
 
       const filtercont = part.closest('.filtercont');
 
       const display = filtercont.querySelector('.nice-select .current');
 
       if (display) {
-        display.textContent = customText;
+        display.innerHTML = customText;
       }
     }
     updateSelectText();
@@ -57,7 +59,6 @@ if (sortCtrl) {
     const valSt = selector.value;
 
     changeSel(valSt);
-
 
     if (valSt !== '') {
       sortCtrl.classList.add('choice');

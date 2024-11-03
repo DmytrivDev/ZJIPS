@@ -297,7 +297,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 0.84rem 1.5rem;
     border-radius: 0.75rem;
     border: 0.0625rem solid var(--cl);
     background-color: var(--cw);
@@ -305,8 +305,6 @@
     min-width: 13rem;
     span {
       text-wrap: nowrap;
-      position: relative;
-      top: 0.08rem;
     }
 
     &::after {
@@ -344,7 +342,7 @@
     justify-content: space-between;
     gap: 0.75rem;
     background-color: var(--cw);
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 0.84rem 1.5rem;
     border-radius: 0.75rem;
     border: 0.0625rem solid var(--cl);
     height: auto;

@@ -8,4 +8,12 @@ if (weblist) {
     duration: 400,
     showMultiple: false,
   });
+
+  const openModalButtons = weblist.querySelectorAll('.btn-def');
+
+  openModalButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      event.stopPropagation();
+    });
+  });
 }

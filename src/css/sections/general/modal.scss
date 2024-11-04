@@ -12,7 +12,7 @@
 
   display: flex;
   flex-flow: column nowrap;
-  background-color: rgba(11, 11, 11, 0.64);
+  background-color: rgba(23, 23, 23, 0.32);
 
   opacity: 0;
   visibility: hidden;
@@ -50,8 +50,8 @@
     margin: 4rem 0;
     position: relative;
     background-color: var(--cw);
-    border-radius: 1.5rem;
-    max-width: 50rem;
+    border-radius: 1.25rem;
+    max-width: 32rem;
     width: 100%;
     overflow: hidden;
     padding: 2rem;

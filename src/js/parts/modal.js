@@ -8,13 +8,13 @@ function showModal(modal) {
   activeModals.add(modal);
 }
 
-function closeModal(modal) {
+export function closeModal(modal) {
   modal.classList.remove('isOpened', 'isAnimation');
   scrollLock.enablePageScroll(modal);
   activeModals.delete(modal);
 }
 
-function initModal(modal) {
+function initCloseModal(modal) {
   const btnClose = modal.querySelector('.closeModal');
   const modalContainer = modal.querySelector('.containerModal');
 
@@ -41,16 +41,16 @@ export function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     if (!modal.dataset.listenerAdded) {
-      initModal(modal);
+      initCloseModal(modal);
       modal.dataset.listenerAdded = 'true';
     }
     showModal(modal);
   }
 }
 
-function initOpenModalButtons() {
+function initOpenModal() {
   const btnsOpenModal = document.querySelectorAll('.openModal');
-  btnsOpenModal?.forEach(btn => {
+  btnsOpenModal.forEach(btn => {
     btn.addEventListener('click', () => {
       const modalId = btn.dataset.id;
       if (modalId) {
@@ -60,4 +60,4 @@ function initOpenModalButtons() {
   });
 }
 
-initOpenModalButtons();
+initOpenModal();

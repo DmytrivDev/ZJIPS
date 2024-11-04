@@ -12,13 +12,13 @@
   &__top {
     padding: 0 2rem;
   }
+
   &__box {
     display: flex;
     align-items: start;
     justify-content: space-between;
     gap: 1rem;
   }
-
   &__vec {
     flex-shrink: 0;
     width: 3rem;
@@ -126,7 +126,7 @@
     transition: all 0.15s ease-in;
 
     &:hover {
-      box-shadow: 0px 37px 37px 0px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2.3125rem 2.3125rem 0 rgba(0, 0, 0, 0.03);
     }
     .ac-trigger {
       padding: 0;
@@ -160,8 +160,6 @@
     }
   }
 
-  .btn-def {
-  }
   .title4 {
     max-width: 46.875rem;
   }
@@ -169,5 +167,86 @@
 
 @media screen and (max-width: 960px) {
   .weblist {
+    padding-top: 3rem;
+
+    &__list {
+      gap: 1rem;
+    }
+
+    &__top {
+      padding: 0 1rem;
+    }
+
+    &__box {
+      gap: 0.5rem;
+    }
+    &__vec {
+      width: 2rem;
+      height: 2rem;
+      &::before {
+        width: 1rem;
+        height: 1rem;
+        background-size: 1rem 1rem;
+      }
+    }
+
+    &__content {
+      grid-template-columns: 1fr 14rem;
+      gap: 0 2rem;
+    }
+    &__text {
+      font-size: 0.875rem;
+      line-height: 1.42;
+      margin-bottom: 1.5rem;
+    }
+    &__info {
+      gap: 1rem;
+
+      p {
+        font-size: 0.75rem;
+        line-height: 1.33;
+      }
+    }
+
+    .ac {
+      border-radius: 1rem;
+
+      &:hover {
+        box-shadow: none;
+      }
+
+      &.is-active {
+        .ac-panel {
+          margin-top: 1rem;
+        }
+      }
+      .ac-panel {
+        padding: 0 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .weblist {
+    &__content {
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      gap: 0;
+
+      .weblist__text,
+      .weblist__info,
+      .btn-def {
+        grid-area: auto;
+      }
+    }
+
+    &__info {
+      margin-bottom: 2rem;
+    }
+
+    .btn-def {
+      width: 100%;
+    }
   }
 }

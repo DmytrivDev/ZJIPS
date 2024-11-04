@@ -1,5 +1,4 @@
 import scrollLock from 'scroll-lock';
-import IMask from 'imask';
 
 const activeModals = new Set();
 
@@ -90,21 +89,3 @@ export function stepModalParts(modal) {
     partS.classList.remove('stepModal');
   }
 }
-
-// document.querySelector('.modal__form').addEventListener('submit', event => {
-//   const modal = document.querySelector('.modal');
-//   event.preventDefault();
-//   stepModalParts(modal);
-// });
-
-export const maskOptions = {
-  mask: '+{38} (000) 000 00 00',
-};
-
-document.addEventListener('DOMContentLoaded', function () {
-  const telInputs = document.querySelectorAll('input[type="tel"]');
-
-  telInputs.forEach(input => {
-    const phoneMask = IMask(input, maskOptions);
-  });
-});

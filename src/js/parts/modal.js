@@ -23,12 +23,12 @@ export function closeModal(modal) {
 }
 
 function initCloseModal(modal) {
-  const btnClose = modal.querySelector('.closeModal');
   const modalContainer = modal.querySelector('.containerModal');
+  const btnsCloseModal = modal.querySelectorAll('.closeModal');
 
-  if (btnClose) {
-    btnClose.addEventListener('click', () => closeModal(modal));
-  }
+  btnsCloseModal.forEach(btn => {
+    btn.addEventListener('click', () => closeModal(modal));
+  });
 
   if (modalContainer) {
     modalContainer.addEventListener('click', event => {
@@ -70,7 +70,7 @@ function initOpenModal() {
 initOpenModal();
 
 export const maskOptions = {
-  mask: '+{38}(000)000-00-00',
+  mask: '+{38} (000) 000 00 00',
 };
 
 document.addEventListener('DOMContentLoaded', function () {

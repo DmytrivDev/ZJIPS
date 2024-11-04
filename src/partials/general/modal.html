@@ -6,6 +6,7 @@
       </button>
 
       <div class="modal__wrapp">
+        <!-- <div class="modal__part1 stepModal"> -->
         <div class="modal__part1">
           <h3 class="title3">Форма реєстрації</h3>
           <div class="modal__text">
@@ -16,37 +17,39 @@
           </div>
 
           <form class="modal__form">
-            <!-- <label class="__label isRequire"> -->
-            <label class="__label">
-              <i>Імʼя та прізвище</i>
-              <span class="input-def">
-                <input
-                  type="text"
-                  name="signup-name"
-                  placeholder="Пишіть тут"
-                />
-              </span>
-            </label>
-            <label class="__label">
-              <i>Номер телефону</i>
-              <span class="input-def">
-                <input
-                  type="tel"
-                  name="signup-tel"
-                  placeholder="+38 (000) 000 00 00"
-                />
-              </span>
-            </label>
-            <label class="__label">
-              <i>Ваш Email</i>
-              <span class="input-def">
-                <input
-                  type="email"
-                  name="signup-tel"
-                  placeholder="example234@gmail.com"
-                />
-              </span>
-            </label>
+            <div class="modal__box">
+              <!-- <label class="label-def isRequire"> -->
+              <label class="label-def">
+                <p>Імʼя та прізвище</p>
+                <span class="input-def">
+                  <input
+                    type="text"
+                    name="signup-name"
+                    placeholder="Пишіть тут"
+                  />
+                </span>
+              </label>
+              <label class="label-def">
+                <p>Номер телефону</p>
+                <span class="input-def">
+                  <input
+                    type="tel"
+                    name="signup-tel"
+                    placeholder="+38 (000) 000 00 00"
+                  />
+                </span>
+              </label>
+              <label class="label-def">
+                <p>Ваш Email</p>
+                <span class="input-def">
+                  <input
+                    type="email"
+                    name="signup-tel"
+                    placeholder="example234@gmail.com"
+                  />
+                </span>
+              </label>
+            </div>
 
             <button type="submit" class="btn-def">Зареєструватись</button>
           </form>
@@ -59,7 +62,20 @@
           </p>
         </div>
 
-        <div class="modal__part2"></div>
+        <!-- <div class="modal__part2 stepModal"> -->
+        <div class="modal__part2 stepModal">
+          <h3 class="title3">Успішно!</h3>
+          <div class="modal__img">
+            <img src="./img/decor/signup.png" alt="" />
+          </div>
+          <div class="modal__text">
+            <p>
+              Ви успішно зареєструвалися на подію. Деталі заходу надіслано на
+              вашу електронну пошту. Чекаємо вас на заході!
+            </p>
+          </div>
+          <button type="button" class="btn-def closeModal">Зрозуміло</button>
+        </div>
       </div>
     </div>
   </div>

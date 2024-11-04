@@ -89,7 +89,7 @@ textarea {
   resize: none;
   &::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 0.25rem;
+    width: 0.15rem;
   }
   &::-webkit-scrollbar-thumb {
     background-color: var(--cm);
@@ -108,6 +108,7 @@ textarea {
   line-height: inherit;
 }
 
+i,
 address {
   font-style: normal;
 }

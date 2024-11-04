@@ -1,17 +1,25 @@
 import scrollLock from 'scroll-lock';
+import IMask from 'imask';
 
 const activeModals = new Set();
+
+const header = document.querySelector('header');
+const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 
 function showModal(modal) {
   modal.classList.add('isOpened', 'isAnimation');
   scrollLock.disablePageScroll(modal, { reserveScrollBarGap: true });
   activeModals.add(modal);
+
+  header.style.paddingRight = `${scrollBarWidth}px`;
 }
 
 export function closeModal(modal) {
   modal.classList.remove('isOpened', 'isAnimation');
   scrollLock.enablePageScroll(modal);
   activeModals.delete(modal);
+
+  header.style.paddingRight = '';
 }
 
 function initCloseModal(modal) {
@@ -59,5 +67,16 @@ function initOpenModal() {
     });
   });
 }
-
 initOpenModal();
+
+export const maskOptions = {
+  mask: '+{38}(000)000-00-00',
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+  const telInputs = document.querySelectorAll('input[type="tel"]');
+
+  telInputs.forEach(input => {
+    const phoneMask = IMask(input, maskOptions);
+  });
+});

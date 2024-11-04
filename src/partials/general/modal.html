@@ -1,10 +1,65 @@
-<div class="modal" id="registrForm">
+<div class="modal" id="signupForm">
   <div class="modal__container containerModal">
     <div class="modal__body">
-      <button type="button" class="modal__close closeModal">X</button>
+      <button type="button" class="modal__close closeModal">
+        <img src="./img/icons/close.svg" alt="Close" />
+      </button>
 
       <div class="modal__wrapp">
-        <h2>Modal</h2>
+        <div class="modal__part1">
+          <h3 class="title3">Форма реєстрації</h3>
+          <div class="modal__text">
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+
+          <form class="modal__form">
+            <!-- <label class="__label isRequire"> -->
+            <label class="__label">
+              <i>Імʼя та прізвище</i>
+              <span class="input-def">
+                <input
+                  type="text"
+                  name="signup-name"
+                  placeholder="Пишіть тут"
+                />
+              </span>
+            </label>
+            <label class="__label">
+              <i>Номер телефону</i>
+              <span class="input-def">
+                <input
+                  type="tel"
+                  name="signup-tel"
+                  placeholder="+38 (000) 000 00 00"
+                />
+              </span>
+            </label>
+            <label class="__label">
+              <i>Ваш Email</i>
+              <span class="input-def">
+                <input
+                  type="email"
+                  name="signup-tel"
+                  placeholder="example234@gmail.com"
+                />
+              </span>
+            </label>
+
+            <button type="submit" class="btn-def">Зареєструватись</button>
+          </form>
+
+          <p class="modal__agree">
+            Натискаючи Зареєструватись, ви автоматично погоджуєтеся з нашою
+            <a href="./policy.html" target="_blank">
+              Політикою конфіденційності
+            </a>
+          </p>
+        </div>
+
+        <div class="modal__part2"></div>
       </div>
     </div>
   </div>

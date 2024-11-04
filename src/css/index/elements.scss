@@ -141,18 +141,16 @@
   border: 0.0625rem solid var(--cm);
   transition: all 0.15s ease-in;
 
-  &.btn-hv1 {
-    &:hover {
-      background-color: var(--cr);
-      border-color: var(--cr);
-      color: var(--cw);
-    }
+  &:hover {
+    background-color: var(--cr);
+    border-color: var(--cr);
+    color: var(--cw);
   }
   &.btn-hv2 {
     &:hover {
+      background-color: var(--cw);
       border-color: var(--cr);
       color: var(--cr);
-      background-color: var(--cw);
     }
   }
 }

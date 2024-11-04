@@ -10,6 +10,7 @@ function showModal(modal) {
   modal.classList.add('isOpened', 'isAnimation');
   scrollLock.disablePageScroll(modal, { reserveScrollBarGap: true });
   activeModals.add(modal);
+  checkStepModalParts(modal);
 
   header.style.paddingRight = `${scrollBarWidth}px`;
 }
@@ -18,6 +19,7 @@ export function closeModal(modal) {
   modal.classList.remove('isOpened', 'isAnimation');
   scrollLock.enablePageScroll(modal);
   activeModals.delete(modal);
+  checkStepModalParts(modal);
 
   header.style.paddingRight = '';
 }
@@ -68,6 +70,32 @@ function initOpenModal() {
   });
 }
 initOpenModal();
+
+function checkStepModalParts(modal) {
+  const partF = modal.querySelector('.modal__part1');
+  const partS = modal.querySelector('.modal__part2');
+
+  if (partF && partS) {
+    partF.classList.remove('stepModal');
+    partS.classList.add('stepModal');
+  }
+}
+
+export function stepModalParts(modal) {
+  const partF = modal.querySelector('.modal__part1');
+  const partS = modal.querySelector('.modal__part2');
+
+  if (partF && partS) {
+    partF.classList.add('stepModal');
+    partS.classList.remove('stepModal');
+  }
+}
+
+// document.querySelector('.modal__form').addEventListener('submit', event => {
+//   const modal = document.querySelector('.modal');
+//   event.preventDefault();
+//   stepModalParts(modal);
+// });
 
 export const maskOptions = {
   mask: '+{38} (000) 000 00 00',

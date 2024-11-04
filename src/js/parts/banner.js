@@ -24,9 +24,13 @@ function initCalcSpeedCarse() {
 
   carousellPartF.style.animationDelay = `-${calcSpeed}s`;
   carousellPartS.style.animationDelay = `-${calcSpeed / 2}s`;
+  carousellPartF.style.webkitAnimationDelay = `-${calcSpeed}s`;
+  carousellPartS.style.webkitAnimationDelay = `-${calcSpeed / 2}s`;
 
   carousellPartF.style.animationDuration = `${calcSpeed}s`;
   carousellPartS.style.animationDuration = `${calcSpeed}s`;
+  carousellPartF.style.webkitAnimationDuration = `${calcSpeed}s`;
+  carousellPartS.style.webkitAnimationDuration = `${calcSpeed}s`;
 }
 
 window.addEventListener('resize', initCalcSpeedCarse);

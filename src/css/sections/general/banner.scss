@@ -9,6 +9,7 @@
     &:hover {
       .banner__list {
         animation-play-state: paused !important;
+        -webkit-animation-play-state: paused !important;
       }
     }
   }
@@ -23,9 +24,11 @@
 
     &.carsePartF {
       animation: animateF 30s -30s linear infinite;
+      -webkit-animation: animateF 30s -30s linear infinite;
     }
     &.carsePartS {
       animation: animateS 30s -15s linear infinite;
+      -webkit-animation: animateS 30s -15s linear infinite;
     }
   }
   &__item {
@@ -119,20 +122,28 @@
 @keyframes animateF {
   0% {
     transform: translateX(calc(100% + var(--moveP)));
+    -webkit-transform: translateX(calc(100% + var(--moveP)));
+    -ms-transform: translateX(calc(100% + var(--moveP)));
   }
   100% {
     // -4rem це gap: 2rem * 2 .banner__list
     transform: translateX(calc(-100% + var(--moveM) - 4rem));
+    -webkit-transform: translateX(calc(-100% + var(--moveM) - 4rem));
+    -ms-transform: translateX(calc(-100% + var(--moveM) - 4rem));
   }
 }
 
 @keyframes animateS {
   0% {
     transform: translateX(var(--moveP));
+    -webkit-transform: translateX(var(--moveP));
+    -ms-transform: translateX(var(--moveP));
   }
   100% {
     // -4rem це gap: 2rem * 2 .banner__list
     transform: translateX(calc(-200% + var(--moveM) - 4rem));
+    -webkit-transform: translateX(calc(-200% + var(--moveM) - 4rem));
+    -ms-transform: translateX(calc(-200% + var(--moveM) - 4rem));
   }
 }
 
@@ -144,6 +155,7 @@
       &:hover {
         .banner__list {
           animation-play-state: running !important;
+          -webkit-animation-play-state: running !important;
         }
       }
     }
@@ -168,20 +180,28 @@
   @keyframes animateF {
     0% {
       transform: translateX(calc(100% + var(--moveP)));
+      -webkit-transform: translateX(calc(100% + var(--moveP)));
+      -ms-transform: translateX(calc(100% + var(--moveP)));
     }
     100% {
       // -4rem це gap: 2rem * 2 .banner__list
       transform: translateX(calc(-100% + var(--moveM) - 2rem));
+      -webkit-transform: translateX(calc(-100% + var(--moveM) - 2rem));
+      -ms-transform: translateX(calc(-100% + var(--moveM) - 2rem));
     }
   }
 
   @keyframes animateS {
     0% {
       transform: translateX(var(--moveP));
+      -webkit-transform: translateX(var(--moveP));
+      -ms-transform: translateX(var(--moveP));
     }
     100% {
       // -4rem це gap: 2rem * 2 .banner__list
       transform: translateX(calc(-200% + var(--moveM) - 2rem));
+      -webkit-transform: translateX(calc(-200% + var(--moveM) - 2rem));
+      -ms-transform: translateX(calc(-200% + var(--moveM) - 2rem));
     }
   }
 }

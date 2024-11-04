@@ -29,7 +29,7 @@
 @import url('./sections/project/project.scss');
 
 /* Webinars */
-@import url('./sections/webinars/webinars.scss');
+@import url('./sections/webinars/weblist.scss');
 
 /* Contacts */
 @import url('./sections/contacts/contacts.scss');

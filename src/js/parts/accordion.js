@@ -1,13 +1,10 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 
-const questionList = document.querySelector('.fqa__list');
-if (questionList) {
-  instAccordion(questionList);
-}
+const weblist = document.querySelector('.weblist__list');
 
-function instAccordion(part) {
-  new Accordion(part, {
+if (weblist) {
+  new Accordion(weblist, {
     duration: 400,
     showMultiple: false,
   });

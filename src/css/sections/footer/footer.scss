@@ -74,11 +74,6 @@
     align-items: center;
     gap: 0.5rem;
 
-    &.isCopy {
-      a {
-        color: var(--cr);
-      }
-    }
     a {
       width: fit-content;
       text-wrap: wrap;
@@ -86,8 +81,31 @@
       font-weight: 600;
     }
     button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       flex-shrink: 0;
-      width: 1.5rem;
+      &::before {
+        content: "";
+        width: 1.5rem;
+        height: 1.5rem;
+        background-size: 1.5rem 1.5rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: var(--copyDef);
+        transition: all 0.15s ease-in;
+      }
+    }
+
+    &.isCopy {
+      a {
+        color: var(--cr);
+      }
+      button {
+        &::before {
+          background-image: var(--copyAct);
+        }
+      }
     }
   }
 

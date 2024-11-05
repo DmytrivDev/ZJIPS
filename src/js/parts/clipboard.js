@@ -1,35 +1,32 @@
 const copyBtns = document.querySelectorAll('.clipboard');
 
 copyBtns?.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const idCopy = btn.dataset.id;
+  btn.addEventListener('click', event => {
+    const copyBox = event.target.closest('.copyBox');
+    console.log(copyBox);
 
-    if (idCopy) {
-      const link = document.getElementById(idCopy);
-      const contactBox = btn.closest('.footer__copy');
+    if (copyBox) {
+      const copyElem = copyBox.querySelector('.copyElem');
 
-      if (link) {
-        const linkText =
-          idCopy === 'mapCopy'
-            ? link.getAttribute('href')
-            : link.textContent.trim();
+      if (copyElem) {
+        const textElem = copyElem.textContent.trim();
 
         navigator.clipboard
-          .writeText(linkText)
+          .writeText(textElem)
           .then(() => {
-            if (!contactBox.timer) {
-              contactBox.timer = null;
+            if (!copyBox.timer) {
+              copyBox.timer = null;
             }
 
-            contactBox.classList.add('isCopy');
+            copyBox.classList.add('isCopy');
 
-            if (contactBox.timer) {
-              clearTimeout(contactBox.timer);
+            if (copyBox.timer) {
+              clearTimeout(copyBox.timer);
             }
 
-            contactBox.timer = setTimeout(() => {
-              contactBox.classList.remove('isCopy');
-              contactBox.timer = null;
+            copyBox.timer = setTimeout(() => {
+              copyBox.classList.remove('isCopy');
+              copyBox.timer = null;
             }, 1000);
           })
           .catch(err => {

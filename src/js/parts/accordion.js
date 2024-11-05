@@ -9,10 +9,10 @@ if (weblist) {
     showMultiple: false,
   });
 
-  const openModalButtons = weblist.querySelectorAll('.btn-def');
+  const panels = weblist.querySelectorAll('.ac-panel');
 
-  openModalButtons.forEach(button => {
-    button.addEventListener('click', event => {
+  panels.forEach(panel => {
+    panel.addEventListener('click', event => {
       event.stopPropagation();
     });
   });

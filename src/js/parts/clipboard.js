@@ -3,7 +3,6 @@ const copyBtns = document.querySelectorAll('.clipboard');
 copyBtns?.forEach(btn => {
   btn.addEventListener('click', event => {
     const copyBox = event.target.closest('.copyBox');
-    console.log(copyBox);
 
     if (copyBox) {
       const copyElem = copyBox.querySelector('.copyElem');

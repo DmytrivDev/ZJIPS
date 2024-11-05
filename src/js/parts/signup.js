@@ -1,12 +1,13 @@
+import axios from 'axios';
 import IMask from 'imask';
 import { stepModalParts } from './modal';
 
 const modalForm = document.querySelector('.modal__form');
+const modal = document.getElementById('signupForm');
 
 if (modalForm) {
   modalForm.addEventListener('submit', event => {
     event.preventDefault();
-    const modal = document.getElementById('signupForm');
 
     stepModalParts(modal);
   });

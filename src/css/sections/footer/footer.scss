@@ -13,10 +13,21 @@
     position: relative;
     padding: 3rem 3rem 1.5rem 3rem;
     display: grid;
-    gap: 1rem;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0 1rem;
+
+    .custom-logo-link {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .footer__nav {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+    .footer__inner {
+      grid-area: 2 / 1 / 3 / 2;
+    }
   }
-  &__content {
+  &__inner {
   }
 
   &__nav {
@@ -178,7 +189,15 @@
 
     &__main {
       padding: 1.5rem 1rem;
-      grid-template-columns: 1fr;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      gap: 0;
+
+      .custom-logo-link,
+      .footer__nav,
+      .footer__inner {
+        grid-area: auto;
+      }
     }
 
     &__nav {
@@ -206,9 +225,6 @@
       }
     }
     &__copy {
-      // flex-direction: row-reverse;
-      justify-content: start;
-      align-items: start;
       a {
         max-width: 14.25rem;
       }

@@ -27,6 +27,7 @@
 
 /* Project */
 @import url('./sections/project/project.scss');
+@import url('./sections/project/projmore.scss');
 
 /* Webinars */
 @import url('./sections/webinars/weblist.scss');

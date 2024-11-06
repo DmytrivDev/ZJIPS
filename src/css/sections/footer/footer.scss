@@ -206,9 +206,12 @@
       }
     }
     &__copy {
-      flex-direction: row-reverse;
+      // flex-direction: row-reverse;
       justify-content: start;
       align-items: start;
+      a {
+        max-width: 14.25rem;
+      }
     }
 
     &__soc {

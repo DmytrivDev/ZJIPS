@@ -232,7 +232,7 @@
     margin-right: 2.25rem;
     span {
       &::before {
-        transform: rotate(180deg);
+        transform: rotateY(180deg);
       }
     }
   }

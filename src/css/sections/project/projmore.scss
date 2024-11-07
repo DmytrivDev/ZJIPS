@@ -1,4 +1,28 @@
+.projmore {
+  padding-top: 8rem;
+
+  .splide__track {
+    overflow: visible;
+  }
+  .splide__slide {
+    width: 52.3125rem !important;
+  }
+}
+
 @media screen and (max-width: 960px) {
   .projmore {
+    padding-top: 6.5rem;
+
+    .splide__slide {
+      width: 34rem !important;
+    }
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .projmore {
+    .splide__slide {
+      width: 100% !important;
+    }
   }
 }

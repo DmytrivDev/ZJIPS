@@ -1,26 +1,31 @@
-const articleSidebar = document.querySelector('.article__sidebar');
-if (articleSidebar) {
-  tabsSidebar('article');
+const projectArticle = document.querySelector('.project');
+if (projectArticle) {
+  tabsSidebar(projectArticle);
 }
 
-const policySidebar = document.querySelector('.policy__sidebar');
-if (policySidebar) {
-  tabsSidebar('policy');
+const tenderArticle = document.querySelector('.tender');
+if (tenderArticle) {
+  tabsSidebar(tenderArticle);
+}
+
+const policyArticle = document.querySelector('.policy');
+if (policyArticle) {
+  tabsSidebar(policyArticle);
 }
 
 function tabsSidebar(page) {
-  let titles = document.querySelectorAll(`.${page}__content h2`);
+  let titles = page.querySelectorAll('.article__content h2');
 
   if (titles.length < 1) {
-    titles = document.querySelectorAll(`.${page}__content h3`);
+    titles = page.querySelectorAll('.article__content h3');
   }
 
   titles.forEach((title, index) => {
     title.setAttribute('id', `title-${index + 1}`);
   });
 
-  const quickBodyList = document.createElement('ul');
-  quickBodyList.classList.add(`${page}__tabs`, 'ankor');
+  const quickBodyList = document.createElement('ol');
+  quickBodyList.classList.add(`article__tabs`, 'ankor');
 
   let cl = 'active';
   titles.forEach((title, index) => {
@@ -29,9 +34,11 @@ function tabsSidebar(page) {
     link.className = `${cl} tab`;
     link.setAttribute('href', `#title-${index + 1}`);
 
-    // !=================================================================
-    if (page === 'article') {
-      link.textContent = `${index + 1}. ${title.textContent}`;
+    if (!page.classList.contains('policy')) {
+      link.textContent = `0${index + 1}. ${title.textContent}`;
+      if (index + 1 >= 10) {
+        link.textContent = `${index + 1}. ${title.textContent}`;
+      }
     } else {
       link.textContent = title.textContent;
     }
@@ -42,7 +49,7 @@ function tabsSidebar(page) {
     cl = index >= 0 ? 'none' : 'active';
   });
 
-  const quickCont = document.querySelector(`.${page}__sidebar`);
+  const quickCont = page.querySelector('.article__sidebar');
   if (quickCont) {
     quickCont.innerHTML = '';
     quickCont.appendChild(quickBodyList);
@@ -59,17 +66,13 @@ function tabsSidebar(page) {
       const headerHeight = document.querySelector('.header').offsetHeight;
       let activeLink = links[0];
       headers.forEach((header, i) => {
-        if (scrollTop >= header.offsetTop - headerHeight - 115) {
+        if (scrollTop >= header.offsetTop - headerHeight - 96) {
           activeLink = links[i];
         }
       });
 
       links.forEach(link => link.classList.remove('active'));
       activeLink.classList.add('active');
-
-      // if (page === 'policy') {
-      //   smoothHorizontalScroll(activeLink, 1);
-      // }
     };
 
     setActiveLink();
@@ -81,15 +84,11 @@ function tabsSidebar(page) {
       e.preventDefault();
 
       const headerHeight = document.querySelector('.header').offsetHeight;
-
       const href = this.getAttribute('href');
       const target = document.querySelector(href);
       if (!target) return;
 
-      let offset = target.offsetTop + 115;
-      if (page === 'policy' && window.innerWidth < 960) {
-        offset = target.offsetTop + 50;
-      }
+      let offset = target.offsetTop - 48;
 
       const head = headerHeight;
       let ofF = offset;
@@ -114,38 +113,3 @@ function tabsSidebar(page) {
     });
   });
 }
-
-// Кастомная функция для ускоренного горизонтального скролла с центровкой
-function smoothHorizontalScroll(element, duration) {
-  const container = document.querySelector('.policy__sidebar');
-  const containerWidth = container.offsetWidth;
-  const elementLeft = element.offsetLeft;
-  const elementWidth = element.offsetWidth;
-
-  const targetScrollPosition =
-    elementLeft - (containerWidth / 2 - elementWidth / 2);
-
-  let start = container.scrollLeft;
-  let change = targetScrollPosition - start;
-  let currentTime = 0;
-  const increment = 1; // Ускорение (чем меньше, тем быстрее)
-
-  function animateScroll() {
-    currentTime += increment;
-    const val = Math.easeInOutQuad(currentTime, start, change, duration);
-    container.scrollLeft = val;
-    if (currentTime < duration) {
-      requestAnimationFrame(animateScroll);
-    }
-  }
-
-  animateScroll();
-}
-
-// Функция для плавного эффекта
-Math.easeInOutQuad = function (t, b, c, d) {
-  t /= d / 2;
-  if (t < 1) return (c / 2) * t * t + b;
-  t--;
-  return (-c / 2) * (t * (t - 2) - 1) + b;
-};

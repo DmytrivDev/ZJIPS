@@ -43,7 +43,7 @@
   }
 }
 
-.article__content {
+.article__embeded {
   & > * {
     margin-top: 1rem;
 
@@ -79,6 +79,7 @@
     margin-bottom: 1rem;
   }
 
+  h1,
   h2,
   h3,
   h4,
@@ -310,7 +311,7 @@
     }
   }
 
-  .article__content {
+  .article__embeded {
     & > p {
       font-size: 0.875rem;
       line-height: 1.42;

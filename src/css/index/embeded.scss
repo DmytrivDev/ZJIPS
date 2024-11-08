@@ -4,7 +4,7 @@
   color: var(--cm);
 
   & > * {
-    margin-top: 0.75em;
+    margin-top: 1em;
 
     &:first-child {
       margin-top: 0;
@@ -18,17 +18,24 @@
   }
 
   a {
+    color: var(--cn);
+    font-weight: 600;
     text-decoration: underline !important;
     text-underline-position: under;
     text-decoration-thickness: 1px !important;
   }
 
+  p {
+    color: var(--cf);
+  }
+
   b {
     display: block;
     font-size: 1.125em;
-    font-weight: 500;
-    line-height: 1.556em;
-    margin-top: 1em;
+    font-weight: 600;
+    line-height: 1.333em;
+    margin-top: 1.333em;
+    margin-bottom: 0.889em;
   }
 
   h1,
@@ -37,32 +44,29 @@
   h4,
   h5,
   h6 {
-    font-weight: 600;
+    font-weight: 500;
   }
 
-  h2,
-  h3 {
-    font-size: 1.25em;
-    line-height: 1.7em;
-    margin-top: 1em;
+  h2 {
+    font-size: 2em;
+    line-height: 1.25em;
+    margin-top: 1.5em;
     margin-bottom: 0.75em;
   }
 
-  h4,
-  h5,
-  h6 {
-    font-size: 1em;
-    line-height: 1.6em;
-    margin-top: 1em;
-    margin-bottom: 0.75em;
+  h3,
+  h4 {
+    font-size: 1.5em;
+    line-height: 1.333em;
+    margin-top: 1.25em;
+    margin-bottom: 0.5em;
   }
 
   ul {
-    margin-left: 1em;
+    margin-left: 1.55em;
 
     li {
-      margin-bottom: 1em;
-      margin-left: 0.5em;
+      margin-bottom: 0.5em;
       list-style: disc;
 
       &:last-child {
@@ -141,22 +145,26 @@
 @media screen and (max-width: 960px) {
   .embeded {
     font-size: 0.875em;
-    line-height: 1.4em;
+    line-height: 1.25em;
 
     b {
       font-size: 1em;
-      line-height: 1.45em;
+      line-height: 1.5em;
+      margin-top: 1em;
+      margin-bottom: 1em;
     }
 
-    h2,
-    h3 {
-      font-size: 1em;
+    h2 {
+      font-size: 1.5em;
+      line-height: 1.333em;
+      margin-top: 1.667em;
+      margin-bottom: 0.667em;
     }
 
-    h4,
-    h5,
-    h6 {
-      font-size: 0.875em;
+    h3,
+    h4 {
+      font-size: 1.25em;
+      line-height: 1.5em;
     }
   }
 }

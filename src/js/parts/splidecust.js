@@ -41,7 +41,12 @@ export const initSlider = (container, options = {}) => {
   arrows.next?.addEventListener('click', () => splide.go('>'));
   arrows.prev?.addEventListener('click', () => splide.go('<'));
 
-  splide.on('move', updateSlideState);
+  if (splide.options.type === 'fade') {
+    splide.on('moved', updateSlideState);
+  } else {
+    splide.on('move', updateSlideState);
+  }
+
   window.addEventListener('resize', updateSlideState);
 
   updateSlideState();

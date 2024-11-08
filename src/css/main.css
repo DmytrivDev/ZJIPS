@@ -39,11 +39,8 @@
 /* About */
 @import url('./sections/about/about.scss');
 
-/* Tenders */
-@import url('./sections/tenders/tenders.scss');
-
 /* Tender */
-@import url('./sections/tender/tenders.scss');
+@import url('./sections/tender/tender.scss');
 
 /* Partners */
 @import url('./sections/partners/ukrpartn.scss');

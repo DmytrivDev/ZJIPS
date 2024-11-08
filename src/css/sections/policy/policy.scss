@@ -6,3 +6,13 @@
     justify-content: start;
   }
 }
+
+@media screen and (max-width: 960px) {
+  .policy {
+    .title1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      margin-bottom: 3rem;
+    }
+  }
+}

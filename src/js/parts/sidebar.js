@@ -66,7 +66,7 @@ function tabsSidebar(page) {
       const headerHeight = document.querySelector('.header').offsetHeight;
       let activeLink = links[0];
       headers.forEach((header, i) => {
-        if (scrollTop >= header.offsetTop - headerHeight - 96) {
+        if (scrollTop >= header.offsetTop - headerHeight - 120) {
           activeLink = links[i];
         }
       });
@@ -88,7 +88,7 @@ function tabsSidebar(page) {
       const target = document.querySelector(href);
       if (!target) return;
 
-      let offset = target.offsetTop - 48;
+      let offset = target.offsetTop - 60;
 
       const head = headerHeight;
       let ofF = offset;

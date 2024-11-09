@@ -38,6 +38,7 @@
 
 /* About */
 @import url('./sections/about/about.scss');
+@import url('./sections/about/member.scss');
 @import url('./sections/about/team.scss');
 
 /* Tender */

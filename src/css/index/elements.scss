@@ -267,13 +267,9 @@
   &__item {
     position: relative;
     flex-basis: calc((100% - 3 * 0rem) / 4);
-    width: 21rem;
     min-height: 14.5rem;
     padding: 1rem;
     border-bottom: 0.0625rem solid var(--cf3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     &:nth-child(n + 2):nth-child(-n + 4) {
       &::before {
@@ -512,7 +508,6 @@
   .partnblock {
     &__item {
       flex-basis: calc((100% - 2 * 0rem) / 3);
-      width: 11.125rem;
       min-height: 9.125rem;
       padding: 0.5625rem;
 
@@ -525,6 +520,13 @@
         &::before {
           display: block;
         }
+      }
+    }
+
+    &__placehld {
+      gap: 0.5rem;
+      span {
+        width: 2.7rem;
       }
     }
 

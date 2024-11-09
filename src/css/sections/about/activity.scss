@@ -1,0 +1,119 @@
+.activity {
+  &__container {
+  }
+
+  &__card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: end;
+    min-height: 14.5rem;
+    flex-direction: column;
+    padding: 6.75rem 1rem 1.5rem 1rem;
+    background: linear-gradient(180deg, #fff 0%, #fff0f3 100%);
+    border-radius: 1rem;
+    border: 0.0625rem solid var(--cl);
+
+    &:nth-child(3n + 1) {
+      background: linear-gradient(180deg, #fff 0%, #fff0f3 100%);
+      .activity__img {
+        filter: brightness(0) saturate(100%) invert(92%) sepia(3%)
+          saturate(875%) hue-rotate(303deg) brightness(101%) contrast(105%);
+      }
+      .activity__filter {
+        background-color: var(--cp);
+      }
+    }
+    &:nth-child(3n + 2) {
+      background: linear-gradient(180deg, #fff 0%, #eaf8ff 100%);
+      .activity__img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(37%)
+          saturate(3901%) hue-rotate(177deg) brightness(103%) contrast(113%);
+      }
+      .activity__filter {
+        background-color: var(--co);
+      }
+    }
+    &:nth-child(3n + 3) {
+      background: linear-gradient(180deg, #fff 0%, #f5f3e9 100%);
+      .activity__img {
+        filter: brightness(0) saturate(100%) invert(99%) sepia(44%)
+          saturate(271%) hue-rotate(313deg) brightness(102%) contrast(92%);
+      }
+      .activity__filter {
+        background-color: var(--ci);
+      }
+    }
+  }
+  &__numder {
+    position: absolute;
+    z-index: 3;
+    top: 1.5rem;
+    left: 1rem;
+    color: var(--cg);
+    font-size: 0.875rem;
+    line-height: 1.42;
+  }
+  &__box {
+    position: relative;
+    z-index: 4;
+  }
+  &__desc {
+    color: var(--cf);
+  }
+  &__img {
+    position: absolute;
+    z-index: 2;
+    top: 1.81rem;
+    right: -2.62rem;
+    width: 10.75rem;
+    height: 10.75rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__filter {
+    position: absolute;
+    z-index: 1;
+    top: -5.625rem;
+    right: -5.625rem;
+    border-radius: 50%;
+    width: 11.25rem;
+    height: 11.25rem;
+    background-color: var(--cp);
+    opacity: 0.32;
+    filter: blur(2.5rem);
+  }
+
+  .splide__track {
+    overflow: visible;
+  }
+
+  .title4 {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .activity {
+    &__numder {
+      font-size: 0.75rem;
+      line-height: 1.33;
+    }
+    &__desc {
+      font-size: 0.875rem;
+      line-height: 1.42;
+    }
+    &__img {
+      right: -3rem;
+    }
+    &__filter {
+      right: -9.8125rem;
+    }
+
+    .title4 {
+      margin-bottom: 0.55rem;
+    }
+  }
+}

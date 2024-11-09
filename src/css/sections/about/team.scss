@@ -71,10 +71,12 @@
     font-size: 0.75rem;
     line-height: 1.33;
 
-    a {
+    span {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    a {
       transition: all 0.15s ease-in;
       &:hover {
         color: var(--cr);

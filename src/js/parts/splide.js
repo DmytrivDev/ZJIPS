@@ -1,10 +1,27 @@
 import { initSlider } from './splidecust';
 
-const functionSplide = document.querySelector('.projmore');
-if (functionSplide) {
-  initSlider(functionSplide, {
+const projmoreSplide = document.querySelector('.projmore');
+if (projmoreSplide) {
+  initSlider(projmoreSplide, {
     perPage: 1,
     gap: '1rem',
+  });
+}
+
+const activitySplide = document.querySelector('.activity');
+if (activitySplide) {
+  initSlider(activitySplide, {
+    perPage: 3,
+    perMove: 1,
+    gap: '1rem',
+    breakpoints: {
+      960: {
+        perPage: 2,
+      },
+      685: {
+        perPage: 1,
+      },
+    },
   });
 }
 

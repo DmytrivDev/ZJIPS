@@ -26,11 +26,14 @@ export const initSlider = (container, options = {}) => {
     );
     const currentIndex = Math.ceil(splide.index / splide.options.perPage) + 1;
 
+    const isAtStart = splide.index === 0;
+    const isAtEnd = splide.index === splide.Components.Controller.getEnd();
+
     if (arrows.next && arrows.prev) {
-      arrows.next.disabled = currentIndex === totalSlides;
-      arrows.prev.disabled = splide.index === 0;
-      arrows.next.classList.toggle('isDisabled', arrows.next.disabled);
-      arrows.prev.classList.toggle('isDisabled', arrows.prev.disabled);
+      arrows.next.disabled = isAtEnd;
+      arrows.prev.disabled = isAtStart;
+      arrows.next.classList.toggle('isDisabled', isAtEnd);
+      arrows.prev.classList.toggle('isDisabled', isAtStart);
     }
 
     if (arrows.number) {

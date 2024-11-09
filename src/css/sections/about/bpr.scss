@@ -127,13 +127,14 @@
       }
       .ac-panel {
         opacity: 1;
+        border-top: 0.0625rem solid var(--cl);
       }
     }
 
     .ac-panel {
-      border-top: 0.0625rem solid var(--cl);
+      border-top: 0 solid var(--cl);
       opacity: 0;
-      transition-property: height, visibility, opacity, margin !important;
+      transition-property: height, visibility, opacity, margin, border !important;
     }
   }
 }

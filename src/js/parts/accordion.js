@@ -17,3 +17,20 @@ if (weblist) {
     });
   });
 }
+
+const bprlist = document.querySelector('.bpr__list');
+
+if (bprlist) {
+  new Accordion(bprlist, {
+    duration: 400,
+    showMultiple: false,
+  });
+
+  const panels = bprlist.querySelectorAll('.ac-panel');
+
+  panels.forEach(panel => {
+    panel.addEventListener('click', event => {
+      event.stopPropagation();
+    });
+  });
+}

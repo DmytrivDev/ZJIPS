@@ -225,7 +225,7 @@
 }
 .heading-btn__inf {
   width: 100%;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   padding-right: 13rem;
 }
 
@@ -479,7 +479,7 @@
     }
   }
   .heading-btn__inf {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     padding-right: 0;
   }
 
@@ -503,6 +503,13 @@
   .heading-splide__top {
     margin-bottom: 1.5rem;
     padding-right: 0;
+  }
+
+  .cards-list {
+    gap: 1rem;
+    & > li {
+      flex-basis: calc((100% - 1 * 1rem) / 2);
+    }
   }
 
   .partnblock {
@@ -548,15 +555,6 @@
           background-image: var(--arrow);
         }
       }
-    }
-  }
-}
-
-@media screen and (max-width: 875px) {
-  .cards-list {
-    gap: 1rem;
-    & > li {
-      flex-basis: calc((100% - 1 * 1rem) / 2);
     }
   }
 }

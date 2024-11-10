@@ -42,6 +42,7 @@
 @import url('./sections/about/team.scss');
 @import url('./sections/about/activity.scss');
 @import url('./sections/about/bpr.scss');
+@import url('./sections/about/donors.scss');
 
 /* Tender */
 @import url('./sections/tender/tender.scss');

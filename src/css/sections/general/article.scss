@@ -154,9 +154,11 @@
 
 .article__download {
   margin: 3rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 .download {
   &__link {

@@ -1,0 +1,109 @@
+.library {
+  padding-top: 8rem;
+
+  &__container {
+  }
+  &__main {
+    display: grid;
+    grid-template-columns: 19rem 1fr;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  &__wrapp {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  &__part {
+    p {
+      color: var(--cf2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.33;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  &__cards {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 1rem;
+  }
+
+  .filtercont {
+  }
+}
+
+.library__sidebar {
+  position: relative;
+  padding-bottom: 6.25rem;
+}
+.library__filters {
+  position: sticky;
+  top: 8rem;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  border: 0.0625rem solid var(--cl);
+  background-color: var(--cw);
+
+  .facetwp-type-reset {
+  }
+  .facetwp-reset {
+  }
+
+  .facetwp-type-checkboxes {
+  }
+  .facetwp-checkbox {
+  }
+
+  .facetwp-type-radio {
+  }
+  .facetwp-radio {
+  }
+
+  .facetwp-display-value {
+  }
+  .facetwp-counter {
+  }
+  .checked {
+  }
+}
+
+.libr-card {
+  flex-basis: calc((100% - 2 * 1rem) / 3);
+
+  &__box {
+    position: relative;
+    overflow: hidden;
+  }
+  &__heading {
+  }
+  &__img {
+  }
+  &__review {
+  }
+
+  &__content {
+  }
+  &__name {
+  }
+  &__desc {
+  }
+
+  .rep-card__def {
+  }
+  .card-red {
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .library {
+  }
+}

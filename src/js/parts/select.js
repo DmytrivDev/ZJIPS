@@ -1,8 +1,8 @@
 import NiceSelect from 'nice-select2';
 
 const projlistSelect = document.querySelector('.projlist__select');
-const nearSelect = document.querySelector('.near__select select');
-const futureSelect = document.querySelector('.future__select');
+const librarySelect = document.querySelector('.library__select');
+
 let selector;
 
 if (projlistSelect) {
@@ -12,16 +12,11 @@ if (projlistSelect) {
   );
 }
 
-if (nearSelect) {
-  partNiceSelect(nearSelect);
-}
-if (futureSelect) {
-  document.addEventListener('facetwp-loaded', function () {
-    partNiceSelect(
-      futureSelect.querySelector('select'),
-      futureSelect.dataset.txt
-    );
-  });
+if (librarySelect) {
+  partNiceSelect(
+    librarySelect.querySelector('select'),
+    librarySelect.dataset.txt
+  );
 }
 
 function partNiceSelect(part, txt) {

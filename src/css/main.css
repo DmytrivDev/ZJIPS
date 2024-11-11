@@ -55,6 +55,7 @@
 
 /* Materials */
 @import url('./sections/materials/materials.scss');
+@import url('./sections/materials/library.scss');
 
 /* Reports */
 @import url('./sections/reports/replist.scss');

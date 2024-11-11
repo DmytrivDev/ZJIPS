@@ -1,0 +1,8 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame">
+<path id="Vector" d="M37 34V14C37 10.2288 37 8.34314 35.8284 7.17158C34.6568 6 32.7712 6 29 6H19C15.2288 6 13.3431 6 12.1716 7.17158C11 8.34314 11 10.2288 11 14V34C11 37.7712 11 39.6568 12.1716 40.8284C13.3431 42 15.2288 42 19 42H29C32.7712 42 34.6568 42 35.8284 40.8284C37 39.6568 37 37.7712 37 34Z" stroke="white" stroke-width="3"/>
+<path id="Vector_2" d="M37 12H38C40.8284 12 42.2426 12 43.1214 12.8787C44 13.7574 44 15.1716 44 18V32C44 34.8284 44 36.2426 43.1214 37.1214C42.2426 38 40.8284 38 38 38H37" stroke="white" stroke-width="3" stroke-linecap="round"/>
+<path id="Vector_3" d="M11 12H10C7.17158 12 5.75736 12 4.87868 12.8787C4 13.7574 4 15.1716 4 18V32C4 34.8284 4 36.2426 4.87868 37.1214C5.75736 38 7.17158 38 10 38H11" stroke="white" stroke-width="3" stroke-linecap="round"/>
+<path id="Vector_4" d="M29 16H19M29 24H19M29 32H19" stroke="white" stroke-width="3" stroke-linecap="round"/>
+</g>
+</svg>

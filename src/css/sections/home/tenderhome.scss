@@ -25,9 +25,21 @@
 
   &__btns {
     display: flex;
-    .btn-def {
-      &:hover {
+    width: fit-content;
+    &:hover {
+      .btn-def {
+        background-color: var(--cr);
+        border-color: var(--cr);
+        color: var(--cw);
         box-shadow: 0 0.3125rem 0.3125rem 0 rgba(0, 0, 0, 0.05);
+      }
+      .tenderhome__vec {
+        border-color: var(--cr);
+        background-color: var(--cr);
+        box-shadow: 0 0.3125rem 0.3125rem 0 rgba(0, 0, 0, 0.05);
+        &::before {
+          background-image: var(--arrowWt);
+        }
       }
     }
   }
@@ -50,14 +62,6 @@
       background-image: var(--arrow);
       transition: all 0.15s ease-in;
       transform: rotate(-45deg);
-    }
-    &:hover {
-      border-color: var(--cr);
-      background-color: var(--cr);
-      box-shadow: 0 0.3125rem 0.3125rem 0 rgba(0, 0, 0, 0.05);
-      &::before {
-        background-image: var(--arrowWt);
-      }
     }
   }
 

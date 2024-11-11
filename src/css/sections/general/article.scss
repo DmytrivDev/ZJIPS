@@ -280,9 +280,9 @@
 
 .article-alter {
   .article__heading {
-    margin-left: 20rem;
-    width: 52.3125rem;
     margin-bottom: 3rem;
+    padding-left: 20rem;
+    width: 100%;
     h1 {
       font-size: 2rem;
       line-height: 1.25;
@@ -443,9 +443,8 @@
 
   .article-alter {
     .article__heading {
-      margin-left: 0;
-      width: 100%;
       margin-bottom: 2rem;
+      padding-left: 0;
       h1 {
         font-size: 1.5rem;
         line-height: 1.33;

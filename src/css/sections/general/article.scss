@@ -16,12 +16,12 @@
 
   .article__main {
     display: grid;
-    grid-template-columns: 1fr 52.3125rem 1fr;
+    grid-template-columns: 20rem 52.3125rem 1fr;
   }
   .article__sidebar {
     position: relative;
-    margin-right: 7.6875rem;
-    width: 12.3125rem;
+    padding-right: 7.6875rem;
+    width: 100%;
   }
   .article__tabs {
     position: sticky;
@@ -282,6 +282,7 @@
   .article__heading {
     margin-bottom: 3rem;
     padding-left: 20rem;
+    padding-right: 6.6875rem;
     width: 100%;
     h1 {
       font-size: 2rem;

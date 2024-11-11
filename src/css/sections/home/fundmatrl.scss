@@ -48,10 +48,11 @@
     &__container {
       flex-direction: column;
       gap: 0;
+      max-width: 47rem;
     }
 
     &__img {
-      max-width: 35rem;
+      max-width: 100%;
       margin-bottom: 2.5rem;
     }
 

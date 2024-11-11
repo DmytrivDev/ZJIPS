@@ -1,40 +1,124 @@
 .inspiration {
   &__container {
+    display: flex;
+    align-items: center;
+    gap: 7.6875rem;
   }
 
   &__content {
   }
-
   &__text {
   }
 
   &__box {
+    flex-shrink: 0;
+    padding: 2rem 1.5rem 1rem 1.5rem;
+    width: 39rem;
+    border-radius: 1.5rem;
+    border: 0.0625rem solid var(--cl);
   }
-
   &__desc {
+    color: var(--cf);
+    margin-bottom: 3.5rem;
   }
 
   &__video {
-  }
+    cursor: pointer;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: var(--cf);
+    margin-bottom: 1rem;
 
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(23, 23, 23, 0.44);
+      transition: all 0.15s ease-in;
+    }
+    &:hover {
+      &::before {
+        background-color: rgba(23, 23, 23, 0.34);
+      }
+    }
+
+    &.bg-hidd {
+      &::before {
+        display: none;
+      }
+    }
+  }
   &__media {
+    position: relative;
+    padding-top: calc(100% / 16 * 9);
+
+    video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  }
+  &__name {
+    color: var(--cn);
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.33;
   }
 
   .fundmatrl__heading {
   }
 
   .title2 {
+    margin-bottom: 2rem;
   }
   .title3 {
+    margin-bottom: 1rem;
+    color: var(--cm);
   }
-  .btn-def {
-  }
-}
-
-.video__play {
 }
 
 @media screen and (max-width: 960px) {
   .inspiration {
+    &__container {
+      flex-direction: column;
+      gap: 0;
+      max-width: 47rem;
+    }
+
+    &__content {
+      margin-bottom: 2rem;
+    }
+
+    &__box {
+      width: 100%;
+      border-radius: 1rem;
+      padding: 1.5rem 1rem 1rem 1rem;
+    }
+    &__desc {
+      font-size: 0.875rem;
+      line-height: 1.42;
+      margin-bottom: 2rem;
+    }
+
+    &__video {
+      margin-bottom: 0.75rem;
+      border-radius: 0.75rem;
+    }
+
+    .title2 {
+      margin-bottom: 1rem;
+    }
+    .title3 {
+      margin-bottom: 0.5rem;
+    }
   }
 }

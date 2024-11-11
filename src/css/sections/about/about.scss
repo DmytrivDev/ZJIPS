@@ -28,9 +28,13 @@
     &__container {
       flex-direction: column;
       gap: 0;
+      max-width: 47rem;
+    }
+    &__content {
+      margin-bottom: 2.5rem;
     }
     &__img {
-      max-width: 35rem;
+      max-width: 100%;
     }
 
     .title1 {
@@ -38,7 +42,6 @@
     }
     .text-page {
       text-align: center;
-      margin-bottom: 1.5rem;
     }
   }
 }

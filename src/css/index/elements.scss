@@ -374,6 +374,28 @@
   }
 }
 
+.video__play {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.44);
+  transition: all 0.15s ease-in;
+  span {
+    width: 1.5rem;
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.54);
+  }
+}
+
 @media screen and (max-width: 960px) {
   .el-desc {
     display: none;
@@ -555,6 +577,14 @@
           background-image: var(--arrow);
         }
       }
+    }
+  }
+
+  .video__play {
+    width: 3rem;
+    height: 3rem;
+    span {
+      width: 1rem;
     }
   }
 }

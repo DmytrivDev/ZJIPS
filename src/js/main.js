@@ -9,3 +9,4 @@ import './parts/sidebar.js';
 import './parts/splide.js';
 import './parts/splidecust.js';
 import './parts/download.js';
+import './parts/videoplay.js';

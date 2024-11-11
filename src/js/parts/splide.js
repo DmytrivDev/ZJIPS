@@ -25,7 +25,7 @@ if (activitySplide) {
   });
 }
 
-const articleSplide = document.querySelectorAll('.article__img-splide');
+const articleSplide = document.querySelectorAll('.article__splide');
 articleSplide?.forEach(container => {
   initSlider(container, {
     type: 'fade',
@@ -34,7 +34,7 @@ articleSplide?.forEach(container => {
   });
 });
 
-// const articleSplide = document.querySelectorAll('.article__img-splide');
+// const articleSplide = document.querySelectorAll('.article__splide');
 // articleSplide?.forEach(container => {
 //   initSlider(container, {
 //     perPage: 1,

@@ -6,7 +6,6 @@
   &__main {
     display: grid;
     grid-template-columns: 19rem 1fr;
-    align-items: start;
     gap: 1rem;
   }
 
@@ -14,6 +13,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-top: 1.5rem;
   }
   &__part {
     p {
@@ -41,9 +41,17 @@
   }
 }
 
+.filter__open {
+  display: none;
+}
 .library__sidebar {
   position: relative;
-  padding-bottom: 6.25rem;
+  padding-bottom: 6rem;
+}
+.library__panel {
+  .library__apply {
+    display: none;
+  }
 }
 .library__filters {
   position: sticky;
@@ -53,53 +61,279 @@
   border: 0.0625rem solid var(--cl);
   background-color: var(--cw);
 
-  .facetwp-type-reset {
-  }
   .facetwp-reset {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-radius: 2rem;
+    border: 0.0625rem solid var(--cl);
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.42;
+    transition: all 0.15s ease-in;
+
+    &::after {
+      content: "";
+      flex-shrink: 0;
+      width: 1rem;
+      height: 1rem;
+      background-size: 1rem 1rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: var(--trashDef);
+      transition: all 0.15s ease-in;
+    }
+    &:hover {
+      background-color: var(--cr);
+      border-color: var(--cr);
+      color: var(--cw);
+      &::after {
+        background-image: var(--trashHv);
+      }
+    }
+  }
+
+  .facetwp-facet {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
   }
 
   .facetwp-type-checkboxes {
   }
-  .facetwp-checkbox {
-  }
-
   .facetwp-type-radio {
   }
+
+  .facetwp-checkbox,
   .facetwp-radio {
+    cursor: pointer;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 2rem;
+    &.checked {
+      .facetwp-display-value {
+        color: var(--cr);
+      }
+    }
+    &:hover {
+      .facetwp-display-value {
+        color: var(--cr);
+      }
+    }
+  }
+  .facetwp-checkbox {
+    .facetwp-display-value {
+      &::before {
+        background-image: var(--checkBoxDef);
+      }
+    }
+    &.checked {
+      .facetwp-display-value {
+        &::before {
+          background-image: var(--checkBoxCh) !important;
+        }
+      }
+    }
+    &:hover {
+      .facetwp-display-value {
+        &::before {
+          background-image: var(--checkBoxHv);
+        }
+      }
+    }
+  }
+  .facetwp-radio {
+    .facetwp-display-value {
+      &::before {
+        background-image: var(--checkRadioDef);
+      }
+    }
+    &.checked {
+      .facetwp-display-value {
+        &::before {
+          background-image: var(--checkRadioCh) !important;
+        }
+      }
+    }
+    &:hover {
+      .facetwp-display-value {
+        &::before {
+          background-image: var(--checkRadioHv);
+        }
+      }
+    }
   }
 
   .facetwp-display-value {
+    display: flex;
+    align-items: start;
+    gap: 0.5rem;
+    transition: all 0.15s ease-in;
+
+    &::before {
+      content: "";
+      position: relative;
+      top: -0.2rem;
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-size: 1.5rem 1.5rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      transition: all 0.15s ease-in;
+    }
   }
   .facetwp-counter {
+    position: relative;
+    top: 0.35rem;
+    color: var(--cf2);
+    font-size: 0.75rem;
+    line-height: 1.33;
   }
   .checked {
   }
 }
 
 .libr-card {
+  min-height: 22.85rem;
+  display: flex;
+  flex-direction: column;
   flex-basis: calc((100% - 2 * 1rem) / 3);
+  border-radius: 1rem;
+  border: 0.0625rem solid var(--cl);
+  background-color: var(--cw);
+  overflow: hidden;
+  transition: all 0.15s ease-in;
+
+  &:hover {
+    box-shadow: 0px 37px 37px 0px rgba(0, 0, 0, 0.03);
+  }
 
   &__box {
     position: relative;
     overflow: hidden;
+    padding-top: 66.7%;
+
+    &:hover {
+      .libr-card__review {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
   &__heading {
-  }
-  &__img {
+    position: absolute;
+    z-index: 5;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: calc(100% - 2rem);
+
+    p {
+      background-color: var(--cw);
+      border-radius: 2rem;
+      padding: 0.5rem 0.75rem 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.33;
+    }
   }
   &__review {
+    position: absolute;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(23, 23, 23, 0.32);
+    transition: all 0.15s ease-in;
+    opacity: 0;
+    visibility: hidden;
+
+    a {
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      background-color: var(--cw);
+      font-weight: 600;
+      transition: all 0.15s ease-in;
+
+      &:hover {
+        background-color: var(--cr);
+        border-color: var(--cr);
+        color: var(--cw);
+      }
+    }
   }
 
   &__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem 1.375rem 1rem;
   }
   &__name {
+    flex: 1 1 auto;
+    margin-bottom: 0.75rem;
+
+    a {
+      width: fit-content;
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.33;
+    }
   }
   &__desc {
+    display: flex;
+    align-items: start;
+    gap: 0.5rem;
+
+    a {
+      color: var(--cf2);
+      font-size: 0.75rem;
+      line-height: 1.33;
+      text-decoration: underline;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      top: -0.13rem;
+      flex-shrink: 0;
+      width: 1rem;
+      height: 1rem;
+      background-size: 1rem 1rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: var(--linkLibr);
+    }
   }
 
   .rep-card__def {
-  }
-  .card-red {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 3rem;
+      height: 3rem;
+    }
   }
 }
 

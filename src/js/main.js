@@ -10,3 +10,4 @@ import './parts/splide.js';
 import './parts/splidecust.js';
 import './parts/download.js';
 import './parts/videoplay.js';
+import './parts/libraryfilter.js';

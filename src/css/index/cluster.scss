@@ -395,16 +395,15 @@
     .current {
       position: relative;
       top: 0.08rem;
-      width: 100%;
+      display: flex;
+      gap: 0.25rem;
+      width: calc(100% - 3rem);
 
       & > span {
-        padding-left: 0.25rem;
         font-weight: 600;
-        position: absolute;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: calc(100% - 2.25rem);
       }
     }
 
@@ -512,11 +511,6 @@
       .option {
         padding: 0.75rem 1rem;
         line-height: 1.42;
-      }
-      .current {
-        & > span {
-          width: calc(100% - 2rem);
-        }
       }
     }
   }

@@ -10,6 +10,11 @@
   .bg-page {
     background: linear-gradient(180deg, #d2edff -11.13%, #f9f9f9 30.93%);
   }
+  .mobmenu {
+    .bg-page {
+      background: linear-gradient(180deg, #d2edff 0%, #fff 32%);
+    }
+  }
   .mailing__wrapp {
     background: linear-gradient(180deg, #eaf8ff 0%, #f9f9f9 74.14%);
   }
@@ -28,6 +33,11 @@
   .bg-page {
     background: linear-gradient(180deg, #fecdd7 -11.13%, #f9f9f9 30.93%);
   }
+  .mobmenu {
+    .bg-page {
+      background: linear-gradient(180deg, #fecdd7 -8.81%, #fff 26.01%);
+    }
+  }
   .mailing__wrapp {
     background: linear-gradient(180deg, #fff0f3 0%, #f9f9f9 60.43%);
   }
@@ -45,6 +55,11 @@
 .yellowPage {
   .bg-page {
     background: linear-gradient(180deg, #ecead8 -11.13%, #f9f9f9 30.93%);
+  }
+  .mobmenu {
+    .bg-page {
+      background: linear-gradient(180deg, #f5f3e9 0%, #fff 32%);
+    }
   }
   .mailing__wrapp {
     background: linear-gradient(180deg, #f5f3e9 0%, #f9f9f9 75.51%);

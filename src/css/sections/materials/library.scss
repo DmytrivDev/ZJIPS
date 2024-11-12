@@ -36,26 +36,27 @@
     flex-wrap: wrap;
     gap: 1.5rem 1rem;
   }
-
-  .filtercont {
-  }
 }
 
-.filter__open {
-  display: none;
-}
 .library__sidebar {
   position: relative;
   padding-bottom: 6rem;
-}
-.library__panel {
-  .library__apply {
+
+  .bg-page {
     display: none;
   }
 }
-.library__filters {
+.library__sidebar-body {
   position: sticky;
   top: 8rem;
+}
+.library__apply {
+  display: none;
+}
+.filter__open {
+  display: none;
+}
+.library__filters {
   padding: 1.5rem 1rem;
   border-radius: 1rem;
   border: 0.0625rem solid var(--cl);
@@ -65,9 +66,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 0.5rem;
     border-radius: 2rem;
     border: 0.0625rem solid var(--cl);
+    background-color: var(--cw);
     padding: 0.875rem 1.5rem;
     font-size: 0.875rem;
     font-weight: 600;
@@ -101,26 +103,27 @@
     gap: 1.125rem;
   }
 
-  .facetwp-type-checkboxes {
-  }
-  .facetwp-type-radio {
-  }
-
   .facetwp-checkbox,
   .facetwp-radio {
     cursor: pointer;
     display: flex;
     align-items: start;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 0.5rem;
     &.checked {
       .facetwp-display-value {
         color: var(--cr);
+      }
+      .facetwp-counter {
+        color: var(--cm);
       }
     }
     &:hover {
       .facetwp-display-value {
         color: var(--cr);
+      }
+      .facetwp-counter {
+        color: var(--cm);
       }
     }
   }
@@ -192,13 +195,11 @@
     color: var(--cf2);
     font-size: 0.75rem;
     line-height: 1.33;
-  }
-  .checked {
+    transition: all 0.15s ease-in;
   }
 }
 
 .libr-card {
-  min-height: 22.85rem;
   display: flex;
   flex-direction: column;
   flex-basis: calc((100% - 2 * 1rem) / 3);
@@ -209,7 +210,7 @@
   transition: all 0.15s ease-in;
 
   &:hover {
-    box-shadow: 0px 37px 37px 0px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2.3125rem 2.3125rem 0 rgba(0, 0, 0, 0.03);
   }
 
   &__box {
@@ -242,6 +243,14 @@
       font-weight: 600;
       line-height: 1.33;
     }
+  }
+  &__img {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   &__review {
     position: absolute;
@@ -339,5 +348,209 @@
 
 @media screen and (max-width: 960px) {
   .library {
+    padding-top: 4rem;
+
+    &__main {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    &__wrapp {
+      margin-top: 0;
+    }
+
+    &__cards {
+      gap: 1rem;
+    }
+
+    .filtercont {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .filtercont {
+    .nice-select {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  .filter__open {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-weight: 600;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 0.0625rem solid var(--cm);
+    background-color: var(--cw);
+
+    span {
+      position: relative;
+      top: 0.08rem;
+    }
+    &::after {
+      content: "";
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-size: 1.5rem 1.5rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: var(--filterSet);
+    }
+  }
+  .library__sidebar {
+    padding-bottom: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--cw2);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+
+    -webkit-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+
+    .filter__open {
+      border-color: var(--cl);
+      color: var(--cg);
+      &::after {
+        background-image: var(--filterClose);
+      }
+    }
+
+    .bg-page {
+      display: block;
+      -webkit-transition: all 0.15s ease-in;
+      -o-transition: all 0.15s ease-in;
+      transition: all 0.15s ease-in;
+    }
+    &.isOpened {
+      transform: translateX(0);
+      .bg-page {
+        height: 50.75rem;
+      }
+    }
+  }
+  .library__sidebar-body {
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    padding: 1.5rem 1rem 2.125rem 1rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+  }
+  .library__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .library__apply {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    background-color: var(--cr);
+    color: var(--cw);
+    padding: 0.75rem 1.5rem 0.7rem 1.5rem;
+    border: 0.0625rem solid var(--cr);
+    &::after {
+      content: "";
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-size: 1.5rem 1.5rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: var(--filterApply);
+    }
+  }
+  .library__filters {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-top: 2rem;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    .facetwp-reset {
+      font-size: 1rem;
+      line-height: 1.5;
+      padding: 0.75rem 1.5rem 0.7rem 1.5rem;
+      border: 0.0625rem solid var(--cm);
+
+      &::after {
+        width: 1.5rem;
+        height: 1.5rem;
+        background-size: 1.5rem 1.5rem;
+      }
+      &:hover {
+        background-color: var(--cw);
+        border-color: var(--cm);
+        color: var(--cm);
+        &::after {
+          background-image: var(--trashDef);
+        }
+      }
+    }
+  }
+
+  .libr-card {
+    flex-basis: calc((100% - 1 * 1rem) / 2);
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &__box {
+      padding-top: 45%;
+    }
+
+    &__review {
+      display: none;
+    }
+    &__content {
+      padding: 1.5rem 1rem;
+    }
+    &__name {
+      margin-bottom: 1rem;
+      a {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+    &__desc {
+      a {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .library {
+  }
+
+  .libr-card {
+    flex-basis: 100%;
+
+    &__box {
+      padding-top: 48%;
+    }
   }
 }

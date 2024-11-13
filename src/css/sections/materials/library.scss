@@ -413,11 +413,11 @@
     background-color: var(--cw2);
     display: flex;
     flex-direction: column;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
 
-    -webkit-transition: all 0.25s ease-in;
-    -o-transition: all 0.25s ease-in;
-    transition: all 0.25s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
 
     .filter__open {
       border-color: var(--cl);
@@ -429,12 +429,12 @@
 
     .bg-page {
       display: block;
-      -webkit-transition: all 0.15s ease-in;
-      -o-transition: all 0.15s ease-in;
-      transition: all 0.15s ease-in;
+      -webkit-transition: all 0.3s ease-in;
+      -o-transition: all 0.3s ease-in;
+      transition: all 0.3s ease-in;
     }
     &.isOpened {
-      transform: translateX(0);
+      transform: translateY(0);
       .bg-page {
         height: 50.75rem;
       }

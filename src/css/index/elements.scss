@@ -276,26 +276,27 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    bottom: -0.0625rem;
+    bottom: -0.125rem;
   }
 
   &__item {
-    position: relative;
     flex-basis: calc((100% - 3 * 0rem) / 4);
     min-height: 14.5rem;
     padding: 1rem;
     border-bottom: 0.0625rem solid var(--cf3);
+    border-right: 0.0625rem solid var(--cf3);
 
-    &:nth-child(n + 2):nth-child(-n + 4) {
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0.0625rem;
-        background-color: var(--cf3);
-        height: calc(100vh * 3);
-      }
+    &:nth-child(4n) {
+      border-right: none;
+    }
+
+    &:nth-child(-n + 4) {
+      border-left: 0.0625rem solid var(--cf3);
+      border-right: none;
+      transform: translateX(-0.0625rem);
+    }
+    &:first-child {
+      border-left: none !important;
     }
   }
 
@@ -555,15 +556,20 @@
       min-height: 9.125rem;
       padding: 0.5625rem;
 
-      &:nth-child(n + 2):nth-child(-n + 4) {
-        &::before {
-          display: none;
-        }
+      &:nth-child(4n) {
+        border-right: 0.0625rem solid var(--cf3);
       }
-      &:nth-child(n + 2):nth-child(-n + 3) {
-        &::before {
-          display: block;
-        }
+      &:nth-child(3n) {
+        border-right: none;
+      }
+
+      &:nth-child(-n + 4) {
+        border-left: none;
+        transform: translateX(0);
+      }
+      &:nth-child(-n + 3) {
+        border-left: 0.0625rem solid var(--cf3);
+        transform: translateX(-0.0625rem);
       }
     }
 
@@ -609,15 +615,20 @@
     &__item {
       flex-basis: calc((100% - 1 * 0rem) / 2);
 
-      &:nth-child(n + 2):nth-child(-n + 4) {
-        &::before {
-          display: none;
-        }
+      &:nth-child(3n) {
+        border-right: 0.0625rem solid var(--cf3);
       }
-      &:nth-child(n + 2):nth-child(-n + 2) {
-        &::before {
-          display: block;
-        }
+      &:nth-child(2n) {
+        border-right: none;
+      }
+
+      &:nth-child(-n + 4) {
+        border-left: none;
+        transform: translateX(0);
+      }
+      &:nth-child(-n + 2) {
+        border-left: 0.0625rem solid var(--cf3);
+        transform: translateX(-0.0625rem);
       }
     }
   }

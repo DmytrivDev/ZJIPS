@@ -33,15 +33,20 @@
       min-height: 8.9375rem;
       padding: 0.5rem;
 
-      &:nth-child(n + 2):nth-child(-n + 4) {
-        &::before {
-          display: none;
-        }
+      &:nth-child(4n) {
+        border-right: 0.0625rem solid var(--cf3);
       }
-      &:nth-child(n + 2):nth-child(-n + 3) {
-        &::before {
-          display: block;
-        }
+      &:nth-child(3n) {
+        border-right: none;
+      }
+
+      &:nth-child(-n + 4) {
+        border-left: none;
+        transform: translateX(0);
+      }
+      &:nth-child(-n + 3) {
+        border-left: 0.0625rem solid var(--cf3);
+        transform: translateX(-0.0625rem);
       }
     }
     &__placehld {
@@ -97,17 +102,26 @@
   .donors {
     .partnblock {
       &__item {
+        display: none;
         flex-basis: calc((100% - 1 * 0rem) / 2);
 
-        &:nth-child(n + 2):nth-child(-n + 4) {
-          &::before {
-            display: none;
-          }
+        &:nth-child(3n) {
+          border-right: 0.0625rem solid var(--cf3);
         }
-        &:nth-child(n + 2):nth-child(-n + 2) {
-          &::before {
-            display: block;
-          }
+        &:nth-child(2n) {
+          border-right: none;
+        }
+
+        &:nth-child(-n + 4) {
+          border-left: none;
+          transform: translateX(0);
+        }
+        &:nth-child(-n + 2) {
+          border-left: 0.0625rem solid var(--cf3);
+          transform: translateX(-0.0625rem);
+        }
+        &:not(:nth-last-child(-n + 3)) {
+          display: block;
         }
       }
     }

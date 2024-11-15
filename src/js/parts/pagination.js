@@ -2,10 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const ukrpartn = document.querySelector('.ukrpartn');
 
   function initPagination(section) {
-    const paginList = section.querySelector('.paginList');
+    const items = section.querySelectorAll('.partnblock__item');
     const paginContainer = section.querySelector('.pagination__cont');
     const paginPager = section.querySelector('.facetwp-pager');
-    const items = section.querySelectorAll('.partnblock__item');
 
     const totalItems = items.length;
 
@@ -141,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (totalItems > getCurrentItemsPerPage()) {
         updatePagination();
       } else {
-        paginPager.innerHTML = ''; // Убираем пагинацию, если она не нужна
+        paginContainer.style.display = 'none';
         items.forEach(item => (item.style.display = 'block'));
       }
     }

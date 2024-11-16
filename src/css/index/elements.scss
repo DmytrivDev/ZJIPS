@@ -298,6 +298,10 @@
     &:first-child {
       border-left: none !important;
     }
+
+    &.delBorder {
+      border-right: none;
+    }
   }
 
   &__box {

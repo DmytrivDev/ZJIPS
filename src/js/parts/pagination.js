@@ -1,7 +1,12 @@
-const ukrpartn = document.querySelector('.ukrpartn');
 const header = document.querySelector('header');
 
+const ukrpartn = document.querySelector('.ukrpartn');
+if (ukrpartn) {
+  initPagination(ukrpartn);
+}
+
 function initPagination(section) {
+  const list = section.querySelector('.partnblock__list');
   const items = section.querySelectorAll('.partnblock__item');
   const paginContainer = section.querySelector('.pagination__cont');
   const paginPager = section.querySelector('.facetwp-pager');
@@ -45,6 +50,22 @@ function initPagination(section) {
     });
   }
 
+  function adjustItemHeights() {
+    if (!list || items.length === 0) return;
+
+    const listHeight = list.offsetHeight;
+
+    items.forEach((item, index) => {
+      const itemHeight = item.offsetHeight;
+
+      if (index === items.length - 1 && listHeight === itemHeight) {
+        item.classList.add('delBorder');
+      } else {
+        item.classList.remove('delBorder');
+      }
+    });
+  }
+
   function createPagination() {
     const totalPages = calculateTotalPages();
     paginPager.innerHTML = '';
@@ -66,7 +87,6 @@ function initPagination(section) {
     });
     paginPager.appendChild(prevButton);
 
-    // Отображение страниц (максимум 5)
     const maxVisiblePages = 5;
     const visiblePages = [];
 
@@ -74,29 +94,27 @@ function initPagination(section) {
       for (let i = 1; i <= totalPages; i++) {
         visiblePages.push(i);
       }
-    } else {
-      if (currentPage <= 3) {
-        visiblePages.push(1, 2, 3, 4, 'dots', totalPages);
-      } else if (currentPage >= totalPages - 2) {
-        visiblePages.push(
-          1,
-          'dots',
-          totalPages - 3,
-          totalPages - 2,
-          totalPages - 1,
-          totalPages
-        );
-      } else {
-        visiblePages.push(
-          1,
-          'dots',
-          currentPage - 1,
-          currentPage,
-          currentPage + 1,
-          'dots',
-          totalPages
-        );
+    } else if (currentPage <= 2) {
+      visiblePages.push(1, 2, 3, 'dots', totalPages);
+    } else if (currentPage <= 3) {
+      visiblePages.push(1, 2, 3, 4, 'dots', totalPages);
+    } else if (currentPage >= totalPages - 1) {
+      visiblePages.push(1, 'dots', totalPages - 2, totalPages - 1, totalPages);
+    } else if (currentPage >= totalPages - 2) {
+      visiblePages.push(1, 'dots');
+      for (let i = totalPages - 3; i <= totalPages; i++) {
+        visiblePages.push(i);
       }
+    } else {
+      visiblePages.push(
+        1,
+        'dots',
+        currentPage - 1,
+        currentPage,
+        currentPage + 1,
+        'dots',
+        totalPages
+      );
     }
 
     visiblePages.forEach(page => {
@@ -117,7 +135,6 @@ function initPagination(section) {
           currentPage = page;
           updatePagination();
           scrollToSection();
-          itemsStyleBlock();
         });
         paginPager.appendChild(pageButton);
       }
@@ -143,8 +160,13 @@ function initPagination(section) {
   }
 
   function updatePagination() {
+    if (currentPage > calculateTotalPages()) {
+      currentPage = calculateTotalPages();
+    }
+
     showPage(currentPage);
     createPagination();
+    adjustItemHeights();
   }
 
   function initialize() {
@@ -159,5 +181,3 @@ function initPagination(section) {
   initialize();
   window.addEventListener('resize', initialize);
 }
-
-initPagination(ukrpartn);

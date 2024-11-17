@@ -5,6 +5,21 @@ if (ukrpartn) {
   initPagination(ukrpartn);
 }
 
+const interpart = document.querySelector('.interpart');
+if (interpart) {
+  initPagination(interpart);
+}
+
+const businspartn = document.querySelector('.businspartn');
+if (businspartn) {
+  initPagination(businspartn);
+}
+
+const donorpartn = document.querySelector('.donorpartn');
+if (donorpartn) {
+  initPagination(donorpartn);
+}
+
 function initPagination(section) {
   const list = section.querySelector('.partnblock__list');
   const items = section.querySelectorAll('.partnblock__item');
@@ -36,7 +51,20 @@ function initPagination(section) {
     const end = start + currentItemsPerPage;
 
     items.forEach((item, index) => {
-      item.style.display = index >= start && index < end ? 'block' : 'none';
+      item.classList.add('partHid');
+      if (index >= start && index < end) {
+        item.classList.remove('partHid');
+        item.classList.add('partVis');
+        setTimeout(() => {
+          item.classList.add('isAnim');
+        }, 100);
+      } else {
+        item.classList.add('partHid');
+        item.classList.remove('partVis');
+        setTimeout(() => {
+          item.classList.remove('isAnim');
+        }, 100);
+      }
     });
   }
 
@@ -87,7 +115,7 @@ function initPagination(section) {
     });
     paginPager.appendChild(prevButton);
 
-    const maxVisiblePages = 5;
+    const maxVisiblePages = 4;
     const visiblePages = [];
 
     if (totalPages <= maxVisiblePages) {
@@ -97,7 +125,13 @@ function initPagination(section) {
     } else if (currentPage <= 2) {
       visiblePages.push(1, 2, 3, 'dots', totalPages);
     } else if (currentPage <= 3) {
-      visiblePages.push(1, 2, 3, 4, 'dots', totalPages);
+      if (totalPages <= 5) {
+        for (let i = 1; i <= totalPages; i++) {
+          visiblePages.push(i);
+        }
+      } else {
+        visiblePages.push(1, 2, 3, 4, 'dots', totalPages);
+      }
     } else if (currentPage >= totalPages - 1) {
       visiblePages.push(1, 'dots', totalPages - 2, totalPages - 1, totalPages);
     } else if (currentPage >= totalPages - 2) {
@@ -172,9 +206,15 @@ function initPagination(section) {
   function initialize() {
     if (totalItems > getCurrentItemsPerPage()) {
       updatePagination();
+      paginContainer.style.display = 'flex';
+      items.forEach(item => {
+        item.classList.add('partHid');
+      });
     } else {
       paginContainer.style.display = 'none';
-      items.forEach(item => (item.style.display = 'block'));
+      items.forEach(item => {
+        item.classList.remove('partHid');
+      });
     }
   }
 

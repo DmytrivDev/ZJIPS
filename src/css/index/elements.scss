@@ -302,6 +302,22 @@
     &.delBorder {
       border-right: none;
     }
+
+    &.partHid {
+      display: none;
+    }
+    &.partVis {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.15s ease-in,
+        transition 0.15s ease-in;
+    }
+    &.isAnim {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   &__box {

@@ -98,7 +98,7 @@ function initPagination(section) {
     const totalPages = calculateTotalPages();
     paginPager.innerHTML = '';
 
-    // Кнопка "Предыдущая"
+    // btn prev
     const prevButton = document.createElement('a');
     prevButton.classList.add('facetwp-page', 'prev');
     prevButton.dataset.page = currentPage > 1 ? currentPage - 1 : 1;
@@ -115,6 +115,7 @@ function initPagination(section) {
     });
     paginPager.appendChild(prevButton);
 
+    // btns pages
     const maxVisiblePages = 4;
     const visiblePages = [];
 
@@ -151,6 +152,7 @@ function initPagination(section) {
       );
     }
 
+    // btns pages
     visiblePages.forEach(page => {
       if (page === 'dots') {
         const dots = document.createElement('a');
@@ -174,7 +176,7 @@ function initPagination(section) {
       }
     });
 
-    // Кнопка "Следующая"
+    // btn next
     const nextButton = document.createElement('a');
     nextButton.classList.add('facetwp-page', 'next');
     nextButton.dataset.page =

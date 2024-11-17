@@ -120,14 +120,14 @@ function initPagination(section) {
     const visiblePages = [];
 
     if (totalPages <= maxVisiblePages) {
-      for (let i = 1; i <= totalPages; i++) {
+      for (let i = 1; i <= totalPages; i += 1) {
         visiblePages.push(i);
       }
     } else if (currentPage <= 2) {
       visiblePages.push(1, 2, 3, 'dots', totalPages);
     } else if (currentPage <= 3) {
       if (totalPages <= 5) {
-        for (let i = 1; i <= totalPages; i++) {
+        for (let i = 1; i <= totalPages; i += 1) {
           visiblePages.push(i);
         }
       } else {
@@ -137,7 +137,7 @@ function initPagination(section) {
       visiblePages.push(1, 'dots', totalPages - 2, totalPages - 1, totalPages);
     } else if (currentPage >= totalPages - 2) {
       visiblePages.push(1, 'dots');
-      for (let i = totalPages - 3; i <= totalPages; i++) {
+      for (let i = totalPages - 3; i <= totalPages; i += 1) {
         visiblePages.push(i);
       }
     } else {
@@ -213,6 +213,7 @@ function initPagination(section) {
         item.classList.add('partHid');
       });
     } else {
+      adjustItemHeights();
       paginContainer.style.display = 'none';
       items.forEach(item => {
         item.classList.remove('partHid');

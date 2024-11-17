@@ -12,3 +12,4 @@ import './parts/download.js';
 import './parts/videoplay.js';
 import './parts/libraryfilter.js';
 import './parts/pagination.js';
+import './parts/partners.js';

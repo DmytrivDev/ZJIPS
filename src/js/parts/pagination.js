@@ -1,26 +1,6 @@
 const header = document.querySelector('header');
 
-const ukrpartn = document.querySelector('.ukrpartn');
-if (ukrpartn) {
-  initPagination(ukrpartn);
-}
-
-const interpart = document.querySelector('.interpart');
-if (interpart) {
-  initPagination(interpart);
-}
-
-const businspartn = document.querySelector('.businspartn');
-if (businspartn) {
-  initPagination(businspartn);
-}
-
-const donorpartn = document.querySelector('.donorpartn');
-if (donorpartn) {
-  initPagination(donorpartn);
-}
-
-function initPagination(section) {
+export function initPagination(section) {
   const list = section.querySelector('.partnblock__list');
   const items = section.querySelectorAll('.partnblock__item');
   const paginContainer = section.querySelector('.pagination__cont');

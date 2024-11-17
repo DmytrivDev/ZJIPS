@@ -300,10 +300,10 @@
       border-right: none;
     }
 
-    &.partHid {
+    &.hidItem {
       display: none;
     }
-    &.partVis {
+    &.visItem {
       display: block;
       opacity: 0;
       visibility: hidden;

@@ -1,6 +1,7 @@
-const header = document.querySelector('header');
-
 export function initPagination(section) {
+  const header = document.querySelector('header');
+
+  const partnblock = section.querySelector('.partnblock');
   const list = section.querySelector('.partnblock__list');
   const items = section.querySelectorAll('.partnblock__item');
   const paginContainer = section.querySelector('.pagination__cont');
@@ -17,7 +18,7 @@ export function initPagination(section) {
 
   function getCurrentItemsPerPage() {
     const screenWidth = window.innerWidth;
-    return screenWidth >= 960 ? itemsPerPage.desktop : itemsPerPage.mobile;
+    return screenWidth >= 720 ? itemsPerPage.desktop : itemsPerPage.mobile;
   }
 
   function calculateTotalPages() {
@@ -31,16 +32,15 @@ export function initPagination(section) {
     const end = start + currentItemsPerPage;
 
     items.forEach((item, index) => {
-      item.classList.add('partHid');
       if (index >= start && index < end) {
-        item.classList.remove('partHid');
-        item.classList.add('partVis');
+        item.classList.remove('hidItem');
+        item.classList.add('visItem');
         setTimeout(() => {
           item.classList.add('isAnim');
         }, 100);
       } else {
-        item.classList.add('partHid');
-        item.classList.remove('partVis');
+        item.classList.add('hidItem');
+        item.classList.remove('visItem');
         setTimeout(() => {
           item.classList.remove('isAnim');
         }, 100);
@@ -48,17 +48,25 @@ export function initPagination(section) {
     });
   }
 
-  function scrollToSection() {
+  function scrollTopSection() {
     const headerHeight = header ? header.offsetHeight : 0;
-    const offset = headerHeight - 70;
+    const screenWidth = window.innerWidth;
+    console.log(headerHeight);
+    let scrollTop = 0;
+
+    if (screenWidth >= 960) {
+      scrollTop = headerHeight + 50;
+    } else {
+      scrollTop = headerHeight + 30;
+    }
 
     window.scrollTo({
-      top: section.offsetTop - offset,
+      top: partnblock.offsetTop - scrollTop,
       behavior: 'smooth',
     });
   }
 
-  function adjustItemHeights() {
+  function addBorderLastItem() {
     if (!list || items.length === 0) return;
 
     const listHeight = list.offsetHeight;
@@ -90,7 +98,7 @@ export function initPagination(section) {
       if (currentPage > 1) {
         currentPage -= 1;
         updatePagination();
-        scrollToSection();
+        scrollTopSection();
       }
     });
     paginPager.appendChild(prevButton);
@@ -150,7 +158,7 @@ export function initPagination(section) {
         pageButton.addEventListener('click', function () {
           currentPage = page;
           updatePagination();
-          scrollToSection();
+          scrollTopSection();
         });
         paginPager.appendChild(pageButton);
       }
@@ -169,7 +177,7 @@ export function initPagination(section) {
       if (currentPage < totalPages) {
         currentPage += 1;
         updatePagination();
-        scrollToSection();
+        scrollTopSection();
       }
     });
     paginPager.appendChild(nextButton);
@@ -182,21 +190,20 @@ export function initPagination(section) {
 
     showPage(currentPage);
     createPagination();
-    adjustItemHeights();
+    addBorderLastItem();
   }
 
   function initialize() {
     if (totalItems > getCurrentItemsPerPage()) {
       updatePagination();
       paginContainer.style.display = 'flex';
-      items.forEach(item => {
-        item.classList.add('partHid');
-      });
     } else {
-      adjustItemHeights();
+      addBorderLastItem();
       paginContainer.style.display = 'none';
       items.forEach(item => {
-        item.classList.remove('partHid');
+        item.classList.remove('hidItem');
+        item.classList.remove('visItem');
+        item.classList.remove('isAnim');
       });
     }
   }

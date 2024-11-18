@@ -3,15 +3,19 @@ import scrollLock from 'scroll-lock';
 const activeModals = new Set();
 
 const header = document.querySelector('header');
-const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+function getScrollBarWidth() {
+  const scrollBarWidth =
+    window.innerWidth - document.documentElement.clientWidth;
+  return scrollBarWidth;
+}
+window.addEventListener('resize', getScrollBarWidth);
 
 function showModal(modal) {
   modal.classList.add('isOpened', 'isAnimation');
   scrollLock.disablePageScroll(modal, { reserveScrollBarGap: true });
   activeModals.add(modal);
   checkStepModalParts(modal);
-
-  header.style.paddingRight = `${scrollBarWidth}px`;
 }
 
 export function closeModal(modal) {
@@ -70,7 +74,7 @@ function initOpenModal() {
 }
 initOpenModal();
 
-function checkStepModalParts(modal) {
+export function checkStepModalParts(modal) {
   const partF = modal.querySelector('.modal__part1');
   const partS = modal.querySelector('.modal__part2');
 

@@ -16,38 +16,6 @@ export function initPagination(section) {
 
   let currentPage = 1;
 
-  function getCurrentItemsPerPage() {
-    const screenWidth = window.innerWidth;
-    return screenWidth >= 720 ? itemsPerPage.desktop : itemsPerPage.mobile;
-  }
-
-  function calculateTotalPages() {
-    const currentItemsPerPage = getCurrentItemsPerPage();
-    return Math.ceil(totalItems / currentItemsPerPage);
-  }
-
-  function showPage(page) {
-    const currentItemsPerPage = getCurrentItemsPerPage();
-    const start = (page - 1) * currentItemsPerPage;
-    const end = start + currentItemsPerPage;
-
-    items.forEach((item, index) => {
-      if (index >= start && index < end) {
-        item.classList.remove('hidItem');
-        item.classList.add('visItem');
-        setTimeout(() => {
-          item.classList.add('isAnim');
-        }, 100);
-      } else {
-        item.classList.add('hidItem');
-        item.classList.remove('visItem');
-        setTimeout(() => {
-          item.classList.remove('isAnim');
-        }, 100);
-      }
-    });
-  }
-
   function scrollTopSection() {
     const headerHeight = header ? header.offsetHeight : 0;
     const screenWidth = window.innerWidth;
@@ -78,6 +46,38 @@ export function initPagination(section) {
         item.classList.add('delBorder');
       } else {
         item.classList.remove('delBorder');
+      }
+    });
+  }
+
+  function getCurrentItemsPerPage() {
+    const screenWidth = window.innerWidth;
+    return screenWidth >= 720 ? itemsPerPage.desktop : itemsPerPage.mobile;
+  }
+
+  function calculateTotalPages() {
+    const currentItemsPerPage = getCurrentItemsPerPage();
+    return Math.ceil(totalItems / currentItemsPerPage);
+  }
+
+  function showPage(page) {
+    const currentItemsPerPage = getCurrentItemsPerPage();
+    const start = (page - 1) * currentItemsPerPage;
+    const end = start + currentItemsPerPage;
+
+    items.forEach((item, index) => {
+      if (index >= start && index < end) {
+        item.classList.remove('hidItem');
+        item.classList.add('visItem');
+        setTimeout(() => {
+          item.classList.add('isAnim');
+        }, 100);
+      } else {
+        item.classList.add('hidItem');
+        item.classList.remove('visItem');
+        setTimeout(() => {
+          item.classList.remove('isAnim');
+        }, 100);
       }
     });
   }

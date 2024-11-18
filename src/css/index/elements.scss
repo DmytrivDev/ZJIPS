@@ -309,7 +309,7 @@
       visibility: hidden;
       transition:
         opacity 0.15s ease-in,
-        transition 0.15s ease-in;
+        visibility 0.15s ease-in;
     }
     &.isAnim {
       opacity: 1;
@@ -322,8 +322,11 @@
     height: 100%;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
+
     & > img {
       position: absolute;
       top: 50%;
@@ -331,20 +334,10 @@
       transform: translateX(-50%) translateY(-50%);
       max-height: 100%;
     }
-  }
-  &__placehld {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    span {
-      width: 3.3125rem;
-    }
-    p {
+    & > p {
       color: var(--cb);
       text-align: center;
       font-size: 0.75rem;
-      font-weight: 500;
       line-height: 1.33;
       text-transform: uppercase;
     }
@@ -582,13 +575,6 @@
         border-right: none;
         border-left: 0.0625rem solid var(--cf3);
         transform: translateX(-0.0625rem);
-      }
-    }
-
-    &__placehld {
-      gap: 0.5rem;
-      span {
-        width: 2.7rem;
       }
     }
 

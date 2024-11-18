@@ -95,6 +95,15 @@
         background-image: var(--trashHv);
       }
     }
+    &.inActive {
+      cursor: no-drop;
+      background-color: var(--cw) !important;
+      border-color: var(--cl) !important;
+      color: var(--cg) !important;
+      &::after {
+        background-image: var(--trashInActive) !important;
+      }
+    }
   }
 
   .facetwp-facet {
@@ -365,14 +374,16 @@
     .filtercont {
       display: flex;
       flex-direction: column;
+
+      .filter__type {
+        max-width: 100%;
+      }
+      .nice-select {
+        padding: 0.75rem 1.5rem;
+      }
     }
   }
 
-  .filtercont {
-    .nice-select {
-      padding: 0.75rem 1.5rem;
-    }
-  }
   .filter__open {
     display: flex;
     align-items: center;
@@ -543,9 +554,6 @@
 }
 
 @media screen and (max-width: 775px) {
-  .library {
-  }
-
   .libr-card {
     flex-basis: 100%;
 

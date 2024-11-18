@@ -427,6 +427,7 @@
       width: 100%;
       border: 0.0625rem solid var(--cl);
       border-radius: 0.75rem;
+      box-shadow: 0 1.4375rem 1.4375rem 0 rgba(0, 0, 0, 0.02);
     }
   }
 }
@@ -506,6 +507,9 @@
   }
 
   .filtercont {
+    .filter__type {
+      max-width: calc(100% - 4.125rem);
+    }
     .filter__sort-btn {
       min-width: auto;
       padding: 0.75rem;

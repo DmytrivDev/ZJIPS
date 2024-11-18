@@ -51,7 +51,7 @@ export function initPagination(section) {
   function scrollTopSection() {
     const headerHeight = header ? header.offsetHeight : 0;
     const screenWidth = window.innerWidth;
-    console.log(headerHeight);
+
     let scrollTop = 0;
 
     if (screenWidth >= 960) {

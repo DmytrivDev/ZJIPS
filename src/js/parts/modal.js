@@ -12,6 +12,8 @@ function getScrollBarWidth() {
 window.addEventListener('resize', getScrollBarWidth);
 
 function showModal(modal) {
+  header.style.paddingRight = `${getScrollBarWidth()}px`;
+
   modal.classList.add('isOpened', 'isAnimation');
   scrollLock.disablePageScroll(modal, { reserveScrollBarGap: true });
   activeModals.add(modal);

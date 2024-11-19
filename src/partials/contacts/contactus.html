@@ -65,13 +65,18 @@
         <p>Заповніть форму нижче, і ми зв'яжемося з вами.</p>
       </div>
 
-      <form class="contactus__form" id="contactForm">
+      <form class="contactus__form submitForm" id="contactForm">
         <div class="contactus__wrapp">
           <!-- <label class="label-def isRequire"> -->
           <label class="label-def">
             <p>Імʼя та прізвище</p>
             <span class="input-def">
-              <input type="text" name="contus-name" placeholder="Пишіть тут" />
+              <input
+                type="text"
+                name="contus-name"
+                placeholder="Пишіть тут"
+                data-required="true"
+              />
             </span>
           </label>
           <label class="label-def">
@@ -81,6 +86,7 @@
                 type="tel"
                 name="contus-tel"
                 placeholder="+38 (000) 000 00 00"
+                data-required="true"
               />
             </span>
           </label>

@@ -69,15 +69,14 @@ export function initPagination(section) {
       if (index >= start && index < end) {
         item.classList.remove('hidItem');
         item.classList.add('visItem');
+
         setTimeout(() => {
           item.classList.add('isAnim');
         }, 100);
       } else {
         item.classList.add('hidItem');
         item.classList.remove('visItem');
-        setTimeout(() => {
-          item.classList.remove('isAnim');
-        }, 100);
+        item.classList.remove('isAnim');
       }
     });
   }

@@ -189,6 +189,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.33;
+    transition: all 0.15s ease-in;
   }
   &.isRequire {
     p {
@@ -199,17 +200,8 @@
         border-color: var(--cp);
       }
       &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 1.5rem;
-        transform: translateY(-50%);
-        width: 1.5rem;
-        height: 1.5rem;
-        background-size: 1.5rem 1.5rem;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-image: var(--require);
+        opacity: 1;
+        visibility: visible;
       }
     }
   }
@@ -224,9 +216,28 @@
     border: 0.0625rem solid var(--cl);
     background-color: var(--cw);
     padding: 1rem 3.5rem 0.84rem 1.5rem;
+    transition: all 0.15s ease-in;
     &::placeholder {
       color: var(--cf2);
     }
+  }
+}
+.input-def {
+  &::before {
+    content: "";
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: 1.5rem 1.5rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: var(--require);
+    transition: all 0.15s ease-in;
   }
 }
 
@@ -304,7 +315,6 @@
       display: none;
     }
     &.visItem {
-      display: block;
       opacity: 0;
       visibility: hidden;
       transition:

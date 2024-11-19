@@ -15,15 +15,16 @@
             </p>
           </div>
 
-          <form class="modal__form" id="signupForm">
+          <form class="modal__form submitForm" id="signupForm">
             <div class="modal__box">
-              <label class="label-def isRequire">
+              <label class="label-def">
                 <p>Імʼя та прізвище</p>
                 <span class="input-def">
                   <input
                     type="text"
                     name="signup-name"
                     placeholder="Пишіть тут"
+                    data-required="true"
                   />
                 </span>
               </label>
@@ -34,6 +35,7 @@
                     type="tel"
                     name="signup-tel"
                     placeholder="+38 (000) 000 00 00"
+                    data-required="true"
                   />
                 </span>
               </label>
@@ -44,6 +46,7 @@
                     type="email"
                     name="signup-tel"
                     placeholder="example234@gmail.com"
+                    data-required="true"
                   />
                 </span>
               </label>
@@ -60,7 +63,7 @@
           </p>
         </div>
 
-        <div class="modal__part2 stepModal">
+        <div class="modal__part2 hidPart">
           <h3 class="title3">Успішно!</h3>
           <div class="modal__img">
             <img src="./img/decor/signup.png" alt="" />

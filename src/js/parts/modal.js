@@ -81,8 +81,8 @@ export function checkStepModalParts(modal) {
   const partS = modal.querySelector('.modal__part2');
 
   if (partF && partS) {
-    partF.classList.remove('stepModal');
-    partS.classList.add('stepModal');
+    partF.classList.remove('hidPart');
+    partS.classList.add('hidPart');
   }
 }
 
@@ -91,7 +91,40 @@ export function stepModalParts(modal) {
   const partS = modal.querySelector('.modal__part2');
 
   if (partF && partS) {
-    partF.classList.add('stepModal');
-    partS.classList.remove('stepModal');
+    partF.classList.add('hidPart');
+    partS.classList.remove('hidPart');
   }
 }
+
+// export function checkStepModalParts(modal) {
+//   const partF = modal.querySelector('.modal__part1');
+//   const partS = modal.querySelector('.modal__part2');
+
+//   if (partF && partS) {
+//     partF.classList.remove('hidPart');
+//     partF.classList.add('nextPart');
+
+//     partS.classList.remove('nextPart');
+//     partS.classList.add('hidPart');
+
+//     partF.classList.add('isAnim');
+//     partS.classList.remove('isAnim');
+//   }
+// }
+
+// export function stepModalParts(modal) {
+//   const partF = modal.querySelector('.modal__part1');
+//   const partS = modal.querySelector('.modal__part2');
+
+//   if (partF && partS) {
+//     partF.classList.remove('nextPart');
+//     partF.classList.add('hidPart');
+
+//     partS.classList.remove('hidPart');
+//     partS.classList.add('nextPart');
+//     setTimeout(() => {
+//       partF.classList.remove('isAnim');
+//       partS.classList.add('isAnim');
+//     }, 100);
+//   }
+// }

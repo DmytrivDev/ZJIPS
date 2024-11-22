@@ -297,6 +297,7 @@
     padding: 1rem;
     border-bottom: 0.0625rem solid var(--cf3);
     border-right: 0.0625rem solid var(--cf3);
+    transition: all 0.15s ease-in;
 
     &:nth-child(-n + 4) {
       border-left: 0.0625rem solid var(--cf3);
@@ -317,9 +318,6 @@
     &.visItem {
       opacity: 0;
       visibility: hidden;
-      transition:
-        opacity 0.15s ease-in,
-        visibility 0.15s ease-in;
     }
     &.isAnim {
       opacity: 1;

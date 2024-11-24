@@ -14,3 +14,4 @@ import './parts/libraryfilter.js';
 import './parts/pagination.js';
 import './parts/partners.js';
 import './parts/team.js';
+import './parts/mapukr.js';

@@ -1,0 +1,35 @@
+.implemented {
+  .mapukr {
+    position: relative;
+    width: 34.6875rem;
+    padding-bottom: 42%;
+    overflow: hidden;
+  }
+  .mapukr svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mapukr__fill {
+    fill: #f6f6f6;
+    stroke: #d1d1d1;
+    stroke-width: 1.087;
+    transition: all 0.15s ease-in;
+  }
+  .mapukr__region {
+  }
+
+  .mapukr__region a.is-fill .mapukr__fill,
+  .mapukr__region a:hover .mapukr__fill {
+    fill: #fff0f3;
+    stroke: #fea3b7;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .implemented {
+  }
+}

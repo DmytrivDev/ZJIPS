@@ -1,31 +1,53 @@
 .implemented {
   .mapukr {
     position: relative;
-    width: 34.6875rem;
-    padding-bottom: 42%;
-    overflow: hidden;
-  }
-  .mapukr svg {
-    position: absolute;
-    top: 0;
-    left: 0;
+    max-width: 37.5rem;
     width: 100%;
-    height: 100%;
+    height: 0;
+    padding-bottom: 32%;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
-
+  .mapukr__region {
+    &.isCurrent {
+      .mapukr__fill {
+        fill: #fff0f3;
+        stroke: #fea3b7;
+      }
+    }
+  }
   .mapukr__fill {
+    cursor: pointer;
     fill: #f6f6f6;
     stroke: #d1d1d1;
     stroke-width: 1.087;
     transition: all 0.15s ease-in;
   }
-  .mapukr__region {
-  }
 
-  .mapukr__region a.is-fill .mapukr__fill,
-  .mapukr__region a:hover .mapukr__fill {
-    fill: #fff0f3;
-    stroke: #fea3b7;
+  .nameobl {
+    position: absolute;
+    border-radius: 0.5435rem 0.13588rem 0.5435rem 0.5435rem;
+    box-shadow: 0 0.1359rem 0.4076rem 0 rgba(0, 0, 0, 0.12);
+    background-color: var(--cr);
+    transform: translate(-100%, -25%);
+    padding: 0.27175rem 0.81519rem;
+    color: var(--cw);
+    font-size: 0.81519rem;
+    font-weight: 600;
+    line-height: 1.33;
+    pointer-events: none;
+    transition: all 0.15s ease-in;
+    opacity: 0;
+    visibility: hidden;
+    &.isVisbl {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
 

@@ -50,6 +50,60 @@ function centerRegionNames() {
   });
 }
 
+function checkRegionDisabled() {
+  const regions = document.querySelectorAll('.mapukr__region');
+
+  regions?.forEach(region => {
+    const disabledRegion = region.dataset.disabled;
+    if (disabledRegion) {
+      region.classList.add('isDisabledObl');
+    }
+  });
+}
+
+function handleRegionChoose() {
+  const regions = document.querySelectorAll('.mapukr__region');
+
+  let activeRegion = document.querySelector('.mapukr__region.isCurrentObl');
+
+  regions?.forEach(region => {
+    const bringToFront = () => {
+      const parent = region.parentNode;
+      parent.appendChild(region);
+    };
+
+    const containDisabled = region.classList.contains('isDisabledObl');
+
+    region.addEventListener('click', e => {
+      bringToFront();
+
+      const targetRegion = e.target.closest('.mapukr__region');
+
+      if (activeRegion && activeRegion !== targetRegion && !containDisabled) {
+        const prevNameElement = document.querySelector(
+          `.nameobl[data-region="${activeRegion.id}"]`
+        );
+        activeRegion.classList.remove('isCurrentObl');
+        prevNameElement?.classList.remove('currentName');
+        prevNameElement?.classList.remove('hoverName');
+      }
+
+      if (!containDisabled) {
+        const nameElement = document.querySelector(
+          `.nameobl[data-region="${targetRegion.id}"]`
+        );
+
+        nameElement.classList.add('currentName');
+        targetRegion.classList.add('isCurrentObl');
+
+        activeRegion = targetRegion;
+
+        console.log(targetRegion.id);
+      }
+    });
+  });
+}
+
 function updateRegionVisibility() {
   const regions = document.querySelectorAll('.mapukr__region');
 
@@ -64,13 +118,15 @@ function updateRegionVisibility() {
       `.nameobl[data-region="${regionId}"]`
     );
 
-    if (!nameElement) return;
-
-    if (region.classList.contains('isCurrent')) {
+    if (region.classList.contains('isCurrentObl')) {
       bringToFront();
-      nameElement.classList.add('isVisbl');
+      nameElement.classList.add('currentName');
+    } else if (region.classList.contains('isHoverObl')) {
+      bringToFront();
+      nameElement.classList.add('hoverName');
     } else {
-      nameElement.classList.remove('isVisbl');
+      nameElement.classList.remove('currentName');
+      nameElement.classList.remove('hoverName');
     }
   });
 }
@@ -79,20 +135,17 @@ function enableRegionHoverEffect() {
   const regions = document.querySelectorAll('.mapukr__region');
 
   regions?.forEach(region => {
-    let isCurrent = false;
+    const containDisabled = region.classList.contains('isDisabledObl');
 
     const handleMouseEnter = () => {
-      if (!region.classList.contains('isCurrent')) {
-        isCurrent = true;
-        region.classList.add('isCurrent');
+      if (!containDisabled) {
+        region.classList.add('isHoverObl');
         updateRegionVisibility();
       }
     };
     const handleMouseLeave = () => {
-      if (isCurrent) {
-        region.classList.remove('isCurrent');
-        updateRegionVisibility();
-      }
+      region.classList.remove('isHoverObl');
+      updateRegionVisibility();
     };
 
     const updateListeners = () => {
@@ -115,6 +168,8 @@ function enableRegionHoverEffect() {
 
 function initMap() {
   centerRegionNames();
+  checkRegionDisabled();
+  handleRegionChoose();
   enableRegionHoverEffect();
   updateRegionVisibility();
 

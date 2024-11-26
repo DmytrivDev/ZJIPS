@@ -14,10 +14,22 @@
     }
   }
   .mapukr__region {
-    &.isCurrent {
+    &.isCurrentObl {
       .mapukr__fill {
         fill: #fff0f3;
         stroke: #fea3b7;
+      }
+    }
+    &.isHoverObl {
+      .mapukr__fill {
+        fill: #fff0f3;
+        stroke: #fea3b7;
+      }
+    }
+    &.isDisabledObl {
+      .mapukr__fill {
+        cursor: no-drop;
+        fill: #e7e7e7;
       }
     }
   }
@@ -33,10 +45,10 @@
     position: absolute;
     border-radius: 0.5435rem 0.13588rem 0.5435rem 0.5435rem;
     box-shadow: 0 0.1359rem 0.4076rem 0 rgba(0, 0, 0, 0.12);
-    background-color: var(--cr);
+    background-color: var(--cw);
+    color: var(--cr);
     transform: translate(-100%, -25%);
     padding: 0.27175rem 0.81519rem;
-    color: var(--cw);
     font-size: 0.81519rem;
     font-weight: 600;
     line-height: 1.33;
@@ -44,9 +56,18 @@
     transition: all 0.15s ease-in;
     opacity: 0;
     visibility: hidden;
-    &.isVisbl {
+
+    &.currentName {
       opacity: 1;
       visibility: visible;
+      color: var(--cw) !important;
+      background-color: var(--cr) !important;
+    }
+    &.hoverName {
+      opacity: 1;
+      visibility: visible;
+      color: var(--cr);
+      background-color: var(--cw);
     }
   }
 }

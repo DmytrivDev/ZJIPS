@@ -71,63 +71,26 @@ function handleRegionChoose() {
       const parent = region.parentNode;
       parent.appendChild(region);
     };
-
     const containDisabled = region.classList.contains('isDisabledObl');
 
     region.addEventListener('click', e => {
       bringToFront();
-
       const targetRegion = e.target.closest('.mapukr__region');
 
-      if (activeRegion && activeRegion !== targetRegion && !containDisabled) {
-        const prevNameElement = document.querySelector(
-          `.nameobl[data-region="${activeRegion.id}"]`
-        );
+      if (activeRegion !== targetRegion && !containDisabled) {
         activeRegion.classList.remove('isCurrentObl');
-        prevNameElement?.classList.remove('currentName');
-        prevNameElement?.classList.remove('hoverName');
+        activeRegion.classList.remove('isHoverObl');
       }
 
       if (!containDisabled) {
-        const nameElement = document.querySelector(
-          `.nameobl[data-region="${targetRegion.id}"]`
-        );
-
-        nameElement.classList.add('currentName');
         targetRegion.classList.add('isCurrentObl');
-
         activeRegion = targetRegion;
 
         console.log(targetRegion.id);
       }
+
+      updateRegionVisibility();
     });
-  });
-}
-
-function updateRegionVisibility() {
-  const regions = document.querySelectorAll('.mapukr__region');
-
-  regions?.forEach(region => {
-    const bringToFront = () => {
-      const parent = region.parentNode;
-      parent.appendChild(region);
-    };
-
-    const regionId = region.id;
-    const nameElement = document.querySelector(
-      `.nameobl[data-region="${regionId}"]`
-    );
-
-    if (region.classList.contains('isCurrentObl')) {
-      bringToFront();
-      nameElement.classList.add('currentName');
-    } else if (region.classList.contains('isHoverObl')) {
-      bringToFront();
-      nameElement.classList.add('hoverName');
-    } else {
-      nameElement.classList.remove('currentName');
-      nameElement.classList.remove('hoverName');
-    }
   });
 }
 
@@ -163,6 +126,36 @@ function enableRegionHoverEffect() {
     updateListeners();
 
     window.addEventListener('resize', updateListeners);
+  });
+}
+
+function updateRegionVisibility() {
+  const regions = document.querySelectorAll('.mapukr__region');
+
+  regions?.forEach(region => {
+    const bringToFront = () => {
+      const parent = region.parentNode;
+      parent.appendChild(region);
+    };
+
+    const regionId = region.id;
+    const nameElement = document.querySelector(
+      `.nameobl[data-region="${regionId}"]`
+    );
+
+    if (region.classList.contains('isCurrentObl')) {
+      bringToFront();
+      nameElement.classList.add('currentName');
+    } else {
+      nameElement.classList.remove('currentName');
+    }
+
+    if (region.classList.contains('isHoverObl')) {
+      bringToFront();
+      nameElement.classList.add('hoverName');
+    } else {
+      nameElement.classList.remove('hoverName');
+    }
   });
 }
 

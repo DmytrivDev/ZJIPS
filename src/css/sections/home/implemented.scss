@@ -43,6 +43,7 @@
 
   .nameobl {
     position: absolute;
+    z-index: 1;
     border-radius: 0.5435rem 0.13588rem 0.5435rem 0.5435rem;
     box-shadow: 0 0.1359rem 0.4076rem 0 rgba(0, 0, 0, 0.12);
     background-color: var(--cw);
@@ -64,6 +65,7 @@
       background-color: var(--cr) !important;
     }
     &.hoverName {
+      z-index: 2;
       opacity: 1;
       visibility: visible;
       color: var(--cr);

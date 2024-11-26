@@ -33,14 +33,3 @@ articleSplide?.forEach(container => {
     speed: 500,
   });
 });
-
-// const articleSplide = document.querySelectorAll('.article__splide');
-// articleSplide?.forEach(container => {
-//   initSlider(container, {
-//     perPage: 1,
-//     breakpoints: {
-//       960: {},
-//       500: {},
-//     },
-//   });
-// });

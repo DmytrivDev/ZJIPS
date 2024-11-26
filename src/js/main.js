@@ -15,3 +15,4 @@ import './parts/pagination.js';
 import './parts/partners.js';
 import './parts/team.js';
 import './parts/mapukr.js';
+import './parts/splidemap.js';

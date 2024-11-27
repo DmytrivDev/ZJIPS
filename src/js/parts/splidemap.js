@@ -61,7 +61,12 @@ const mapukrFirst = document.getElementById('mapukr-slider-first');
 const sliderFirst = new Splide(mapukrFirst, {
   type: 'fade',
   perPage: 1,
-  pagination: false,
+  pagination: false, // Отключаем пагинацию
+  arrows: false, // Убираем стрелки
+  drag: false, // Отключаем перетаскивание слайда мышью
+  swipe: false, // Отключаем свайпы на мобильных устройствах
+  keyboard: false, // Отключаем управление стрелками клавиатуры
+  wheel: false, // Отключаем прокрутку колесом мыши
   updateOnMove: true,
 }).mount();
 
@@ -70,8 +75,29 @@ const sliderSecond = new Splide(mapukrSecond, {
   type: 'fade',
   perPage: 1,
   pagination: false,
+  arrows: false,
+  drag: false,
+  swipe: false,
+  keyboard: false,
+  wheel: false,
   updateOnMove: true,
 }).mount();
+
+const syncSliders = newIndex => {
+  sliderFirst.go(newIndex);
+  sliderSecond.go(newIndex);
+};
+
+export function handleRegionClick(regionId) {
+  const slides = sliderFirst.Components.Slides;
+
+  slides.forEach((slide, index) => {
+    const slideId = slide.slide?.dataset.id;
+    if (slideId === regionId) {
+      syncSliders(index);
+    }
+  });
+}
 
 const firstChild = mapukrFirst.querySelectorAll('.splide');
 firstChild.forEach(child => {
@@ -79,6 +105,10 @@ firstChild.forEach(child => {
     type: 'slide',
     perPage: 1,
     pagination: false,
+    drag: false,
+    swipe: false,
+    keyboard: false,
+    wheel: false,
     updateOnMove: true,
   }).mount();
 });
@@ -89,6 +119,10 @@ secondChild.forEach(child => {
     type: 'slide',
     perPage: 1,
     pagination: false,
+    drag: false,
+    swipe: false,
+    keyboard: false,
+    wheel: false,
     updateOnMove: true,
   }).mount();
 });

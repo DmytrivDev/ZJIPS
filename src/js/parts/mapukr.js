@@ -1,3 +1,5 @@
+import { handleRegionClick } from './splidemap.js';
+
 function centerRegionNames() {
   const mapContainer = document.querySelector('.mapukr');
   if (!mapContainer) return;
@@ -86,6 +88,7 @@ function handleRegionChoose() {
         targetRegion.classList.add('isCurrentObl');
         activeRegion = targetRegion;
 
+        handleRegionClick(targetRegion.id);
         console.log(targetRegion.id);
       }
 

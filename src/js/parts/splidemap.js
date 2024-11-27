@@ -26,10 +26,10 @@ const optionsChildSliders = {
   arrows: false,
   drag: false,
   swipe: false,
+  keyboard: false,
   wheel: false,
-  // autoplay: true,
+  autoplay: true,
   interval: 4000,
-  resetProgress: true,
   pauseOnHover: false,
 };
 
@@ -105,11 +105,66 @@ secondChildSliders?.forEach((child, index) => {
 
 // Функция для сброса дочерних слайдов на первый
 function resetChildSliders() {
-  setTimeout(() => {
-    childSlidersFirst.forEach(slider => slider.go(0));
-    childSlidersSecond.forEach(slider => slider.go(0));
-  }, 300);
+  childSlidersFirst.forEach((slider, index) => {
+    slider.destroy(); // Уничтожаем текущий экземпляр
+    const sliderElement = firstChildSliders[index]; // DOM-элемент
+    const newSlider = new Splide(sliderElement, {
+      ...optionsChildSliders,
+    }).mount();
+
+    // Привязка события обновления номера слайда
+    newSlider.on('move', () => {
+      updateSlideNumber(index); // Обновляем номер слайда
+    });
+    childSlidersFirst[index] = newSlider; // Сохраняем новый экземпляр
+  });
+
+  childSlidersSecond.forEach((slider, index) => {
+    slider.destroy();
+    const sliderElement = secondChildSliders[index];
+    const newSlider = new Splide(sliderElement, {
+      ...optionsChildSliders,
+    }).mount();
+
+    newSlider.on('move', () => {
+      updateSlideNumber(index);
+    });
+    childSlidersSecond[index] = newSlider;
+  });
+
+  updateSlideNumber(currentParentIndex);
 }
+
+// Функция для управления автопрокруткой
+function toggleAutoplay(sliders, isPaused) {
+  sliders.forEach(slider => {
+    if (slider.Components.Autoplay) {
+      if (isPaused) {
+        slider.Components.Autoplay.pause(); // Ставим на паузу
+      } else {
+        slider.Components.Autoplay.play(); // Возобновляем
+      }
+    }
+  });
+}
+
+// Функция для остановки или запуска автопрокрутки для всех слайдеров
+function handleAutoplay(isPaused) {
+  toggleAutoplay(childSlidersFirst, isPaused);
+  toggleAutoplay(childSlidersSecond, isPaused);
+}
+
+[mapukrFirst, mapukrSecond].forEach(sliderElement => {
+  if (sliderElement) {
+    sliderElement.addEventListener('mouseenter', () => {
+      handleAutoplay(true);
+    });
+
+    sliderElement.addEventListener('mouseleave', () => {
+      handleAutoplay(false);
+    });
+  }
+});
 
 // Синхронизация дочерних слайдеров
 function syncChildSliders(index, direction) {

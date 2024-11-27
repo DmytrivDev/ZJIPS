@@ -82,17 +82,15 @@ function handleRegionChoose() {
       if (activeRegion !== targetRegion && !containDisabled) {
         activeRegion.classList.remove('isCurrentObl');
         activeRegion.classList.remove('isHoverObl');
-      }
 
-      if (!containDisabled) {
         targetRegion.classList.add('isCurrentObl');
         activeRegion = targetRegion;
 
         handleRegionClick(targetRegion.id);
         console.log(targetRegion.id);
-      }
 
-      updateRegionVisibility();
+        updateRegionVisibility();
+      }
     });
   });
 }

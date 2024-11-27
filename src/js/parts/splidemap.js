@@ -27,7 +27,7 @@ const optionsChildSliders = {
   drag: false,
   swipe: false,
   wheel: false,
-  autoplay: true,
+  // autoplay: true,
   interval: 4000,
   resetProgress: true,
   pauseOnHover: false,
@@ -38,13 +38,19 @@ const optionsChildSliders = {
 const mapukrFirst = document.getElementById('mapukr-slider-first');
 const mapukrSecond = document.getElementById('mapukr-slider-second');
 
-const sliderFirst = new Splide(mapukrFirst, {
-  ...optionsMapukrFirst,
-}).mount();
+let sliderFirst;
+if (mapukrFirst) {
+  sliderFirst = new Splide(mapukrFirst, {
+    ...optionsMapukrFirst,
+  }).mount();
+}
 
-const sliderSecond = new Splide(mapukrSecond, {
-  ...optionsMapukrFirst,
-}).mount();
+let sliderSecond;
+if (mapukrSecond) {
+  sliderSecond = new Splide(mapukrSecond, {
+    ...optionsMapukrFirst,
+  }).mount();
+}
 
 function syncSliders(newIndex) {
   sliderFirst.go(newIndex);
@@ -65,15 +71,15 @@ export function handleRegionClick(regionId) {
 
 // ChildSliders ==============================================
 
-const firstChildSliders = mapukrFirst.querySelectorAll('.splide');
-const secondChildSliders = mapukrSecond.querySelectorAll('.splide');
+const firstChildSliders = mapukrFirst?.querySelectorAll('.splide');
+const secondChildSliders = mapukrSecond?.querySelectorAll('.splide');
 
 // Массивы для хранения дочерних слайдеров
 const childSlidersFirst = [];
 const childSlidersSecond = [];
 
 // Инициализация дочерних слайдеров
-firstChildSliders.forEach((child, index) => {
+firstChildSliders?.forEach((child, index) => {
   const childSlider = new Splide(child, {
     ...optionsChildSliders,
   }).mount();
@@ -85,7 +91,7 @@ firstChildSliders.forEach((child, index) => {
   childSlidersFirst[index] = childSlider;
 });
 
-secondChildSliders.forEach((child, index) => {
+secondChildSliders?.forEach((child, index) => {
   const childSlider = new Splide(child, {
     ...optionsChildSliders,
   }).mount();
@@ -111,39 +117,41 @@ function syncChildSliders(index, direction) {
   childSlidersSecond[index].go(direction);
 }
 
-const prevButton = implementedSec.querySelector('.arrows__prev');
-const nextButton = implementedSec.querySelector('.arrows__next');
+const prevButton = implementedSec?.querySelector('.arrows__prev');
+const nextButton = implementedSec?.querySelector('.arrows__next');
 
 // Текущее состояние главного слайдера
 let currentParentIndex = 0;
 
 function updateSlideNumber(parentIndex) {
-  const currentChildSlider = childSlidersFirst[parentIndex];
-  const currentIndex = currentChildSlider.index + 1;
-  const totalSlides = currentChildSlider.Components.Elements.slides.length;
+  if (childSlidersFirst.length !== 0) {
+    const currentChildSlider = childSlidersFirst[parentIndex];
+    const currentIndex = currentChildSlider.index + 1;
+    const totalSlides = currentChildSlider.Components.Elements.slides.length;
 
-  const parentSlide = firstChildSliders[parentIndex];
+    const parentSlide = firstChildSliders[parentIndex];
 
-  const arrowsNumber = parentSlide
-    .closest('.splide__slide')
-    .querySelector('.arrows__number');
+    const arrowsNumber = parentSlide
+      .closest('.splide__slide')
+      .querySelector('.arrows__number');
 
-  if (arrowsNumber) {
-    arrowsNumber.textContent = `${currentIndex}/${totalSlides}`;
+    if (arrowsNumber) {
+      arrowsNumber.textContent = `${currentIndex}/${totalSlides}`;
+    }
   }
 }
 
-prevButton.addEventListener('click', () => {
+prevButton?.addEventListener('click', () => {
   syncChildSliders(currentParentIndex, '<');
   updateSlideNumber(currentParentIndex);
 });
 
-nextButton.addEventListener('click', () => {
+nextButton?.addEventListener('click', () => {
   syncChildSliders(currentParentIndex, '>');
   updateSlideNumber(currentParentIndex);
 });
 
-sliderFirst.on('moved', newIndex => {
+sliderFirst?.on('moved', newIndex => {
   currentParentIndex = newIndex;
   updateSlideNumber(currentParentIndex);
 });

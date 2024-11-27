@@ -22,7 +22,7 @@ export const initSlider = (container, options = {}) => {
 
   const updateSlideState = () => {
     const totalSlides = Math.ceil(
-      splide.Components.Elements.slides.length / splide.options.perPage
+      splide.Components.Slides.getLength() / splide.options.perPage
     );
     const currentIndex = Math.ceil(splide.index / splide.options.perPage) + 1;
 

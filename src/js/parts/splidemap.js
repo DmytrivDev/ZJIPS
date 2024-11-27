@@ -1,65 +1,13 @@
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
 
-const initSliderMap = (container, options = {}) => {
-  const sliderElement = container.querySelector('.splide');
-  if (!sliderElement) return;
-
-  const splide = new Splide(sliderElement, {
-    type: 'slide',
-    speed: 1000,
-    pagination: false,
-    updateOnMove: true,
-
-    ...options,
-  }).mount();
-
-  const arrows = {
-    next: container.querySelector('.arrows__next'),
-    prev: container.querySelector('.arrows__prev'),
-    number: container.querySelector('.arrows__number'),
-  };
-
-  const updateSlideState = () => {
-    const totalSlides = Math.ceil(
-      splide.Components.Slides.getLength() / splide.options.perPage
-    );
-    const currentIndex = Math.ceil(splide.index / splide.options.perPage) + 1;
-
-    const isAtStart = splide.index === 0;
-    const isAtEnd = splide.index === splide.Components.Controller.getEnd();
-
-    if (arrows.next && arrows.prev) {
-      arrows.next.disabled = isAtEnd;
-      arrows.prev.disabled = isAtStart;
-      arrows.next.classList.toggle('isDisabled', isAtEnd);
-      arrows.prev.classList.toggle('isDisabled', isAtStart);
-    }
-
-    if (arrows.number) {
-      arrows.number.textContent = `${currentIndex}/${totalSlides}`;
-    }
-  };
-
-  arrows.next?.addEventListener('click', () => splide.go('>'));
-  arrows.prev?.addEventListener('click', () => splide.go('<'));
-
-  if (splide.options.type === 'fade') {
-    splide.on('moved', updateSlideState);
-  } else {
-    splide.on('move', updateSlideState);
-  }
-
-  window.addEventListener('resize', updateSlideState);
-
-  updateSlideState();
-};
-
 const implementedSec = document.querySelector('.implemented');
 
-const mapukrFirst = document.getElementById('mapukr-slider-first');
-const sliderFirst = new Splide(mapukrFirst, {
+// optionsSliders ======================================================
+
+const optionsMapukrFirst = {
   type: 'fade',
+  speed: 300,
   perPage: 1,
   pagination: false, // Отключаем пагинацию
   arrows: false, // Убираем стрелки
@@ -68,25 +16,40 @@ const sliderFirst = new Splide(mapukrFirst, {
   keyboard: false, // Отключаем управление стрелками клавиатуры
   wheel: false, // Отключаем прокрутку колесом мыши
   updateOnMove: true,
-}).mount();
-
-const mapukrSecond = document.getElementById('mapukr-slider-second');
-const sliderSecond = new Splide(mapukrSecond, {
-  type: 'fade',
+};
+const optionsChildSliders = {
+  type: 'loop',
+  speed: 500,
+  loop: true,
   perPage: 1,
   pagination: false,
   arrows: false,
   drag: false,
   swipe: false,
-  keyboard: false,
   wheel: false,
-  updateOnMove: true,
+  autoplay: true,
+  interval: 4000,
+  resetProgress: true,
+  pauseOnHover: false,
+};
+
+// mapukrSliders ======================================================
+
+const mapukrFirst = document.getElementById('mapukr-slider-first');
+const mapukrSecond = document.getElementById('mapukr-slider-second');
+
+const sliderFirst = new Splide(mapukrFirst, {
+  ...optionsMapukrFirst,
 }).mount();
 
-const syncSliders = newIndex => {
+const sliderSecond = new Splide(mapukrSecond, {
+  ...optionsMapukrFirst,
+}).mount();
+
+function syncSliders(newIndex) {
   sliderFirst.go(newIndex);
   sliderSecond.go(newIndex);
-};
+}
 
 export function handleRegionClick(regionId) {
   const slides = sliderFirst.Components.Slides;
@@ -95,34 +58,95 @@ export function handleRegionClick(regionId) {
     const slideId = slide.slide?.dataset.id;
     if (slideId === regionId) {
       syncSliders(index);
+      resetChildSliders();
     }
   });
 }
 
-const firstChild = mapukrFirst.querySelectorAll('.splide');
-firstChild.forEach(child => {
-  const sliderChild = new Splide(child, {
-    type: 'slide',
-    perPage: 1,
-    pagination: false,
-    drag: false,
-    swipe: false,
-    keyboard: false,
-    wheel: false,
-    updateOnMove: true,
+// ChildSliders ==============================================
+
+const firstChildSliders = mapukrFirst.querySelectorAll('.splide');
+const secondChildSliders = mapukrSecond.querySelectorAll('.splide');
+
+// Массивы для хранения дочерних слайдеров
+const childSlidersFirst = [];
+const childSlidersSecond = [];
+
+// Инициализация дочерних слайдеров
+firstChildSliders.forEach((child, index) => {
+  const childSlider = new Splide(child, {
+    ...optionsChildSliders,
   }).mount();
+
+  childSlider.on('move', () => {
+    updateSlideNumber(index);
+  });
+
+  childSlidersFirst[index] = childSlider;
 });
 
-const secondChild = mapukrSecond.querySelectorAll('.splide');
-secondChild.forEach(child => {
-  const sliderChild = new Splide(child, {
-    type: 'slide',
-    perPage: 1,
-    pagination: false,
-    drag: false,
-    swipe: false,
-    keyboard: false,
-    wheel: false,
-    updateOnMove: true,
+secondChildSliders.forEach((child, index) => {
+  const childSlider = new Splide(child, {
+    ...optionsChildSliders,
   }).mount();
+
+  childSlider.on('move', () => {
+    updateSlideNumber(index);
+  });
+
+  childSlidersSecond[index] = childSlider;
 });
+
+// Функция для сброса дочерних слайдов на первый
+function resetChildSliders() {
+  setTimeout(() => {
+    childSlidersFirst.forEach(slider => slider.go(0));
+    childSlidersSecond.forEach(slider => slider.go(0));
+  }, 300);
+}
+
+// Синхронизация дочерних слайдеров
+function syncChildSliders(index, direction) {
+  childSlidersFirst[index].go(direction);
+  childSlidersSecond[index].go(direction);
+}
+
+const prevButton = implementedSec.querySelector('.arrows__prev');
+const nextButton = implementedSec.querySelector('.arrows__next');
+
+// Текущее состояние главного слайдера
+let currentParentIndex = 0;
+
+function updateSlideNumber(parentIndex) {
+  const currentChildSlider = childSlidersFirst[parentIndex];
+  const currentIndex = currentChildSlider.index + 1;
+  const totalSlides = currentChildSlider.Components.Elements.slides.length;
+
+  const parentSlide = firstChildSliders[parentIndex];
+
+  const arrowsNumber = parentSlide
+    .closest('.splide__slide')
+    .querySelector('.arrows__number');
+
+  if (arrowsNumber) {
+    arrowsNumber.textContent = `${currentIndex}/${totalSlides}`;
+  }
+}
+
+prevButton.addEventListener('click', () => {
+  syncChildSliders(currentParentIndex, '<');
+  updateSlideNumber(currentParentIndex);
+});
+
+nextButton.addEventListener('click', () => {
+  syncChildSliders(currentParentIndex, '>');
+  updateSlideNumber(currentParentIndex);
+});
+
+sliderFirst.on('moved', newIndex => {
+  currentParentIndex = newIndex;
+  updateSlideNumber(currentParentIndex);
+});
+
+// Инициализация начального состояния `arrows__number`
+updateSlideNumber(0);

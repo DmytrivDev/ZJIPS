@@ -9,6 +9,7 @@ const optionsMapukrFirst = {
   type: 'fade',
   speed: 300,
   perPage: 1,
+  perMove: 1,
   pagination: false, // Отключаем пагинацию
   arrows: false, // Убираем стрелки
   drag: false, // Отключаем перетаскивание слайда мышью
@@ -19,9 +20,11 @@ const optionsMapukrFirst = {
 };
 const optionsChildSliders = {
   type: 'loop',
-  speed: 500,
+  speed: 700,
   loop: true,
   perPage: 1,
+  perMove: 1,
+  gap: '1rem',
   pagination: false,
   arrows: false,
   drag: false,
@@ -191,7 +194,7 @@ function updateSlideNumber(parentIndex) {
       .querySelector('.arrows__number');
 
     if (arrowsNumber) {
-      arrowsNumber.textContent = `${currentIndex}/${totalSlides}`;
+      arrowsNumber.textContent = `${currentIndex} / ${totalSlides}`;
     }
   }
 }

@@ -57,7 +57,7 @@ function checkRegionDisabled() {
 
   regions?.forEach(region => {
     const disabledRegion = region.dataset.disabled;
-    if (disabledRegion) {
+    if (disabledRegion === 'true') {
       region.classList.add('isDisabledObl');
     }
   });

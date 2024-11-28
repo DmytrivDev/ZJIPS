@@ -1,78 +1,173 @@
 .implemented {
-	.mapukr {
-		position: relative;
-		max-width: 37.5rem;
-		width: 100%;
-		height: 0;
-		padding-bottom: 32%;
-		svg {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-	}
-	.mapukr__region {
-		&.isCurrentObl {
-			.mapukr__fill {
-				fill: #fff0f3;
-				stroke: #fea3b7;
-			}
-		}
-		&.isHoverObl {
-			.mapukr__fill {
-				fill: #fff0f3;
-				stroke: #fea3b7;
-			}
-		}
-		&.isDisabledObl {
-			.mapukr__fill {
-				cursor: default;
-				fill: #e7e7e7;
-			}
-		}
-	}
-	.mapukr__fill {
-		cursor: pointer;
-		fill: #f6f6f6;
-		stroke: #d1d1d1;
-		stroke-width: 1.087;
-		transition: all 0.15s ease-in;
-	}
+  &__container {
+  }
+  &__body {
+    display: grid;
+    align-items: start;
+    grid-template-columns: 25.5rem 45.6875rem;
+    justify-content: space-between;
+    gap: 3rem;
+  }
 
-	.nameobl {
-		position: absolute;
-		z-index: 1;
-		border-radius: 0.5435rem 0.13588rem 0.5435rem 0.5435rem;
-		box-shadow: 0 0.1359rem 0.4076rem 0 rgba(0, 0, 0, 0.12);
-		background-color: var(--cw);
-		color: var(--cr);
-		transform: translate(-100%, -25%);
-		padding: 0.27175rem 0.81519rem;
-		font-size: 0.81519rem;
-		font-weight: 600;
-		line-height: 1.33;
-		pointer-events: none;
-		transition: all 0.15s ease-in;
-		opacity: 0;
-		visibility: hidden;
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    min-height: 39.5625rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 1.5rem;
+    border: 0.0625rem solid var(--cl);
+    background-color: var(--cw3);
 
-		&.currentName {
-			opacity: 1;
-			visibility: visible;
-			color: var(--cw) !important;
-			background-color: var(--cr) !important;
-		}
-		&.hoverName {
-			z-index: 2;
-			opacity: 1;
-			visibility: visible;
-		}
-	}
+    & > .title2 {
+      flex: 1 1 auto;
+      margin-bottom: 6rem;
+    }
+
+    .arrows {
+    }
+  }
+}
+
+#mapukr-slider-first {
+  width: 100%;
+  margin-bottom: 3.5rem;
+
+  .splide__slide {
+    display: flex;
+    flex-direction: column;
+    & > p {
+      display: flex;
+      justify-content: space-between;
+      color: var(--cf2) !important;
+      font-size: 0.75rem !important;
+      line-height: 1.33;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 0.0625rem solid var(--cl);
+    }
+
+    .splide__slide {
+      & > .title2 {
+        color: var(--cr);
+        margin-bottom: 0.5rem;
+      }
+      & > .mapukr__desc {
+        color: var(--cf2);
+        font-size: 0.875rem;
+        line-height: 1.42;
+      }
+    }
+  }
+}
+#mapukr-slider-second {
+  width: 100%;
+  .splide__slide {
+    .splide__slide {
+      display: flex;
+      flex-direction: column;
+      .title4 {
+        flex: 1 1 auto;
+        margin-bottom: 2rem;
+      }
+      .tenderhome__btns {
+      }
+    }
+  }
+}
+
+.slider__map {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  .mapukr {
+    position: relative;
+    width: 100%;
+    max-width: 37.5rem;
+    height: 25rem;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .mapukr__region {
+    &.isCurrentObl {
+      .mapukr__fill {
+        fill: #fff0f3;
+        stroke: #fea3b7;
+      }
+    }
+    &.isHoverObl {
+      .mapukr__fill {
+        fill: #fff0f3;
+        stroke: #fea3b7;
+      }
+    }
+    &.isDisabledObl {
+      .mapukr__fill {
+        cursor: default;
+        fill: #e7e7e7;
+      }
+    }
+  }
+  .mapukr__fill {
+    cursor: pointer;
+    fill: #f6f6f6;
+    stroke: #d1d1d1;
+    stroke-width: 1.087;
+    transition: all 0.15s ease-in;
+  }
+
+  .nameobl {
+    position: absolute;
+    z-index: 1;
+    border-radius: 0.5435rem 0.13588rem 0.5435rem 0.5435rem;
+    box-shadow: 0 0.1359rem 0.4076rem 0 rgba(0, 0, 0, 0.12);
+    background-color: var(--cw);
+    color: var(--cr);
+    transform: translate(-100%, -25%);
+    padding: 0.27175rem 0.81519rem;
+    font-size: 0.81519rem;
+    font-weight: 600;
+    line-height: 1.33;
+    pointer-events: none;
+    transition: all 0.15s ease-in;
+    opacity: 0;
+    visibility: hidden;
+
+    &.currentName {
+      opacity: 1;
+      visibility: visible;
+      color: var(--cw) !important;
+      background-color: var(--cr) !important;
+    }
+    &.hoverName {
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
 @media screen and (max-width: 960px) {
-	.implemented {
-	}
+  .implemented {
+    &__body {
+      align-items: stretch;
+      grid-template-columns: 100%;
+      justify-content: stretch;
+    }
+  }
+
+  .slider__map {
+    .mapukr {
+      max-width: 100%;
+      height: auto;
+      padding-bottom: 66.5%;
+    }
+  }
 }

@@ -68,6 +68,7 @@ export function handleRegionClick(regionId) {
     if (slideId === regionId) {
       syncSliders(index);
       resetChildSliders();
+      resetLoaderAnimation();
     }
   });
 }
@@ -76,6 +77,11 @@ export function handleRegionClick(regionId) {
 
 const firstChildSliders = mapukrFirst?.querySelectorAll('.splide');
 const secondChildSliders = mapukrSecond?.querySelectorAll('.splide');
+
+const prevButton = implementedSec?.querySelector('.arrows__prev');
+const nextButton = implementedSec?.querySelector('.arrows__next');
+
+const loaderWrap = nextButton?.querySelector('.loader-wrap');
 
 // Массивы для хранения дочерних слайдеров
 const childSlidersFirst = [];
@@ -105,6 +111,7 @@ secondChildSliders?.forEach((child, index) => {
 
   childSlidersSecond[index] = childSlider;
 });
+console.log(childSlidersFirst);
 
 // Функция для сброса дочерних слайдов на первый
 function resetChildSliders() {
@@ -141,12 +148,10 @@ function resetChildSliders() {
 // Функция для управления автопрокруткой
 function toggleAutoplay(sliders, isPaused) {
   sliders.forEach(slider => {
-    if (slider.Components.Autoplay) {
-      if (isPaused) {
-        slider.Components.Autoplay.pause(); // Ставим на паузу
-      } else {
-        slider.Components.Autoplay.play(); // Возобновляем
-      }
+    if (isPaused) {
+      slider.Components.Autoplay.pause(); // Ставим на паузу
+    } else {
+      slider.Components.Autoplay.play(); // Возобновляем
     }
   });
 }
@@ -155,6 +160,25 @@ function toggleAutoplay(sliders, isPaused) {
 function handleAutoplay(isPaused) {
   toggleAutoplay(childSlidersFirst, isPaused);
   toggleAutoplay(childSlidersSecond, isPaused);
+
+  const loaders = loaderWrap?.querySelectorAll('div');
+  loaders?.forEach(load => {
+    if (isPaused) {
+      load.style.animation = 'none';
+    } else {
+      void load.offsetWidth;
+      load.style.animation = '';
+    }
+  });
+}
+
+function resetLoaderAnimation() {
+  const loaders = loaderWrap?.querySelectorAll('div');
+  loaders?.forEach(load => {
+    load.style.animation = 'none';
+    void load.offsetWidth;
+    load.style.animation = '';
+  });
 }
 
 [mapukrFirst, mapukrSecond].forEach(sliderElement => {
@@ -174,9 +198,6 @@ function syncChildSliders(index, direction) {
   childSlidersFirst[index].go(direction);
   childSlidersSecond[index].go(direction);
 }
-
-const prevButton = implementedSec?.querySelector('.arrows__prev');
-const nextButton = implementedSec?.querySelector('.arrows__next');
 
 // Текущее состояние главного слайдера
 let currentParentIndex = 0;
@@ -202,11 +223,13 @@ function updateSlideNumber(parentIndex) {
 prevButton?.addEventListener('click', () => {
   syncChildSliders(currentParentIndex, '<');
   updateSlideNumber(currentParentIndex);
+  resetLoaderAnimation();
 });
 
 nextButton?.addEventListener('click', () => {
   syncChildSliders(currentParentIndex, '>');
   updateSlideNumber(currentParentIndex);
+  resetLoaderAnimation();
 });
 
 sliderFirst?.on('moved', newIndex => {

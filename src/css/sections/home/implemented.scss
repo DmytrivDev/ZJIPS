@@ -24,7 +24,124 @@
     }
 
     .arrows {
+      .arrows__next {
+        position: relative;
+        overflow: hidden;
+        border: 0;
+        &::before {
+          z-index: 11;
+        }
+
+        &.isPausedLoader {
+          .loader-wrap {
+            div {
+              animation-play-state: paused !important;
+            }
+          }
+        }
+      }
+      .loader-wrap {
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          z-index: 10;
+          width: calc(100% - 0.25rem);
+          height: calc(100% - 0.25rem);
+          border-radius: 50%;
+          background-color: var(--cw);
+        }
+
+        div {
+          top: 0;
+          position: absolute;
+          width: 50%;
+          height: 100%;
+        }
+
+        .leftHalf {
+          left: 0;
+          background-color: var(--cw);
+          z-index: 3;
+          opacity: 1;
+          -webkit-animation: showHide 4s infinite steps(1, end);
+          animation: showHide 4s infinite steps(1, end);
+          border-radius: 100% 0 0 100%/ 50% 0 0 50%;
+        }
+
+        .rightHalf {
+          right: 0;
+          background-color: var(--cg);
+          z-index: 1;
+          opacity: 0;
+          -webkit-animation: showHide 4s infinite steps(1, end) reverse;
+          animation: showHide 4s infinite steps(1, end) reverse;
+          border-radius: 0 100% 100% 0/ 0 50% 50% 0;
+        }
+
+        .spinner {
+          left: 0;
+          background-color: var(--cg);
+          -webkit-animation: spin 4s linear infinite;
+          animation: spin 4s linear infinite;
+          -webkit-transform-origin: center right;
+          transform-origin: center right;
+          z-index: 2;
+          border-radius: 100% 0 0 100%/ 50% 0 0 50%;
+        }
+      }
     }
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes showHide {
+  0% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes showHide {
+  0% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
   }
 }
 

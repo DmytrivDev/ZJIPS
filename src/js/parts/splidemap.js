@@ -7,7 +7,7 @@ const implementedSec = document.querySelector('.implemented');
 
 const optionsMapukrFirst = {
   type: 'fade',
-  speed: 300,
+  speed: 1000,
   perPage: 1,
   perMove: 1,
   pagination: false, // Отключаем пагинацию
@@ -20,10 +20,11 @@ const optionsMapukrFirst = {
 };
 const optionsChildSliders = {
   type: 'loop',
-  speed: 700,
+  speed: 1000,
   loop: true,
   perPage: 1,
   perMove: 1,
+  updateOnMove: true,
   gap: '3rem',
   pagination: false,
   arrows: false,

@@ -152,6 +152,7 @@
   .splide__slide {
     display: flex;
     flex-direction: column;
+    
     & > p {
       display: flex;
       justify-content: space-between;
@@ -164,6 +165,13 @@
     }
 
     .splide__slide {
+      opacity: 0;
+      transition: .7s;
+
+      &.is-active {
+        opacity: 1;
+      }
+
       & > .title2 {
         color: var(--cr);
         margin-bottom: 0.5rem;
@@ -182,6 +190,12 @@
     .splide__slide {
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      transition: .7s;
+
+      &.is-active {
+        opacity: 1;
+      }
       .title4 {
         margin-top: auto;
         margin-bottom: 2rem;

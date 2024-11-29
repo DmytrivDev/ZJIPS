@@ -10,6 +10,7 @@
   }
 
   &__aside {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     min-height: 39.5625rem;
@@ -149,10 +150,22 @@
   width: 100%;
   margin-bottom: 3.5rem;
 
+  .splide__list {
+    display: flex;
+  }
+
   .splide__slide {
+    min-width: 100%;
     display: flex;
     flex-direction: column;
-    
+
+    opacity: 0;
+    transition: all 0.15s ease-in;
+
+    &.is-active {
+      opacity: 1;
+    }
+
     & > p {
       display: flex;
       justify-content: space-between;
@@ -165,13 +178,6 @@
     }
 
     .splide__slide {
-      opacity: 0;
-      transition: .7s;
-
-      &.is-active {
-        opacity: 1;
-      }
-
       & > .title2 {
         color: var(--cr);
         margin-bottom: 0.5rem;
@@ -186,12 +192,19 @@
 }
 #mapukr-slider-second {
   width: 100%;
+
+  .splide__list {
+    display: flex;
+  }
+
   .splide__slide {
+    min-width: 100%;
+
     .splide__slide {
       display: flex;
       flex-direction: column;
       opacity: 0;
-      transition: .7s;
+      transition: 0.7s;
 
       &.is-active {
         opacity: 1;

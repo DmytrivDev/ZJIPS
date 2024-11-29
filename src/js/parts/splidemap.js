@@ -24,8 +24,6 @@ const optionsChildSliders = {
   loop: true,
   perPage: 1,
   perMove: 1,
-  updateOnMove: true,
-  gap: '3rem',
   pagination: false,
   arrows: false,
   drag: false,
@@ -35,6 +33,7 @@ const optionsChildSliders = {
   autoplay: true,
   interval: 4000,
   pauseOnHover: false,
+  updateOnMove: true,
 };
 
 // mapukrSliders ======================================================

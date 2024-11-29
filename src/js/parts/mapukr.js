@@ -103,7 +103,6 @@ function handleRegionChoose() {
         activeRegion = targetRegion;
 
         handleRegionClick(targetRegion.id);
-        console.log(targetRegion.id);
 
         updateRegionVisibility();
       }

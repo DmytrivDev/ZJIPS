@@ -1,37 +1,48 @@
 .hero {
+  position: relative;
+  z-index: 1;
   &__container {
   }
+  &__body {
+    position: relative;
+    padding-top: 22.37rem;
+  }
 
-  .title1 {
-    justify-content: start;
-    .tl-part1 {
-      padding-left: 5rem;
+  &__box {
+    position: relative;
+    z-index: 3;
+    margin-left: 32.5625rem;
+
+    .text-page {
+      text-align: start;
+      width: 39rem;
+      max-width: 100%;
     }
-    .tl-part2 {
-      width: 100%;
-      text-align: right;
-      padding-right: 5rem;
-    }
+  }
+
+  &__vec {
+    position: absolute;
+    z-index: 2;
+    top: 2.46rem;
+    right: -27.35rem;
+    width: 69.51838rem;
+  }
+  &__filter {
+    position: absolute;
+    z-index: 1;
+    top: -6.55rem;
+    right: -25.2rem;
+    width: 43.72625rem;
+    height: 43.72625rem;
+    border-radius: 43.72625rem;
+    opacity: 0.56;
+    background-color: var(--ck);
+    filter: blur(7.1329rem);
   }
 }
 
 @media screen and (max-width: 960px) {
   .hero {
-    .title1 {
-      display: block;
-      .tl-part1 {
-        padding-left: 0;
-      }
-      .tl-part2 {
-        width: auto;
-        text-align: start;
-        padding-right: 0;
-      }
-      img {
-        display: inline-block;
-        transform: translateY(0.25rem);
-      }
-    }
   }
 }
 

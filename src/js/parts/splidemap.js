@@ -111,7 +111,6 @@ secondChildSliders?.forEach((child, index) => {
 
   childSlidersSecond[index] = childSlider;
 });
-console.log(childSlidersFirst);
 
 // Функция для сброса дочерних слайдов на первый
 function resetChildSliders() {

@@ -75,6 +75,29 @@
     }
   }
 }
+.orangePage {
+  .bg-page {
+    background: linear-gradient(180deg, #f7e9db -11.13%, #f9f9f9 30.93%);
+  }
+  .mobmenu {
+    .bg-page {
+      background: linear-gradient(180deg, #f7e9db 0%, #fff 32%);
+    }
+  }
+  .mailing__wrapp {
+    background: linear-gradient(180deg, #f7e9db -11.13%, #f9f9f9 30.93%);
+  }
+  .mailing__img {
+    filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(437%)
+      hue-rotate(332deg) brightness(106%) contrast(94%);
+  }
+  .tl-img {
+    img {
+      filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(437%)
+        hue-rotate(332deg) brightness(106%) contrast(94%);
+    }
+  }
+}
 
 .bg-page {
   position: absolute;
@@ -98,11 +121,11 @@
   padding-top: 7.5rem;
 }
 
-[class*="__container-hero_sec"] {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+// [class*="__container-hero_sec"] {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
 
 .title1 {
   color: var(--cn);

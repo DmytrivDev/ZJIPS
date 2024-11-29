@@ -1,4 +1,8 @@
 .implemented {
+  position: relative;
+  z-index: 2;
+  padding-top: 9.5rem;
+
   &__container {
   }
   &__body {
@@ -299,6 +303,8 @@
 
 @media screen and (max-width: 960px) {
   .implemented {
+    padding-top: 16.0625rem;
+
     &__body {
       align-items: stretch;
       grid-template-columns: 100%;

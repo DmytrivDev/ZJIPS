@@ -12,6 +12,8 @@ function centerRegionNames() {
     const regionName = region.dataset.name || regionId;
     const bbox = region.getBBox(); // Размеры и позиция области
 
+    const screenWidth = window.innerWidth >= 960;
+
     // Проверяем, существует ли элемент <p>, чтобы избежать дублирования
     let nameElement = document.querySelector(
       `.nameobl[data-region="${regionId}"]`
@@ -36,19 +38,33 @@ function centerRegionNames() {
     const scaleX = mapContainer.offsetWidth / svgWidth;
     const scaleY = mapContainer.offsetHeight / svgHeight;
 
+    const scale = Math.min(scaleX, scaleY);
+
+    // Установка позиций
     if (regionId === 'Sumy') {
-      nameElement.style.top = `${centerY * scaleY + 15}px`;
-      nameElement.style.left = `${centerX * scaleX - 10}px`;
+      nameElement.style.transform = 'translate(-100%, 45%)';
     } else if (regionId === 'Odesa') {
-      nameElement.style.top = `${centerY * scaleY + 5}px`;
-      nameElement.style.left = `${centerX * scaleX + 25}px`;
-    } else if (regionId === 'Cherkasy' || regionId === 'Kropivnitsky') {
-      nameElement.style.top = `${centerY * scaleY + 5}px`;
-      nameElement.style.left = `${centerX * scaleX + 10}px`;
+      nameElement.style.transform = 'translate(-65%, -25%)';
+    } else if (regionId === 'Cherkasy') {
+      nameElement.style.transform = 'translate(-85%, 15%)';
+    } else if (regionId === 'Kropivnitsky') {
+      nameElement.style.transform = 'translate(-90%, 15%)';
+    } else if (regionId === 'Herson' || regionId === 'Rivne') {
+      nameElement.style.transform = 'translate(-80%, -15%)';
+    } else if (!screenWidth && regionId === 'Ivano-Frankivsk') {
+      nameElement.style.transform = 'translate(5%, -25%)';
+      nameElement.style.borderRadius =
+        '0.07781rem 0.46675rem 0.46675rem 0.46675rem';
+    } else if (!screenWidth && regionId === 'Uzhgorod') {
+      nameElement.style.transform = 'translate(0%, 10%)';
+      nameElement.style.borderRadius =
+        '0.07781rem 0.46675rem 0.46675rem 0.46675rem';
     } else {
-      nameElement.style.top = `${centerY * scaleY}px`;
-      nameElement.style.left = `${centerX * scaleX}px`;
+      nameElement.style.borderRadius = '';
+      nameElement.style.transform = '';
     }
+    nameElement.style.top = `${centerY * scale}px`;
+    nameElement.style.left = `${centerX * scale}px`;
   });
 }
 

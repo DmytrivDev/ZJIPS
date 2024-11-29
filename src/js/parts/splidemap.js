@@ -24,7 +24,7 @@ const optionsChildSliders = {
   loop: true,
   perPage: 1,
   perMove: 1,
-  gap: '1rem',
+  gap: '3rem',
   pagination: false,
   arrows: false,
   drag: false,

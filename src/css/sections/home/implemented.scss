@@ -38,8 +38,8 @@
     & > p {
       display: flex;
       justify-content: space-between;
-      color: var(--cf2) !important;
-      font-size: 0.75rem !important;
+      color: var(--cf2);
+      font-size: 0.75rem;
       line-height: 1.33;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
@@ -66,10 +66,8 @@
       display: flex;
       flex-direction: column;
       .title4 {
-        flex: 1 1 auto;
+        margin-top: auto;
         margin-bottom: 2rem;
-      }
-      .tenderhome__btns {
       }
     }
   }
@@ -82,6 +80,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+
   .mapukr {
     position: relative;
     width: 100%;
@@ -161,6 +160,67 @@
       grid-template-columns: 100%;
       justify-content: stretch;
     }
+
+    &__aside {
+      padding: 1.5rem 1rem;
+      min-height: auto;
+
+      & > .title2 {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+
+  #mapukr-slider-first {
+    margin-bottom: 1.5rem;
+
+    .splide__slide {
+      position: relative;
+      & > p {
+        position: absolute;
+        top: 0;
+        right: 0;
+        flex-direction: column-reverse;
+        justify-content: stretch;
+        align-items: end;
+        gap: 0.25rem;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: 0;
+        width: 50%;
+        span {
+          text-align: right;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+        }
+      }
+
+      .splide__slide {
+        & > .title2 {
+          font-size: 2.75rem;
+          line-height: 1.09;
+          padding-right: 50%;
+          margin-bottom: 1.0625rem;
+        }
+      }
+    }
+  }
+  #mapukr-slider-second {
+    .splide__slide {
+      .splide__slide {
+        .title4 {
+          margin-bottom: 1.5rem;
+        }
+        .tenderhome__btns {
+          width: 100%;
+          .btn-def {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 
   .slider__map {
@@ -168,6 +228,17 @@
       max-width: 100%;
       height: auto;
       padding-bottom: 66.5%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .slider__map {
+    .nameobl {
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.46675rem 0.07781rem 0.46675rem 0.46675rem;
+      box-shadow: 0px 1.245px 3.734px 0px rgba(0, 0, 0, 0.12);
+      font-size: 0.75rem;
     }
   }
 }

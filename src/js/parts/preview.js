@@ -23,7 +23,7 @@ export function scrollHeroIfVisible() {
   if (isHeroVisible) {
     const currentScroll =
       window.pageYOffset || document.documentElement.scrollTop;
-    const visibleHeightClamped = Math.max(0, visibleHeight); //  видимую высоту
+    const visibleHeightClamped = Math.max(0, visibleHeight); // видимая высота
 
     window.scrollTo({
       top: currentScroll + visibleHeightClamped,
@@ -36,24 +36,20 @@ function calculateHeroScrollPercentage() {
   if (!hero) return;
 
   const heroRect = hero.getBoundingClientRect();
-  const heroHeight = hero.offsetHeight;
+  const originalHeroHeight = hero.offsetHeight; // Оригинальная высота
+  const adjustedHeroHeight = originalHeroHeight - 50; // Искусственное увеличение
+
   const windowHeight = window.innerHeight;
 
   // Определяем, сколько части блока hero видно в окне браузера
   const visibleHeight =
-    Math.min(heroRect.bottom, windowHeight) - Math.max(heroRect.top, 0);
+    Math.min(heroRect.bottom - 50, windowHeight) - Math.max(heroRect.top, 0);
 
-  // Рассчитываем процент видимости блока в диапазоне от 0 до 80%
-  const rawPercentage =
-    Math.max(0, Math.min(visibleHeight / heroHeight, 1)) * 100;
+  // Рассчитываем процент видимости блока
+  const visibilityPercentage =
+    Math.max(0, Math.min(visibleHeight / adjustedHeroHeight, 1)) * 100;
 
-  // Масштабируем процент видимости так, чтобы 80% стали 100%
-  const visibilityPercentage = (rawPercentage / 80) * 100;
-
-  // Ограничиваем процент в пределах 0–100
-  const clampedPercentage = Math.min(visibilityPercentage, 100);
-
-  applyTransformStyles(clampedPercentage.toFixed(0));
+  applyTransformStyles(visibilityPercentage.toFixed(0));
 }
 
 function applyTransformStyles(visibilityPercentage) {

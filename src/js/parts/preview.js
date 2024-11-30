@@ -37,13 +37,13 @@ function calculateHeroScrollPercentage() {
 
   const heroRect = hero.getBoundingClientRect();
   const originalHeroHeight = hero.offsetHeight; // Оригинальная высота
-  const adjustedHeroHeight = originalHeroHeight - 50; // Искусственное увеличение
+  const adjustedHeroHeight = originalHeroHeight - 70; // Искусственное увеличение
 
   const windowHeight = window.innerHeight;
 
   // Определяем, сколько части блока hero видно в окне браузера
   const visibleHeight =
-    Math.min(heroRect.bottom - 50, windowHeight) - Math.max(heroRect.top, 0);
+    Math.min(heroRect.bottom - 70, windowHeight) - Math.max(heroRect.top, 0);
 
   // Рассчитываем процент видимости блока
   const visibilityPercentage =

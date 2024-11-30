@@ -56,7 +56,7 @@ function applyTransformStyles(visibilityPercentage) {
   const isDesktop = window.innerWidth >= 960;
 
   const translateXValue = isDesktop
-    ? -50 + (visibilityPercentage / 100) * 50
+    ? -45 + (visibilityPercentage / 100) * 45
     : -35 + (visibilityPercentage / 100) * 35;
   const translateYValue = -10 + (visibilityPercentage / 100) * 10;
   const opacityValue = visibilityPercentage / 100;

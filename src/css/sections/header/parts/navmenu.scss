@@ -1,3 +1,11 @@
+.homePage {
+  .header__main {
+    .navmenu {
+      margin-left: auto;
+    }
+  }
+}
+
 .header__main {
   .navmenu {
     display: flex;
@@ -106,6 +114,13 @@
 }
 
 @media screen and (max-width: 960px) {
+  .homePage {
+    .header__main {
+      .navmenu {
+        margin-left: 0;
+      }
+    }
+  }
   .header__main {
     .navmenu {
       display: none;

@@ -1,6 +1,7 @@
 .hero {
   position: relative;
   z-index: 1;
+
   &__container {
   }
   &__body {
@@ -11,12 +12,19 @@
   &__box {
     position: relative;
     z-index: 3;
-    margin-left: 32.5625rem;
+    margin-left: 34.355rem;
 
     .text-page {
       text-align: start;
-      width: 39rem;
-      max-width: 100%;
+      width: 100%;
+      max-width: 39rem;
+      transition: all 0.5s ease-in;
+    }
+
+    &.isScroll {
+      .text-page {
+        transform: translate(-70%, -10rem) scale(0.3);
+      }
     }
   }
 
@@ -26,6 +34,12 @@
     top: 2.46rem;
     right: -27.35rem;
     width: 69.51838rem;
+    transition: all 0.5s ease-in;
+
+    &.isScroll {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
   }
   &__filter {
     position: absolute;
@@ -38,11 +52,40 @@
     opacity: 0.56;
     background-color: var(--ck);
     filter: blur(7.1329rem);
+    transition: all 0.5s ease-in;
+
+    &.isScroll {
+      opacity: 0;
+    }
   }
 }
 
 @media screen and (max-width: 960px) {
   .hero {
+    &__body {
+      padding-top: 16.0625rem;
+    }
+
+    &__box {
+      margin-left: 0;
+
+      .text-page {
+        max-width: 42rem;
+      }
+
+      &.isScroll {
+        .text-page {
+          transform: translate(-35%, -10rem) scale(0.3);
+        }
+      }
+    }
+
+    &__filter {
+      display: none;
+    }
+    &__vec {
+      display: none;
+    }
   }
 }
 

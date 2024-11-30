@@ -1,5 +1,7 @@
 import scrollLock from 'scroll-lock';
 
+import { handleScroll } from './preview.js';
+
 const headerMain = document.querySelector('.header__main');
 const burger = document.querySelector('.burger');
 const mobMenu = document.querySelector('.mobmenu');
@@ -14,6 +16,7 @@ function toggleScrollLock() {
       scrollLock.enablePageScroll(mobMenuBody);
     } else {
       scrollLock.disablePageScroll(mobMenuBody, { reserveScrollBarGap: true });
+      handleScroll();
     }
     isScrollLocked = !isScrollLocked;
   }

@@ -16,3 +16,4 @@ import './parts/partners.js';
 import './parts/team.js';
 import './parts/mapukr.js';
 import './parts/splidemap.js';
+import './parts/preview.js';

@@ -80,8 +80,8 @@
           background-color: var(--cw);
           z-index: 3;
           opacity: 1;
-          -webkit-animation: showHide 4s infinite steps(1, end);
-          animation: showHide 4s infinite steps(1, end);
+          -webkit-animation: showHide 4s infinite steps(1, end) 0.15s;
+          animation: showHide 4s infinite steps(1, end) 0.15s;
           border-radius: 100% 0 0 100%/ 50% 0 0 50%;
         }
 
@@ -90,16 +90,16 @@
           background-color: var(--cg);
           z-index: 1;
           opacity: 0;
-          -webkit-animation: showHide 4s infinite steps(1, end) reverse;
-          animation: showHide 4s infinite steps(1, end) reverse;
+          -webkit-animation: showHide 4s infinite steps(1, end) reverse 0.15s;
+          animation: showHide 4s infinite steps(1, end) reverse 0.15s;
           border-radius: 0 100% 100% 0/ 0 50% 50% 0;
         }
 
         .spinner {
           left: 0;
           background-color: var(--cg);
-          -webkit-animation: spin 4s linear infinite;
-          animation: spin 4s linear infinite;
+          -webkit-animation: spin 4s linear infinite 0.15s;
+          animation: spin 4s linear infinite 0.15s;
           -webkit-transform-origin: center right;
           transform-origin: center right;
           z-index: 2;
@@ -303,7 +303,7 @@
 
 @media screen and (max-width: 960px) {
   .implemented {
-    padding-top: 16.0625rem;
+    padding-top: 8rem;
 
     &__body {
       align-items: stretch;

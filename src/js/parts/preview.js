@@ -5,6 +5,8 @@ const heroVec = document.querySelector('.hero__vec');
 const heroFilter = document.querySelector('.hero__filter');
 
 const logoWrapp = document.querySelector('.logo__wrapp');
+const logoLink = document.querySelector('.custom-logo-link');
+const logoTxt = document.querySelector('.logo__txt');
 
 function addAnimationElem() {
   logoWrapp.classList.add('isScroll');
@@ -68,22 +70,80 @@ export const handleScroll = () => {
   // Скролл вниз
   if (isHeroPartiallyVisible() && isScrollingDown) {
     smoothScrollTo(heroBottom);
-    addAnimationElem();
+    // addAnimationElem();
   }
 
   // Скролл вверх
   if (isHeroPartiallyVisible() && isScrollingUp) {
     smoothScrollTo(heroTop);
-    removeAnimationElem();
+    // removeAnimationElem();
   }
 
   lastScrollY = window.scrollY; // Обновляем позицию скролла
 };
 
-window.addEventListener('scroll', handleScroll);
+// window.addEventListener('scroll', handleScroll);
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (hero && window.scrollY > 0) {
-    addAnimationElem();
-  }
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   if (hero && window.scrollY > 0) {
+//     addAnimationElem();
+//   }
+// });
+
+function calculateHeroScrollPercentage() {
+  if (!hero) return;
+
+  const heroRect = hero.getBoundingClientRect(); // Получаем размеры блока
+  const heroHeight = hero.offsetHeight; // Высота блока hero
+  const windowHeight = window.innerHeight; // Высота окна браузера
+
+  // Определяем, сколько части блока hero видно в окне браузера
+  const visibleHeight =
+    Math.min(heroRect.bottom, windowHeight) - Math.max(heroRect.top, 0);
+
+  // Рассчитываем процент видимости блока
+  const visibilityPercentage =
+    Math.max(0, Math.min(visibleHeight / heroHeight, 1)) * 100;
+
+  applyTransformStyles(visibilityPercentage.toFixed(0));
+}
+
+// Функция для применения стилей на основе видимости
+function applyTransformStyles(visibilityPercentage) {
+  // const screenWidth = window.innerWidth >= 960;
+
+  // Для heroBoxTxt
+  const translateXValue = -70 + (visibilityPercentage / 100) * 70;
+  const translateYValue = -10 + (visibilityPercentage / 100) * 10;
+  const opacityValue = visibilityPercentage / 100;
+  const scaleValue = 0.3 + (visibilityPercentage / 100) * (1 - 0.3);
+
+  heroBoxTxt.style.transform = `translate(${translateXValue}%, ${translateYValue}rem) scale(${scaleValue})`;
+
+  // Для heroVec
+  heroVec.style.transform = `translateY(${translateYValue}%)`;
+  heroVec.style.opacity = opacityValue;
+
+  // Для heroFilter
+  heroFilter.style.opacity = opacityValue;
+
+  // Для logoWrapp (обратное направление)
+  const topValue = (visibilityPercentage / 100) * 9; // От 0rem до 9rem
+  const leftValue = (visibilityPercentage / 100) * 23.6; // От 0% до 23.6%
+  const gapValue = (visibilityPercentage / 100) * 2.24; // От 0rem до 2.24rem
+
+  logoWrapp.style.top = `${topValue}rem`;
+  logoWrapp.style.left = `${leftValue}%`;
+  logoWrapp.style.gap = `${gapValue}rem`;
+
+  // Для custom-logo-link (обратное направление)
+  const logoLinkWidth = 3 + (visibilityPercentage / 100) * (13.4375 - 3); // От 3rem до 13.4375rem
+  logoLink.style.width = `${logoLinkWidth}rem`;
+
+  // Для logoTxt (обратное направление)
+  const logoTxtWidth = (visibilityPercentage / 100) * 100; // От 0% до 100%
+  logoTxt.style.width = `${logoTxtWidth}%`;
+}
+
+window.addEventListener('scroll', calculateHeroScrollPercentage);
+// window.addEventListener('resize', calculateHeroScrollPercentage);

@@ -46,30 +46,28 @@
     display: flex;
     align-items: center;
     gap: 2.24rem;
-    transition: all 0.5s ease-in;
 
     .custom-logo-link {
       flex-shrink: 0;
       width: 13.4375rem;
-      transition: all 0.5s ease-in;
       img {
         width: 100%;
       }
     }
 
-    &.isScroll {
-      gap: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 0;
+    // &.isScroll {
+    //   gap: 0;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    //   left: 0;
 
-      .custom-logo-link {
-        width: 3rem;
-      }
-      .logo__txt {
-        width: 0;
-      }
-    }
+    //   .custom-logo-link {
+    //     width: 3rem;
+    //   }
+    //   .logo__txt {
+    //     width: 0;
+    //   }
+    // }
   }
   .logo__txt {
     flex-shrink: 0;
@@ -77,7 +75,6 @@
     overflow: hidden;
     width: 100%;
     max-width: 29.68175rem;
-    transition: all 0.5s ease-in;
   }
 }
 

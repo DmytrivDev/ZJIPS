@@ -1,6 +1,6 @@
 import scrollLock from 'scroll-lock';
 
-import { handleScroll } from './preview.js';
+import { scrollHeroIfVisible } from './preview.js';
 
 const headerMain = document.querySelector('.header__main');
 const burger = document.querySelector('.burger');
@@ -16,7 +16,6 @@ function toggleScrollLock() {
       scrollLock.enablePageScroll(mobMenuBody);
     } else {
       scrollLock.disablePageScroll(mobMenuBody, { reserveScrollBarGap: true });
-      handleScroll();
     }
     isScrollLocked = !isScrollLocked;
   }
@@ -35,6 +34,7 @@ function toggleMenu() {
     burger.classList.toggle('isOpened');
     mobMenu.classList.toggle('isOpened');
     toggleScrollLock();
+    scrollHeroIfVisible();
   }
 }
 

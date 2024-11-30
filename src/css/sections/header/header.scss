@@ -12,6 +12,7 @@
   }
   &__container {
   }
+
   &__body {
     position: relative;
     display: flex;
@@ -54,20 +55,6 @@
         width: 100%;
       }
     }
-
-    // &.isScroll {
-    //   gap: 0;
-    //   top: 50%;
-    //   transform: translateY(-50%);
-    //   left: 0;
-
-    //   .custom-logo-link {
-    //     width: 3rem;
-    //   }
-    //   .logo__txt {
-    //     width: 0;
-    //   }
-    // }
   }
   .logo__txt {
     flex-shrink: 0;

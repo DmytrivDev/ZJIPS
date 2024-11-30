@@ -12,18 +12,12 @@
   &__box {
     position: relative;
     z-index: 3;
-    margin-left: 34.355rem;
+    margin-left: 34.5rem;
 
     .text-page {
       text-align: start;
       width: 100%;
       max-width: 39rem;
-    }
-
-    &.isScroll {
-      // .text-page {
-      //   transform: translate(-70%, -10rem) scale(0.3);
-      // }
     }
   }
 
@@ -33,11 +27,6 @@
     top: 2.46rem;
     right: -27.35rem;
     width: 69.51838rem;
-
-    &.isScroll {
-      // transform: translateY(-10%);
-      // opacity: 0;
-    }
   }
   &__filter {
     position: absolute;
@@ -50,10 +39,6 @@
     opacity: 0.56;
     background-color: var(--ck);
     filter: blur(7.1329rem);
-
-    &.isScroll {
-      // opacity: 0;
-    }
   }
 }
 
@@ -69,12 +54,6 @@
       .text-page {
         max-width: 42rem;
       }
-
-      &.isScroll {
-        .text-page {
-          transform: translate(-35%, -10rem) scale(0.3);
-        }
-      }
     }
 
     &__filter {
@@ -83,10 +62,5 @@
     &__vec {
       display: none;
     }
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .hero {
   }
 }

@@ -8,116 +8,65 @@ const logoWrapp = document.querySelector('.logo__wrapp');
 const logoLink = document.querySelector('.custom-logo-link');
 const logoTxt = document.querySelector('.logo__txt');
 
-function addAnimationElem() {
-  logoWrapp.classList.add('isScroll');
-  heroBoxTxt.classList.add('isScroll');
-  heroVec.classList.add('isScroll');
-  heroFilter.classList.add('isScroll');
-}
-function removeAnimationElem() {
-  logoWrapp.classList.remove('isScroll');
-  heroBoxTxt.classList.remove('isScroll');
-  heroVec.classList.remove('isScroll');
-  heroFilter.classList.remove('isScroll');
-}
-
-let lastScrollY = window.scrollY; // Последняя позиция скролла
-let isAnimating = false; // Флаг анимации
-const scrollSpeed = 500; // Скорость прокрутки в миллисекундах
-
-const smoothScrollTo = targetPosition => {
-  isAnimating = true;
-
-  const start = window.scrollY;
-  const distance = targetPosition - start;
-  const startTime = performance.now();
-
-  const animateScroll = currentTime => {
-    const timeElapsed = currentTime - startTime;
-    const progress = Math.min(timeElapsed / scrollSpeed, 1);
-
-    const easing = progress; // Линейная анимация
-    window.scrollTo(0, start + distance * easing);
-
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll);
-    } else {
-      isAnimating = false; // Завершение анимации
-    }
-  };
-
-  requestAnimationFrame(animateScroll);
-};
-
-const isHeroPartiallyVisible = () => {
-  const heroRect = hero.getBoundingClientRect();
-  const visibleHeight =
-    Math.min(heroRect.bottom, window.innerHeight) - Math.max(heroRect.top, 0);
-  return visibleHeight >= 50; // Минимум 50 пикселей блока видно
-};
-
-export const handleScroll = () => {
+export function scrollHeroIfVisible() {
   if (!hero) return;
-  if (isAnimating) return; // Пропускаем, если анимация уже идет
 
   const heroRect = hero.getBoundingClientRect();
-  const heroTop = window.scrollY + heroRect.top;
-  const heroBottom = heroTop + hero.offsetHeight;
+  const windowHeight = window.innerHeight;
 
-  const isScrollingDown = window.scrollY >= lastScrollY; // Направление вниз
-  const isScrollingUp = !isScrollingDown; // Направление вверх
+  const visibleHeight =
+    Math.min(heroRect.bottom, windowHeight) - Math.max(heroRect.top, 0);
 
-  // Скролл вниз
-  if (isHeroPartiallyVisible() && isScrollingDown) {
-    smoothScrollTo(heroBottom);
-    // addAnimationElem();
+  // Проверяем, виден ли блок в окне браузера
+  const isHeroVisible = heroRect.top < windowHeight && heroRect.bottom > 0;
+
+  if (isHeroVisible) {
+    const currentScroll =
+      window.pageYOffset || document.documentElement.scrollTop;
+    const visibleHeightClamped = Math.max(0, visibleHeight); //  видимую высоту
+
+    window.scrollTo({
+      top: currentScroll + visibleHeightClamped,
+      behavior: 'smooth',
+    });
   }
-
-  // Скролл вверх
-  if (isHeroPartiallyVisible() && isScrollingUp) {
-    smoothScrollTo(heroTop);
-    // removeAnimationElem();
-  }
-
-  lastScrollY = window.scrollY; // Обновляем позицию скролла
-};
-
-// window.addEventListener('scroll', handleScroll);
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   if (hero && window.scrollY > 0) {
-//     addAnimationElem();
-//   }
-// });
+}
 
 function calculateHeroScrollPercentage() {
   if (!hero) return;
 
-  const heroRect = hero.getBoundingClientRect(); // Получаем размеры блока
-  const heroHeight = hero.offsetHeight; // Высота блока hero
-  const windowHeight = window.innerHeight; // Высота окна браузера
+  const heroRect = hero.getBoundingClientRect();
+  const heroHeight = hero.offsetHeight;
+  const windowHeight = window.innerHeight;
 
   // Определяем, сколько части блока hero видно в окне браузера
   const visibleHeight =
     Math.min(heroRect.bottom, windowHeight) - Math.max(heroRect.top, 0);
 
-  // Рассчитываем процент видимости блока
-  const visibilityPercentage =
+  // Рассчитываем процент видимости блока в диапазоне от 0 до 80%
+  const rawPercentage =
     Math.max(0, Math.min(visibleHeight / heroHeight, 1)) * 100;
 
-  applyTransformStyles(visibilityPercentage.toFixed(0));
+  // Масштабируем процент видимости так, чтобы 80% стали 100%
+  const visibilityPercentage = (rawPercentage / 80) * 100;
+
+  // Ограничиваем процент в пределах 0–100
+  const clampedPercentage = Math.min(visibilityPercentage, 100);
+
+  applyTransformStyles(clampedPercentage.toFixed(0));
 }
 
-// Функция для применения стилей на основе видимости
 function applyTransformStyles(visibilityPercentage) {
-  // const screenWidth = window.innerWidth >= 960;
+  const isDesktop = window.innerWidth >= 960;
 
-  // Для heroBoxTxt
-  const translateXValue = -70 + (visibilityPercentage / 100) * 70;
+  const translateXValue = isDesktop
+    ? -50 + (visibilityPercentage / 100) * 50
+    : -35 + (visibilityPercentage / 100) * 35;
   const translateYValue = -10 + (visibilityPercentage / 100) * 10;
   const opacityValue = visibilityPercentage / 100;
   const scaleValue = 0.3 + (visibilityPercentage / 100) * (1 - 0.3);
 
+  // Для heroBoxTxt
   heroBoxTxt.style.transform = `translate(${translateXValue}%, ${translateYValue}rem) scale(${scaleValue})`;
 
   // Для heroVec
@@ -127,23 +76,93 @@ function applyTransformStyles(visibilityPercentage) {
   // Для heroFilter
   heroFilter.style.opacity = opacityValue;
 
-  // Для logoWrapp (обратное направление)
-  const topValue = (visibilityPercentage / 100) * 9; // От 0rem до 9rem
-  const leftValue = (visibilityPercentage / 100) * 23.6; // От 0% до 23.6%
-  const gapValue = (visibilityPercentage / 100) * 2.24; // От 0rem до 2.24rem
+  const topValue = isDesktop
+    ? (visibilityPercentage / 100) * 9
+    : (visibilityPercentage / 100) * 6.5625; // От 0rem до 9rem
+  const leftValue = isDesktop
+    ? (visibilityPercentage / 100) * 23.6
+    : (visibilityPercentage / 100) * 0; // От 0% до 23.6%
+  const gapValue = isDesktop
+    ? (visibilityPercentage / 100) * 2.24
+    : (visibilityPercentage / 100) * 1.0625; // От 0rem до 2.24rem
 
+  // Для logoWrapp (обратное направление)
   logoWrapp.style.top = `${topValue}rem`;
   logoWrapp.style.left = `${leftValue}%`;
   logoWrapp.style.gap = `${gapValue}rem`;
 
+  const logoLinkWidth = isDesktop
+    ? 3 + (visibilityPercentage / 100) * (13.4375 - 3)
+    : 3 + (visibilityPercentage / 100) * (6.36938 - 3); // От 3rem до 13.4375rem
+
   // Для custom-logo-link (обратное направление)
-  const logoLinkWidth = 3 + (visibilityPercentage / 100) * (13.4375 - 3); // От 3rem до 13.4375rem
   logoLink.style.width = `${logoLinkWidth}rem`;
 
-  // Для logoTxt (обратное направление)
   const logoTxtWidth = (visibilityPercentage / 100) * 100; // От 0% до 100%
+
+  // Для logoTxt (обратное направление)
   logoTxt.style.width = `${logoTxtWidth}%`;
 }
 
 window.addEventListener('scroll', calculateHeroScrollPercentage);
-// window.addEventListener('resize', calculateHeroScrollPercentage);
+window.addEventListener('resize', calculateHeroScrollPercentage);
+document.addEventListener('DOMContentLoaded', calculateHeroScrollPercentage);
+
+// let lastScrollY = window.scrollY; // Последняя позиция скролла
+// let isAnimating = false; // Флаг анимации
+// const scrollSpeed = 500; // Скорость прокрутки в миллисекундах
+
+// const smoothScrollTo = targetPosition => {
+//   isAnimating = true;
+
+//   const start = window.scrollY;
+//   const distance = targetPosition - start;
+//   const startTime = performance.now();
+
+//   const animateScroll = currentTime => {
+//     const timeElapsed = currentTime - startTime;
+//     const progress = Math.min(timeElapsed / scrollSpeed, 1);
+
+//     const easing = progress; // Линейная анимация
+//     window.scrollTo(0, start + distance * easing);
+
+//     if (progress < 1) {
+//       requestAnimationFrame(animateScroll);
+//     } else {
+//       isAnimating = false; // Завершение анимации
+//     }
+//   };
+
+//   requestAnimationFrame(animateScroll);
+// };
+
+// const isHeroPartiallyVisible = () => {
+//   const heroRect = hero.getBoundingClientRect();
+//   const visibleHeight =
+//     Math.min(heroRect.bottom, window.innerHeight) - Math.max(heroRect.top, 0);
+//   return visibleHeight >= 50; // Минимум 50 пикселей блока видно
+// };
+
+// export const handleScroll = () => {
+//   if (!hero) return;
+//   if (isAnimating) return; // Пропускаем, если анимация уже идет
+
+//   const heroRect = hero.getBoundingClientRect();
+//   const heroTop = window.scrollY + heroRect.top;
+//   const heroBottom = heroTop + hero.offsetHeight;
+
+//   const isScrollingDown = window.scrollY >= lastScrollY; // Направление вниз
+//   const isScrollingUp = !isScrollingDown; // Направление вверх
+
+//   // Скролл вниз
+//   if (isHeroPartiallyVisible() && isScrollingDown) {
+//     smoothScrollTo(heroBottom);
+//   }
+
+//   // Скролл вверх
+//   if (isHeroPartiallyVisible() && isScrollingUp) {
+//     smoothScrollTo(heroTop);
+//   }
+
+//   lastScrollY = window.scrollY; // Обновляем позицию скролла
+// };

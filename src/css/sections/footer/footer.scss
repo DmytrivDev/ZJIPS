@@ -44,6 +44,10 @@
       font-size: 1.125rem;
       font-weight: 600;
       line-height: 1.33;
+      transition: all 0.15s ease-in;
+      &:hover {
+        color: var(--cr);
+      }
     }
     li {
       &:nth-child(1) {

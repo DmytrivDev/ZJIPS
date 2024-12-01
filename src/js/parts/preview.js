@@ -62,14 +62,11 @@ function applyTransformStyles(visibilityPercentage) {
   const opacityValue = visibilityPercentage / 100;
   const scaleValue = 0.3 + (visibilityPercentage / 100) * (1 - 0.3);
 
-  // Для heroBoxTxt
   heroBoxTxt.style.transform = `translate(${translateXValue}%, ${translateYValue}rem) scale(${scaleValue})`;
 
-  // Для heroVec
   heroVec.style.transform = `translateY(${translateYValue}%)`;
   heroVec.style.opacity = opacityValue;
 
-  // Для heroFilter
   heroFilter.style.opacity = opacityValue;
 
   const topValue = isDesktop
@@ -82,7 +79,6 @@ function applyTransformStyles(visibilityPercentage) {
     ? (visibilityPercentage / 100) * 2.24
     : (visibilityPercentage / 100) * 1.0625; // От 0rem до 2.24rem
 
-  // Для logoWrapp (обратное направление)
   logoWrapp.style.top = `${topValue}rem`;
   logoWrapp.style.left = `${leftValue}%`;
   logoWrapp.style.gap = `${gapValue}rem`;
@@ -91,12 +87,10 @@ function applyTransformStyles(visibilityPercentage) {
     ? 3 + (visibilityPercentage / 100) * (13.4375 - 3)
     : 3 + (visibilityPercentage / 100) * (6.36938 - 3); // От 3rem до 13.4375rem
 
-  // Для custom-logo-link (обратное направление)
   logoLink.style.width = `${logoLinkWidth}rem`;
 
   const logoTxtWidth = (visibilityPercentage / 100) * 100; // От 0% до 100%
 
-  // Для logoTxt (обратное направление)
   logoTxt.style.width = `${logoTxtWidth}%`;
 }
 

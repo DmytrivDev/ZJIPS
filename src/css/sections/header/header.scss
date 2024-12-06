@@ -42,6 +42,7 @@
   .logo__wrapp {
     margin-right: 0;
     position: absolute;
+    z-index: 1;
     top: 9rem;
     left: 23.6%;
     display: flex;
@@ -76,6 +77,8 @@
   }
 
   .burger {
+    position: relative;
+    z-index: 2;
     margin-left: auto;
     display: block;
     padding: 0.9531rem 1.4531rem;

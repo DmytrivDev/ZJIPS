@@ -143,6 +143,12 @@
     height: 3rem;
     border-radius: 50%;
     border: 0.0625rem solid var(--cl);
+    transition: .3s;
+
+    &:hover {
+      background-color: var(--cw2) !important;
+    }
+    
     span {
       display: flex;
       justify-content: center;
@@ -169,6 +175,13 @@
     border: 0.0625rem solid var(--cl);
     background-color: var(--cw);
     padding: 1.25rem 2rem;
+    transition: .3s;
+    &:hover {
+      box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.04);
+      .download__txt {
+        color: var(--cr) !important;
+      }
+    }
   }
   &__txt {
     width: 100%;
@@ -176,6 +189,7 @@
     font-weight: 600;
     line-height: 1.33;
     padding-right: 3rem;
+    transition: .3s;
   }
   &__icon {
     position: absolute;
@@ -447,6 +461,7 @@
     .article__heading {
       margin-bottom: 2rem;
       padding-left: 0;
+      padding-right: 0;
       h1 {
         font-size: 1.5rem;
         line-height: 1.33;

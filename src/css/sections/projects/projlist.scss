@@ -16,6 +16,11 @@
 }
 
 @media screen and (max-width: 960px) {
+  .projectsPage {
+    .title1 img {
+      order: 3;
+    }
+  }
   .projlist {
     padding-top: 2rem;
 

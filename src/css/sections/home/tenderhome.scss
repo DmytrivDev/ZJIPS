@@ -28,18 +28,21 @@
     width: fit-content;
     &:hover {
       .btn-def {
-        background-color: var(--cr);
-        border-color: var(--cr);
-        color: var(--cw);
-        box-shadow: 0 0.3125rem 0.3125rem 0 rgba(0, 0, 0, 0.05);
+        border-color: var(--cw4);
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
       }
       .tenderhome__vec {
-        border-color: var(--cr);
-        background-color: var(--cr);
-        box-shadow: 0 0.3125rem 0.3125rem 0 rgba(0, 0, 0, 0.05);
+        border-color: var(--cw4);
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
         &::before {
-          background-image: var(--arrowWt);
+          transition: .3s;
         }
+      }
+    }
+    &:active * {
+      color: var(--cf);
+      &::before {
+        opacity: 0.7;
       }
     }
   }

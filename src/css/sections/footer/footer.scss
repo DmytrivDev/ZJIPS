@@ -114,9 +114,6 @@
     }
 
     &.isCopy {
-      a {
-        color: var(--cr);
-      }
       button {
         &::before {
           background-image: var(--copyAct);
@@ -135,6 +132,14 @@
     a {
       display: block;
       width: 2rem;
+      img {
+        transition: .3s;
+      }
+      &:hover {
+        img {
+          filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(6552%) hue-rotate(329deg) brightness(92%) contrast(93%);
+        }
+      }
     }
   }
 

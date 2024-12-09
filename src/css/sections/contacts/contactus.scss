@@ -52,9 +52,6 @@
     }
 
     &.isCopy {
-      a {
-        color: var(--cr);
-      }
       button {
         &::before {
           background-image: var(--copyAct);

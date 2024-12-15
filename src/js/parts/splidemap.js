@@ -2,6 +2,7 @@ import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
 
 const implementedSec = document.querySelector('.implemented');
+const arrowsCont = implementedSec?.querySelector('.arrows__body');
 
 // optionsSliders ======================================================
 
@@ -58,6 +59,16 @@ if (mapukrSecond) {
 function syncSliders(newIndex) {
   sliderFirst.go(newIndex);
   sliderSecond.go(newIndex);
+
+  const newIndex2 = newIndex + 1
+  const currSlider = sliderFirst.root.querySelectorAll('& > .splide__track > ul > .splide__slide:nth-child('+newIndex2+')');
+  const slidesCount = currSlider[0].querySelectorAll('.splide__slide:not(.splide__slide--clone)').length;
+
+  if(slidesCount < 2) {
+    arrowsCont.classList.add('disabled');
+  } else {
+    arrowsCont.classList.remove('disabled');
+  }
 }
 
 export function handleRegionClick(regionId) {

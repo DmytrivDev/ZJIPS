@@ -169,12 +169,12 @@
   display: flex;
   justify-content: center;
 
-  .facetwp-pager {
+  .facetwp-pager, .custom-pager {
     display: flex;
     align-items: center;
     gap: 0.75rem;
   }
-  .facetwp-page {
+  .facetwp-page, .page-numbers {
     cursor: pointer;
     width: 1.5rem;
     height: 1.5rem;
@@ -185,7 +185,7 @@
     align-items: center;
     transition: all 0.15s ease-in;
 
-    &.active {
+    &.active, &.current {
       color: var(--cg);
     }
     &:hover {
@@ -305,7 +305,7 @@
       display: none;
     }
   }
-  .filter__sort-btn {
+  .filter__sort-btn, .filter__sort-custombtn {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -466,13 +466,13 @@
   .pagination__cont {
     margin-top: 2rem;
 
-    .facetwp-pager {
+    .facetwp-pager, .custom-pager {
       gap: 0.6rem;
       width: 100%;
       max-width: 25rem;
     }
 
-    .facetwp-facet {
+    .facetwp-facet, .custom-pagination {
       width: 100%;
       max-width: 25rem;
     }
@@ -509,7 +509,7 @@
     .filter__type {
       max-width: calc(100% - 4.125rem);
     }
-    .filter__sort-btn {
+    .filter__sort-btn, .filter__sort-custombtn {
       min-width: auto;
       padding: 0.75rem;
       span {

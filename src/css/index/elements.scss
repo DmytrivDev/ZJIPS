@@ -19,13 +19,13 @@
     background: linear-gradient(180deg, #eaf8ff 0%, #f9f9f9 74.14%);
   }
   .mailing__img {
-    filter: brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(1432%)
-      hue-rotate(175deg) brightness(99%) contrast(104%);
+    filter: brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(1432%) hue-rotate(175deg) brightness(99%)
+      contrast(104%);
   }
   .tl-img {
     img {
-      filter: brightness(0) saturate(100%) invert(82%) sepia(12%)
-        saturate(6843%) hue-rotate(185deg) brightness(119%) contrast(101%);
+      filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(6843%) hue-rotate(185deg) brightness(119%)
+        contrast(101%);
     }
   }
 }
@@ -42,13 +42,13 @@
     background: linear-gradient(180deg, #fff0f3 0%, #f9f9f9 60.43%);
   }
   .mailing__img {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(8%) saturate(801%)
-      hue-rotate(300deg) brightness(101%) contrast(99%);
+    filter: brightness(0) saturate(100%) invert(84%) sepia(8%) saturate(801%) hue-rotate(300deg) brightness(101%)
+      contrast(99%);
   }
   .tl-img {
     img {
-      filter: brightness(0) saturate(100%) invert(62%) sepia(39%) saturate(368%)
-        hue-rotate(298deg) brightness(108%) contrast(99%);
+      filter: brightness(0) saturate(100%) invert(62%) sepia(39%) saturate(368%) hue-rotate(298deg) brightness(108%)
+        contrast(99%);
     }
   }
 }
@@ -65,13 +65,13 @@
     background: linear-gradient(180deg, #f5f3e9 0%, #f9f9f9 100%);
   }
   .mailing__img {
-    filter: brightness(0) saturate(100%) invert(96%) sepia(17%) saturate(211%)
-      hue-rotate(342deg) brightness(93%) contrast(99%);
+    filter: brightness(0) saturate(100%) invert(96%) sepia(17%) saturate(211%) hue-rotate(342deg) brightness(93%)
+      contrast(99%);
   }
   .tl-img {
     img {
-      filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(569%)
-        hue-rotate(10deg) brightness(94%) contrast(90%);
+      filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(569%) hue-rotate(10deg) brightness(94%)
+        contrast(90%);
     }
   }
 }
@@ -88,13 +88,13 @@
     background: linear-gradient(180deg, #f7e9db -11.13%, #f9f9f9 30.93%);
   }
   .mailing__img {
-    filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(437%)
-      hue-rotate(332deg) brightness(106%) contrast(94%);
+    filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(437%) hue-rotate(332deg) brightness(106%)
+      contrast(94%);
   }
   .tl-img {
     img {
-      filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(437%)
-        hue-rotate(332deg) brightness(106%) contrast(94%);
+      filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(437%) hue-rotate(332deg) brightness(106%)
+        contrast(94%);
     }
   }
 }
@@ -165,8 +165,8 @@
     transform: translateY(0.1rem);
     width: 3.5rem;
     height: 3.5rem;
-    filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(6843%)
-      hue-rotate(185deg) brightness(119%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(6843%) hue-rotate(185deg) brightness(119%)
+      contrast(101%);
   }
 }
 
@@ -196,6 +196,22 @@
   &:active {
     color: var(--cf);
   }
+  &.btn-red {
+    background-color: var(--cr);
+    color: var(--cw);
+    border: 1px solid var(--cr);
+    &:hover {
+      background-color: var(--cr2);
+      box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--cw);
+    }
+    &:active {
+      color: var(--cr);
+      background-color: var(--cp3);
+      border: 1px solid var(--cp3);
+    }
+  }
+
   &.btn-hv2 {
     &:hover {
       background-color: var(--cr2);
@@ -399,7 +415,6 @@
     transition: all 0.15s ease-in;
 
     &:hover {
-
     }
 
     &::before {

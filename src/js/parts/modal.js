@@ -64,15 +64,36 @@ export function openModal(modalId) {
 }
 
 function initOpenModal() {
-  const btnsOpenModal = document.querySelectorAll('.openModal');
-  btnsOpenModal.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const modalId = btn.dataset.id;
-      if (modalId) {
-        openModal(modalId);
-      }
+  const isWebinar = document.querySelector('.weblist__list');
+
+  if (!isWebinar) {
+    const btnsOpenModal = document.querySelectorAll('.openModal');
+
+    btnsOpenModal.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modalId = btn.dataset.id;
+        if (modalId) {
+          openModal(modalId);
+        }
+      });
     });
-  });
+  } else {
+    document.addEventListener('facetwp-loaded', function () {
+      const btnsOpenModal = document.querySelectorAll('.openModal');
+      const dataF = document.getElementById('webinarField');
+
+      btnsOpenModal.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const modalId = btn.dataset.id;
+          const name = btn.dataset.name;
+          if (modalId) {
+            dataF.value = name;
+            openModal(modalId);
+          }
+        });
+      });
+    });
+  }
 }
 initOpenModal();
 

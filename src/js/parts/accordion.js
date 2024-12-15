@@ -4,16 +4,24 @@ import 'accordion-js/dist/accordion.min.css';
 const weblist = document.querySelector('.weblist__list');
 
 if (weblist) {
-  new Accordion(weblist, {
-    duration: 400,
-    showMultiple: false,
-  });
+  let accordionInstance = null;
 
-  const panels = weblist.querySelectorAll('.ac-panel');
+  document.addEventListener('facetwp-loaded', function () {
+    const panels = weblist.querySelectorAll('.ac-panel');
 
-  panels.forEach(panel => {
-    panel.addEventListener('click', event => {
-      event.stopPropagation();
+    panels.forEach(panel => {
+      panel.addEventListener('click', event => {
+        event.stopPropagation();
+      });
+    });
+
+    if (accordionInstance) {
+      accordionInstance.destroy();
+    }
+
+    accordionInstance = new Accordion(weblist, {
+      duration: 400,
+      showMultiple: false,
     });
   });
 }

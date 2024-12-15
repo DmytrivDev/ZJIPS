@@ -119,7 +119,9 @@
     align-items: start;
     justify-content: space-between;
     gap: 0.5rem;
+    transition: 0.3s;
     &.checked {
+      color: var(--cr);
       .facetwp-display-value {
         color: var(--cr);
       }
@@ -128,6 +130,7 @@
       }
     }
     &:hover {
+      color: var(--cr);
       .facetwp-display-value {
         color: var(--cr);
       }
@@ -154,6 +157,31 @@
         &::before {
           background-image: var(--checkBoxHv);
         }
+      }
+    }
+  }
+  .facetwp-radio:first-child {
+    display: flex;
+    align-items: start;
+    gap: 0.5rem;
+    transition: all 0.15s ease-in;
+    justify-content: flex-start;
+    &::before {
+      content: "";
+      position: relative;
+      top: -0.2rem;
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-size: 1.5rem 1.5rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      transition: all 0.15s ease-in;
+      background-image: var(--checkRadioDef);
+    }
+    &.checked {
+      &::before {
+        background-image: var(--checkRadioCh) !important;
       }
     }
   }

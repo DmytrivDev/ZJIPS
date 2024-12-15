@@ -1,18 +1,11 @@
 import { initPagination } from "./pagination.js";
 
-const ukrpartn = document.querySelector('.ukrpartn');
-if (ukrpartn) {
-  initPagination(ukrpartn);
-}
+const partnearsBlocks = document.querySelectorAll('.ukrpartn');
 
-const interpart = document.querySelector('.interpart');
-if (interpart) {
-  initPagination(interpart);
-}
-
-const businspartn = document.querySelector('.businspartn');
-if (businspartn) {
-  initPagination(businspartn);
+if (partnearsBlocks) {
+  partnearsBlocks.forEach(el => {
+    initPagination(el);
+  })
 }
 
 const donorpartn = document.querySelector('.donorpartn');

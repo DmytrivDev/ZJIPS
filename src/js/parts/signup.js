@@ -4,7 +4,7 @@ import IMask from 'imask';
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 
-import { stepModalParts } from './modal';
+import { stepModalParts, openModal, closeModal } from './modal';
 
 const signupModal = document.getElementById('signupModal');
 
@@ -22,7 +22,6 @@ async function sendForm(form) {
 
   try {
     const responce = await axios.get(ajaxurl, { params }, { headers });
-    console.log(responce.data);
     if (responce.data !== 'error') {
       formEnd(form, true);
     } else {
@@ -35,13 +34,15 @@ async function sendForm(form) {
 
 function formEnd(form, status) {
   if (status) {
-    stepModalParts(signupModal);
-
-    const successUrl = form.data.success;
-
-    window.location.href = successUrl;
+    if (form.classList.contains('modal__form')) {
+      stepModalParts(signupModal);
+    } else {
+      closeModal(signupModal);
+      openModal('successModal');
+    }
   } else {
-    alert('Форма не відправлена. Спробуйте ще раз');
+    closeModal(signupModal);
+    openModal('errorModal');
   }
 }
 
@@ -77,12 +78,9 @@ function submitForm(e) {
   });
 
   if (!errors) {
-    if (e.target.classList.contains('modal__form')) {
-      stepModalParts(signupModal);
-    }
     setTimeout(() => e.target.reset(), 300);
 
-    // sendForm(e.target);
+    sendForm(e.target);
   }
 }
 

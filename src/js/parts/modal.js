@@ -21,9 +21,9 @@ function showModal(modal) {
 }
 
 export function closeModal(modal) {
-  modal.classList.remove('isOpened', 'isAnimation');
+  modal?.classList.remove('isOpened', 'isAnimation');
   scrollLock.enablePageScroll(modal);
-  activeModals.delete(modal);
+  activeModals?.delete(modal);
   checkStepModalParts(modal);
 
   header.style.paddingRight = '';
@@ -102,8 +102,8 @@ export function checkStepModalParts(modal) {
   const partS = modal.querySelector('.modal__part2');
 
   if (partF && partS) {
-    partF.classList.remove('hidPart');
-    partS.classList.add('hidPart');
+    partF?.classList.remove('hidPart');
+    partS?.classList.add('hidPart');
   }
 }
 
@@ -112,8 +112,8 @@ export function stepModalParts(modal) {
   const partS = modal.querySelector('.modal__part2');
 
   if (partF && partS) {
-    partF.classList.add('hidPart');
-    partS.classList.remove('hidPart');
+    partF?.classList.add('hidPart');
+    partS?.classList.remove('hidPart');
   }
 }
 
